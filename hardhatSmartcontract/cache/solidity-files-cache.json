@@ -1,0 +1,519 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/Contract.sol": {
+      "lastModificationDate": 1655215717874,
+      "contentHash": "0a4db02f64172ef6ba21d89f49444a92",
+      "sourceName": "contracts/Contract.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "Contract"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/FakeDoll.sol": {
+      "lastModificationDate": 1655217049053,
+      "contentHash": "3e88863be8d0e5c8014504c153539602",
+      "sourceName": "contracts/FakeDoll.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "FakeDoll"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1655217609265,
+      "contentHash": "8398972af73b4e9e5ff3b31cad86234f",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1655217609285,
+      "contentHash": "a9d2146925da52142435d3bb8df53c3c",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1655217609285,
+      "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1655217609265,
+      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1655217609286,
+      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/Treasury.sol": {
+      "lastModificationDate": 1655215717876,
+      "contentHash": "91b8df0209072b10a18c8769df56c033",
+      "sourceName": "contracts/Treasury.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "StakingContract",
+        "Treasury"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/Staking.sol": {
+      "lastModificationDate": 1655215717875,
+      "contentHash": "45d3efbe019743596f6e80630ac148c4",
+      "sourceName": "contracts/Staking.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "KonkretStaking",
+        "MYERC20"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+      "lastModificationDate": 1655217609265,
+      "contentHash": "92f9448b23a90ea3bb932ee55cc3ccce",
+      "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/PropertyToken.sol": {
+      "lastModificationDate": 1655215717875,
+      "contentHash": "f9a649dbf026a7352b99409b713580fb",
+      "sourceName": "contracts/PropertyToken.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "PropertyToken"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/GovernanceToken.sol": {
+      "lastModificationDate": 1655215717874,
+      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
+      "sourceName": "contracts/GovernanceToken.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/Greeter.sol": {
+      "lastModificationDate": 1655214427224,
+      "contentHash": "54c28c84e5277b35b8c8329ce9755dae",
+      "sourceName": "contracts/Greeter.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Greeter"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1655217259962,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    }
+  }
+}
