@@ -1,0 +1,19 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "src/rentHouse/interface/IStaking.sol",
+    "id": 23519,
+    "exportedSymbols": {},
+    "nodeType": "SourceUnit",
+    "src": "0:0:29"
+  },
+  "id": 29
+}

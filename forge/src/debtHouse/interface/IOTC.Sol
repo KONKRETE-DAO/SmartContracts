@@ -1,0 +1,76 @@
+//0x24ce9d27  =>  sellOrder(address,uint256,uint256)
+//0x79583e22  =>  buyOrder(address,uint256,uint256)
+//SPDX-License-Identifier: Unlicense
+pragma solidity ^0.8.10;
+
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+struct orderInfo {
+  bool open;
+  bool propositionAccepted;
+  uint8 index;
+  uint64 date;
+  uint128 fee;
+  address seller;
+  address buyer;
+  uint256 price;
+  uint256 amount;
+}
+struct contractVariables {
+  uint16 feeX10;
+  bool paused;
+  uint256 feePot; // maaybe
+  address feeAddress;
+}
+
+interface IOTC {
+  //Variables
+  function tokenList() external returns (IERC20[] calldata);
+
+  function sellOrderByToken(IERC20 token)
+    external
+    returns (orderInfo[] calldata);
+
+  function buyOrderByToken(IERC20 token)
+    external
+    returns (orderInfo[] calldata);
+
+  function currencyUsed() external returns (IERC20);
+
+  function c() external returns (contractVariables calldata);
+
+  //0x19f37361
+  function isToken(address) external returns (bool);
+
+  //0xd48bfca7
+  function addToken(address) external;
+
+  //0x8e005553
+  function setFee(uint16 feeX100) external;
+
+  //0x24ce9d27
+  function sellOrder(
+    IERC20 token,
+    uint256 amount,
+    uint256 sellPrice
+  ) external;
+
+  //9619a347
+  function buyOrder(
+    IERC20 token,
+    uint256 amount,
+    uint256 sellPrice
+  ) external;
+
+  //0xb127a88e
+  function cancelOrder(
+    IERC20 token,
+    bool TrueForSellFalseForBuy,
+    uint8 index
+  ) external;
+
+  //0xed0539b6
+  function buy(IERC20 token, uint8 index) external;
+
+  //0xce891c26
+  function sell(IERC20 token, uint8 index) external;
+}

@@ -1,0 +1,19 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "src/rentHouse/GovernanceToken.sol",
+    "id": 22735,
+    "exportedSymbols": {},
+    "nodeType": "SourceUnit",
+    "src": "0:0:23"
+  },
+  "id": 23
+}
