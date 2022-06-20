@@ -14,12 +14,12 @@ struct orderInfo {
   address buyer;
   uint256 price;
   uint256 amount;
+  IERC20 currency;
 }
-struct contractVariables {
+struct currencyVariable {
+  bool exist;
   uint16 feeX10;
-  bool paused;
   uint256 feePot; // maaybe
-  address feeAddress;
 }
 
 interface IOTC {
@@ -35,8 +35,6 @@ interface IOTC {
     returns (orderInfo[] calldata);
 
   function currencyUsed() external returns (IERC20);
-
-  function c() external returns (contractVariables calldata);
 
   //0x19f37361
   function isToken(address) external returns (bool);
