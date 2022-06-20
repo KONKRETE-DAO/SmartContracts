@@ -67,7 +67,7 @@ contract OTC is Ownable, ReentrancyGuard {
   ) external nonReentrant {
     require(isToken(token), "Token Not Registered");
     // Le front verifiera a l'avance l'allowance et la balance.
-    uint8 index = uint8(sellOrderByToken[token].length);
+    uint64 index = uint64(sellOrderByToken[token].length);
     token.transferFrom(msg.sender, address(this), amount);
     // Erreur prise en compte
     uint128 fee = uint128((sellPrice / 1000) * c.feeX10);
@@ -108,7 +108,7 @@ contract OTC is Ownable, ReentrancyGuard {
     // Le front verifiera a l'avance l'allowance et la balance.
     uint128 fee = uint128(((sellPrice * uint256(c.feeX10)) / 1000));
     currencyUsed.transferFrom(msg.sender, address(this), sellPrice); // Erreur prise en compte
-    uint8 index = uint8(buyOrderByToken[token].length);
+    uint64 index = uint64(buyOrderByToken[token].length);
     buyOrderByToken[token].push(
       orderInfo(
         true,
@@ -140,7 +140,7 @@ contract OTC is Ownable, ReentrancyGuard {
   function cancelOrder(
     IERC20 token,
     bool TrueForSellFalseForBuy,
-    uint8 index
+    uint64 index
   ) external nonReentrant {
     require(isToken(token), "Token Unlisted");
     orderInfo memory buffer = TrueForSellFalseForBuy
@@ -160,7 +160,7 @@ contract OTC is Ownable, ReentrancyGuard {
     }
   }
 
-  function buy(IERC20 token, uint8 index) external nonReentrant {
+  function buy(IERC20 token, uint64 index) external nonReentrant {
     require(isToken(token), "Token Unlisted");
     orderInfo memory buffer = sellOrderByToken[token][index];
     require(buffer.open, "OrderClosed");
@@ -173,7 +173,7 @@ contract OTC is Ownable, ReentrancyGuard {
     token.transfer(msg.sender, buffer.amount);
   }
 
-  function sell(IERC20 token, uint8 index) external nonReentrant {
+  function sell(IERC20 token, uint64 index) external nonReentrant {
     require(isToken(token), "Token Unlisted");
     orderInfo memory buffer = buyOrderByToken[token][index];
     require(buffer.open, "OrderClosed");

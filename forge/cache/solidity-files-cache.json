@@ -819,8 +819,8 @@
       }
     },
     "src/debtHouse/DebtPropertyToken.sol": {
-      "lastModificationDate": 1655563356751,
-      "contentHash": "c0c41849ff0a8a723a1ab242371c7866",
+      "lastModificationDate": 1655709542793,
+      "contentHash": "606dc3535cc0d20adc5ffb98338ce96d",
       "sourceName": "src/debtHouse/DebtPropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -951,8 +951,8 @@
       }
     },
     "src/debtHouse/OTC.sol": {
-      "lastModificationDate": 1655654787331,
-      "contentHash": "d0fde2eb1e73c765e72de18d0ff258b2",
+      "lastModificationDate": 1655709260269,
+      "contentHash": "395cd703b9b909abc52adcb9cbf61f3c",
       "sourceName": "src/debtHouse/OTC.sol",
       "solcConfig": {
         "settings": {
@@ -1075,8 +1075,8 @@
       }
     },
     "src/debtHouse/interface/IOTC.Sol": {
-      "lastModificationDate": 1655557463525,
-      "contentHash": "1ea063e638f30ae313ec7daa4b53b4f1",
+      "lastModificationDate": 1655709220840,
+      "contentHash": "ed88521f6ee514d9312ff899c4ea974e",
       "sourceName": "src/debtHouse/interface/IOTC.Sol",
       "solcConfig": {
         "settings": {

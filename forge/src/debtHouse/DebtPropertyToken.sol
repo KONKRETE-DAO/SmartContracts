@@ -6,7 +6,9 @@ import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract DebtPropertyToken is ERC20Permit, Ownable {
+  mapping(address => uint256) public tokenBought;
   uint256 public immutable MAX_SUPPLY;
+  uint256 public immutable MAX_TO_BUY;
   IERC20 immutable currencyUsed;
   address public cexAddress;
 
@@ -19,10 +21,15 @@ contract DebtPropertyToken is ERC20Permit, Ownable {
   {
     currencyUsed = _currencyUsed;
     MAX_SUPPLY = _max_supply;
+    MAX_TO_BUY = (_max_supply * 30) / 100;
   }
 
   function buy(address _to, uint256 amount) external {
     IERC20 doll = currencyUsed;
+    require(
+      tokenBought[msg.sender] <= MAX_TO_BUY,
+      "This Address bought too much tokens"
+    );
     require(amount + totalSupply() <= MAX_SUPPLY, "Too much");
     bool res = doll.transferFrom(msg.sender, owner(), amount * 10);
     require(res, "Couldn't receive currencyUsed");

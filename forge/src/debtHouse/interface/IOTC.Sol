@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 struct orderInfo {
   bool open;
   bool propositionAccepted;
-  uint8 index;
+  uint64 index;
   uint64 date;
   uint128 fee;
   address seller;
@@ -65,12 +65,12 @@ interface IOTC {
   function cancelOrder(
     IERC20 token,
     bool TrueForSellFalseForBuy,
-    uint8 index
+    uint64 index
   ) external;
 
   //0xed0539b6
-  function buy(IERC20 token, uint8 index) external;
+  function buy(IERC20 token, uint64 index) external;
 
   //0xce891c26
-  function sell(IERC20 token, uint8 index) external;
+  function sell(IERC20 token, uint64 index) external;
 }
