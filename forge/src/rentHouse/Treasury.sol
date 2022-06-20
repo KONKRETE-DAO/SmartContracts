@@ -4,19 +4,15 @@ pragma solidity ^0.8.10;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./interface/IStaking.sol";
-
-struct ContractInfo {
-  address stakingContract;
-  uint256 maxSupply;
-}
+import "./interface/ITreasury.sol";
 
 contract Treasury is Ownable {
   mapping(address => ContractInfo) public stakingContractByProperty;
   event RentDeposit(address Property, uint256 amount);
-  IERC20 public immutable moneyToken;
+  IERC20 public immutable currencyUsed;
 
-  constructor(IERC20 _moneyToken) {
-    moneyToken = _moneyToken;
+  constructor(IERC20 _currencyUsed) {
+    currencyUsed = _currencyUsed;
   }
 
   function addStakingContract(address _stakingContract) external onlyOwner {
@@ -37,9 +33,11 @@ contract Treasury is Ownable {
     ];
     require(bufferContract.maxSupply != 0, "Wrong Contract");
 
-    IStaking(bufferContract.stakingContract).setTotalClaimableReward(amount);
-    moneyToken.approve(bufferContract.stakingContract, amount);
+    uint256 toSend = amount -
+      IStaking(bufferContract.stakingContract).setTotalClaimableReward(amount);
 
-    moneyToken.transferFrom(msg.sender, address(this), amount);
+    currencyUsed.approve(bufferContract.stakingContract, toSend);
+
+    currencyUsed.transferFrom(msg.sender, address(this), toSend);
   }
 }

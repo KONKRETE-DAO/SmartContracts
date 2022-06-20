@@ -124,24 +124,33 @@ contract KonkretStaking is ERC20, Ownable, ReentrancyGuard {
     return ((stakeByOwner[tokenHolder]));
   }
 
-  function setTotalClaimableReward(uint256 totalReward) external nonReentrant {
+  function setTotalClaimableReward(uint256 totalReward)
+    external
+    nonReentrant
+    returns (uint256)
+  {
     require(msg.sender == treasury, "Just Treasury");
+    uint256 rest = totalReward;
+    stakeInfo memory buffer;
     address[] memory stakersBuffer = stakers;
     uint256 newTimeStamp = block.timestamp;
     uint256 totalDenominator = (newTimeStamp - monthTimeStamp) *
       TOKEN_TO_STAKE_MAX_SUPPLY;
     for (uint256 i = 0; i < stakersBuffer.length; ) {
-      stakeByOwner[stakersBuffer[i]] = _getClaimableReward(
+      buffer = _getClaimableReward(
         newTimeStamp,
         stakeByOwner[stakersBuffer[i]],
         totalDenominator,
         totalReward
       );
+      rest -= buffer.amount;
+      stakeByOwner[stakersBuffer[i]] = buffer;
       unchecked {
         ++i;
       }
     }
     monthTimeStamp = newTimeStamp;
+    return (rest);
   }
 
   function claimReward() external nonReentrant {

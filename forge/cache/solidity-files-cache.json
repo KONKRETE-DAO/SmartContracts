@@ -1241,8 +1241,8 @@
       }
     },
     "src/rentHouse/Staking.sol": {
-      "lastModificationDate": 1655711984407,
-      "contentHash": "3a4e302a7121a519ce4dac62c28ce4e9",
+      "lastModificationDate": 1655712540068,
+      "contentHash": "612d0c71ff4988833d6dab94338e2e70",
       "sourceName": "src/rentHouse/Staking.sol",
       "solcConfig": {
         "settings": {
@@ -1288,8 +1288,8 @@
       }
     },
     "src/rentHouse/Treasury.sol": {
-      "lastModificationDate": 1655711934654,
-      "contentHash": "c64ab3f9b37a830be36489101fdf267b",
+      "lastModificationDate": 1655712793280,
+      "contentHash": "f75c3b3913c8967c67e546c725adfa0e",
       "sourceName": "src/rentHouse/Treasury.sol",
       "solcConfig": {
         "settings": {
@@ -1321,7 +1321,8 @@
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "src/rentHouse/interface/IStaking.sol"
+        "src/rentHouse/interface/IStaking.sol",
+        "src/rentHouse/interface/ITreasury.sol"
       ],
       "versionRequirement": "^0.8.10",
       "artifacts": {
@@ -1411,8 +1412,8 @@
       }
     },
     "src/rentHouse/interface/IStaking.sol": {
-      "lastModificationDate": 1655711708307,
-      "contentHash": "724d4b96095d1ac274bc85dccba9a9ee",
+      "lastModificationDate": 1655712479090,
+      "contentHash": "d6303aa1ff1d1989904a4e945a59c16f",
       "sourceName": "src/rentHouse/interface/IStaking.sol",
       "solcConfig": {
         "settings": {
@@ -1451,8 +1452,8 @@
       }
     },
     "src/rentHouse/interface/ITreasury.sol": {
-      "lastModificationDate": 1655379742562,
-      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
+      "lastModificationDate": 1655712731222,
+      "contentHash": "54400f0c045eb1999a26bf34e50c8630",
       "sourceName": "src/rentHouse/interface/ITreasury.sol",
       "solcConfig": {
         "settings": {
@@ -1481,7 +1482,7 @@
         }
       },
       "imports": [],
-      "versionRequirement": null,
+      "versionRequirement": "^0.8.10",
       "artifacts": {
         "ITreasury": {
           "0.8.14+commit.80d49f37.Darwin.appleclang": "ITreasury.sol/ITreasury.json"

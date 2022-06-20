@@ -29,7 +29,9 @@ interface IStaking {
   function getStakeInfo(address tokenHolder) external;
 
   //0xc26c60de
-  function setTotalClaimableReward(uint256 totalReward) external;
+  function setTotalClaimableReward(uint256 totalReward)
+    external
+    returns (uint256);
 
   //0xb88a802f
   function claimReward() external;
