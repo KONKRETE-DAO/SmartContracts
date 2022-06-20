@@ -3,21 +3,11 @@ pragma solidity ^0.8.12;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "./interface/IPropertyToken.sol";
+import "./interface/IStaking.sol";
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-
-struct stakeInfo {
-  uint64 rank;
-  uint256 preShare;
-  uint256 lastTimeStamp;
-  uint256 amount;
-  uint256 claimableReward;
-}
-
-interface MYERC20 {
-  function MAX_SUPPLY() external view returns (uint256);
-}
 
 contract KonkretStaking is ERC20, Ownable, ReentrancyGuard {
   mapping(address => stakeInfo) public stakeByOwner;
@@ -39,7 +29,7 @@ contract KonkretStaking is ERC20, Ownable, ReentrancyGuard {
   ) ERC20("stakedKonkreteToken", protoSymbol) {
     TOKEN_TO_STAKE = IERC20(_tokenToStake);
     /// A changer
-    TOKEN_TO_STAKE_MAX_SUPPLY = MYERC20(_tokenToStake).MAX_SUPPLY();
+    TOKEN_TO_STAKE_MAX_SUPPLY = IRentPropertyToken(_tokenToStake).MAX_SUPPLY();
     fakeDoll = IERC20(_currencyUsedToPay);
     treasury = _treasury;
   }

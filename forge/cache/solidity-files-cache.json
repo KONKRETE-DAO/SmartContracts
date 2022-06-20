@@ -819,8 +819,8 @@
       }
     },
     "src/debtHouse/DebtPropertyToken.sol": {
-      "lastModificationDate": 1655709542793,
-      "contentHash": "606dc3535cc0d20adc5ffb98338ce96d",
+      "lastModificationDate": 1655709996642,
+      "contentHash": "099c38a11633f79b55e0723d3053ea50",
       "sourceName": "src/debtHouse/DebtPropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -1241,8 +1241,8 @@
       }
     },
     "src/rentHouse/Staking.sol": {
-      "lastModificationDate": 1655560027917,
-      "contentHash": "2f28aefd572a99fa2bfa2254cb6bb92a",
+      "lastModificationDate": 1655711984407,
+      "contentHash": "3a4e302a7121a519ce4dac62c28ce4e9",
       "sourceName": "src/rentHouse/Staking.sol",
       "solcConfig": {
         "settings": {
@@ -1276,21 +1276,20 @@
         "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "src/rentHouse/interface/IPropertyToken.sol",
+        "src/rentHouse/interface/IStaking.sol"
       ],
       "versionRequirement": "^0.8.12",
       "artifacts": {
         "KonkretStaking": {
           "0.8.14+commit.80d49f37.Darwin.appleclang": "Staking.sol/KonkretStaking.json"
-        },
-        "MYERC20": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "Staking.sol/MYERC20.json"
         }
       }
     },
     "src/rentHouse/Treasury.sol": {
-      "lastModificationDate": 1655559980973,
-      "contentHash": "d1a762189d03e7fd22ac468386b24698",
+      "lastModificationDate": 1655711934654,
+      "contentHash": "c64ab3f9b37a830be36489101fdf267b",
       "sourceName": "src/rentHouse/Treasury.sol",
       "solcConfig": {
         "settings": {
@@ -1321,13 +1320,11 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "src/rentHouse/interface/IStaking.sol"
       ],
       "versionRequirement": "^0.8.10",
       "artifacts": {
-        "StakingContract": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "Treasury.sol/StakingContract.json"
-        },
         "Treasury": {
           "0.8.14+commit.80d49f37.Darwin.appleclang": "Treasury.sol/Treasury.json"
         }
@@ -1374,8 +1371,8 @@
       }
     },
     "src/rentHouse/interface/IPropertyToken.sol": {
-      "lastModificationDate": 1655379722903,
-      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
+      "lastModificationDate": 1655709943375,
+      "contentHash": "12b1864057185826e7b7288e7660411d",
       "sourceName": "src/rentHouse/interface/IPropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -1403,17 +1400,19 @@
           "libraries": {}
         }
       },
-      "imports": [],
-      "versionRequirement": null,
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": "^0.8.10",
       "artifacts": {
-        "IPropertyToken": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "IPropertyToken.sol/IPropertyToken.json"
+        "IRentPropertyToken": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "IPropertyToken.sol/IRentPropertyToken.json"
         }
       }
     },
     "src/rentHouse/interface/IStaking.sol": {
-      "lastModificationDate": 1655379733186,
-      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
+      "lastModificationDate": 1655711708307,
+      "contentHash": "724d4b96095d1ac274bc85dccba9a9ee",
       "sourceName": "src/rentHouse/interface/IStaking.sol",
       "solcConfig": {
         "settings": {
@@ -1441,8 +1440,10 @@
           "libraries": {}
         }
       },
-      "imports": [],
-      "versionRequirement": null,
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": "^0.8.10",
       "artifacts": {
         "IStaking": {
           "0.8.14+commit.80d49f37.Darwin.appleclang": "IStaking.sol/IStaking.json"

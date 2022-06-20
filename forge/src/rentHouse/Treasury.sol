@@ -3,18 +3,11 @@ pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "./interface/IStaking.sol";
 
 struct ContractInfo {
   address stakingContract;
   uint256 maxSupply;
-}
-
-interface StakingContract {
-  function TOKEN_TO_STAKE() external view returns (address);
-
-  function TOKEN_TO_STAKE_MAX_SUPPLY() external view returns (uint256);
-
-  function setTotalClaimableReward(uint256) external;
 }
 
 contract Treasury is Ownable {
@@ -31,7 +24,7 @@ contract Treasury is Ownable {
       _stakingContract != 0x0000000000000000000000000000000000000000,
       "Wrong Address"
     );
-    StakingContract buffer = StakingContract(_stakingContract);
+    IStaking buffer = IStaking(_stakingContract);
     stakingContractByProperty[buffer.TOKEN_TO_STAKE()] = ContractInfo(
       _stakingContract,
       buffer.TOKEN_TO_STAKE_MAX_SUPPLY()
@@ -44,9 +37,7 @@ contract Treasury is Ownable {
     ];
     require(bufferContract.maxSupply != 0, "Wrong Contract");
 
-    StakingContract(bufferContract.stakingContract).setTotalClaimableReward(
-      amount
-    );
+    IStaking(bufferContract.stakingContract).setTotalClaimableReward(amount);
     moneyToken.approve(bufferContract.stakingContract, amount);
 
     moneyToken.transferFrom(msg.sender, address(this), amount);
