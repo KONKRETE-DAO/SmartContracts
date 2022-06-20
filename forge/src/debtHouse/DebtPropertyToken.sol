@@ -34,6 +34,7 @@ contract DebtPropertyToken is ERC20Permit, Ownable {
     bool res = doll.transferFrom(msg.sender, owner(), amount * 10);
     require(res, "Couldn't receive currencyUsed");
     _mint(_to, amount);
+    tokenBought[msg.sender] += amount;
     emit Buying(_to, amount);
   }
 
