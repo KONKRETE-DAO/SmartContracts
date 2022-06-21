@@ -1,2 +1,3 @@
 # SmartContracts
-![alt text](./SCArchitecture.pdf)
+
+![Architecture](./SCArchitecture.pdf)
