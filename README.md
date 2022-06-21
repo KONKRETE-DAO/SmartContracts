@@ -1,3 +1,3 @@
 # SmartContracts
 
-![Architecture](./SCArchitecture.pdf)
+![Architecture](./SCArchitecture.png)
