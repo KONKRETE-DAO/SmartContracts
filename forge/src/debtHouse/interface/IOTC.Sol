@@ -1,5 +1,3 @@
-//0x24ce9d27  =>  sellOrder(address,uint256,uint256)
-//0x79583e22  =>  buyOrder(address,uint256,uint256)
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.10;
 
@@ -16,7 +14,7 @@ struct orderInfo {
   uint256 amount;
   IERC20 currency;
 }
-struct currencyVariable {
+struct currencyInfos {
   bool exist;
   uint16 feeX10;
   uint256 feePot; // maaybe

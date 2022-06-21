@@ -12,7 +12,7 @@ contract OTC is Ownable, ReentrancyGuard {
 
   mapping(IERC20 => orderInfo[]) public sellOrderByToken;
   mapping(IERC20 => orderInfo[]) public buyOrderByToken;
-  mapping(IERC20 => currencyVariable) public currencyInfo;
+  mapping(IERC20 => currencyInfos) public currencyByLink;
 
   IERC20[] public tokenList;
   IERC20[] public currenciesUsed;
@@ -26,7 +26,7 @@ contract OTC is Ownable, ReentrancyGuard {
   ) {
     currenciesUsed.push(_currencyUsed);
     feeAddress = _feeAddress;
-    currencyInfo[_currencyUsed] = currencyVariable(true, feex10, 0);
+    currencyByLink[_currencyUsed] = currencyInfos(true, feex10, 0);
   }
 
   function setFeeAddress(address newFeeAddress) external onlyOwner {
@@ -38,17 +38,17 @@ contract OTC is Ownable, ReentrancyGuard {
     uint16 feeX10,
     uint256 feePot
   ) external onlyOwner {
-    if (!currencyInfo[newCurrency].exist) {
+    if (!currencyByLink[newCurrency].exist) {
       tokenList.push(newCurrency);
     }
-    currencyInfo[newCurrency] = currencyVariable(true, feeX10, feePot);
+    currencyByLink[newCurrency] = currencyInfos(true, feeX10, feePot);
   }
 
   function withdrawFee(IERC20 currency) external onlyOwner {
-    currencyVariable memory buffer = currencyInfo[currency];
+    currencyInfos memory buffer = currencyByLink[currency];
     currency.transfer(feeAddress, buffer.feePot);
     buffer.feePot = 0;
-    currencyInfo[currency] = buffer;
+    currencyByLink[currency] = buffer;
   }
 
   function addToken(IERC20 token) external onlyOwner {
@@ -72,7 +72,7 @@ contract OTC is Ownable, ReentrancyGuard {
 
   function setFee(uint16 feePercentx10, IERC20 currency) external onlyOwner {
     require(feePercentx10 < 500, "Fee Too high");
-    currencyInfo[currency].feeX10 = feePercentx10;
+    currencyByLink[currency].feeX10 = feePercentx10;
   }
 
   function sellOrder(
@@ -82,7 +82,7 @@ contract OTC is Ownable, ReentrancyGuard {
     uint256 sellPrice
   ) external nonReentrant {
     require(isToken(token), "Token Not Registered");
-    currencyVariable memory bufferCurrency = currencyInfo[currencyWanted];
+    currencyInfos memory bufferCurrency = currencyByLink[currencyWanted];
     require(bufferCurrency.exist, "Currency not tolerated");
 
     // Le front verifiera a l'avance l'allowance et la balance.
@@ -127,7 +127,7 @@ contract OTC is Ownable, ReentrancyGuard {
     uint256 sellPrice
   ) external nonReentrant {
     require(isToken(token), "Token Not Registered");
-    currencyVariable memory bufferCurrency = currencyInfo[currencyWanted];
+    currencyInfos memory bufferCurrency = currencyByLink[currencyWanted];
     require(bufferCurrency.exist, "Currency not tolerated");
     // Le front verifiera a l'avance l'allowance et la balance.
     uint128 fee = uint128(
@@ -197,7 +197,7 @@ contract OTC is Ownable, ReentrancyGuard {
     buffer.open = false;
     buffer.currency.transferFrom(msg.sender, address(this), buffer.price);
     buffer.currency.transfer(buffer.seller, buffer.price - buffer.fee);
-    currencyInfo[buffer.currency].feePot += buffer.fee;
+    currencyByLink[buffer.currency].feePot += buffer.fee;
     sellOrderByToken[token][index] = buffer;
     token.transfer(msg.sender, buffer.amount);
   }
@@ -210,7 +210,7 @@ contract OTC is Ownable, ReentrancyGuard {
     buffer.propositionAccepted = true;
     token.transferFrom(msg.sender, buffer.buyer, buffer.amount);
     buffer.currency.transfer(msg.sender, buffer.price - buffer.fee);
-    currencyInfo[buffer.currency].feePot += buffer.fee;
+    currencyByLink[buffer.currency].feePot += buffer.fee;
     buyOrderByToken[token][index] = buffer;
   }
 }
