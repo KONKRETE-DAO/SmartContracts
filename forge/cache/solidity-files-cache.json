@@ -11,7 +11,7 @@
   },
   "files": {
     "lib/forge-std/lib/ds-test/src/test.sol": {
-      "lastModificationDate": 1655212946028,
+      "lastModificationDate": 1655564700651,
       "contentHash": "962996f0e05d5218857a538a62d7c47e",
       "sourceName": "lib/forge-std/lib/ds-test/src/test.sol",
       "solcConfig": {
@@ -49,7 +49,7 @@
       }
     },
     "lib/forge-std/src/Script.sol": {
-      "lastModificationDate": 1655212945288,
+      "lastModificationDate": 1655564700651,
       "contentHash": "3acd67e1ab7b1ccf0a734f0c64d40f99",
       "sourceName": "lib/forge-std/src/Script.sol",
       "solcConfig": {
@@ -91,7 +91,7 @@
       }
     },
     "lib/forge-std/src/Test.sol": {
-      "lastModificationDate": 1655212945288,
+      "lastModificationDate": 1655564700651,
       "contentHash": "4d6050a67786485eb8ae69d91756f1c8",
       "sourceName": "lib/forge-std/src/Test.sol",
       "solcConfig": {
@@ -144,7 +144,7 @@
       }
     },
     "lib/forge-std/src/Vm.sol": {
-      "lastModificationDate": 1655212945288,
+      "lastModificationDate": 1655564700651,
       "contentHash": "93730815cc457c9e650190f81a85f3ec",
       "sourceName": "lib/forge-std/src/Vm.sol",
       "solcConfig": {
@@ -182,7 +182,7 @@
       }
     },
     "lib/forge-std/src/console.sol": {
-      "lastModificationDate": 1655212945288,
+      "lastModificationDate": 1655564700651,
       "contentHash": "100b8a33b917da1147740d7ab8b0ded3",
       "sourceName": "lib/forge-std/src/console.sol",
       "solcConfig": {
@@ -220,7 +220,7 @@
       }
     },
     "lib/forge-std/src/console2.sol": {
-      "lastModificationDate": 1655212945288,
+      "lastModificationDate": 1655564700651,
       "contentHash": "5df91f8e93efbfcccf68973dc1b74a70",
       "sourceName": "lib/forge-std/src/console2.sol",
       "solcConfig": {
@@ -258,7 +258,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1655293632511,
+      "lastModificationDate": 1655564700662,
       "contentHash": "d1ca0e010fbe72cf869af3855d460ae7",
       "sourceName": "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -298,7 +298,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol": {
-      "lastModificationDate": 1655293632524,
+      "lastModificationDate": 1655564700684,
       "contentHash": "92f9448b23a90ea3bb932ee55cc3ccce",
       "sourceName": "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
       "solcConfig": {
@@ -336,7 +336,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1655293632525,
+      "lastModificationDate": 1655564700686,
       "contentHash": "2ed98edc0ace098ba6d7c42a965628fd",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
@@ -378,7 +378,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1655293632526,
+      "lastModificationDate": 1655564700686,
       "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
@@ -416,7 +416,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1655293632526,
+      "lastModificationDate": 1655564700687,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
@@ -456,7 +456,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-ERC20Permit.sol": {
-      "lastModificationDate": 1655293632526,
+      "lastModificationDate": 1655819588431,
       "contentHash": "3c98f8ccc741d97ece615ce32d638d4c",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-ERC20Permit.sol",
       "solcConfig": {
@@ -504,7 +504,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol": {
-      "lastModificationDate": 1655293632527,
+      "lastModificationDate": 1655564700687,
       "contentHash": "fb77f144244b9ab12533aa6ce85ef8c5",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
       "solcConfig": {
@@ -542,7 +542,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
-      "lastModificationDate": 1655293632529,
+      "lastModificationDate": 1655564700689,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Context.sol",
       "solcConfig": {
@@ -580,7 +580,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/Counters.sol": {
-      "lastModificationDate": 1655293632529,
+      "lastModificationDate": 1655564700689,
       "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Counters.sol",
       "solcConfig": {
@@ -618,7 +618,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1655293632530,
+      "lastModificationDate": 1655564700690,
       "contentHash": "9ba0bb93454a1ab7b6824f59ead41f42",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -656,7 +656,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol": {
-      "lastModificationDate": 1655293632530,
+      "lastModificationDate": 1655564700690,
       "contentHash": "4ca906243606c2545cd89d150afc541d",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
       "solcConfig": {
@@ -696,8 +696,8 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/cryptography/draft-EIP712.sol": {
-      "lastModificationDate": 1655293632530,
-      "contentHash": "161aae4dc1450371d0f324488f66a9cf",
+      "lastModificationDate": 1655822598480,
+      "contentHash": "0e6a8fa48b9f64f0cccf150fe5395073",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/cryptography/draft-EIP712.sol",
       "solcConfig": {
         "settings": {
@@ -737,7 +737,7 @@
       }
     },
     "script/Contract.s.sol": {
-      "lastModificationDate": 1655293608383,
+      "lastModificationDate": 1655564700746,
       "contentHash": "a2f05c22b825f74f8f0d68b8799e1aa1",
       "sourceName": "script/Contract.s.sol",
       "solcConfig": {
@@ -781,7 +781,7 @@
       }
     },
     "src/Contract.sol": {
-      "lastModificationDate": 1655510525703,
+      "lastModificationDate": 1655564700746,
       "contentHash": "f0b1ad09b3485fe94ac498007cecb224",
       "sourceName": "src/Contract.sol",
       "solcConfig": {
@@ -818,10 +818,138 @@
         }
       }
     },
-    "src/debtHouse/DebtPropertyToken.sol": {
-      "lastModificationDate": 1655709996642,
-      "contentHash": "099c38a11633f79b55e0723d3053ea50",
-      "sourceName": "src/debtHouse/DebtPropertyToken.sol",
+    "src/FakeDoll.sol": {
+      "lastModificationDate": 1655564700746,
+      "contentHash": "cd2ed0a8ab661bb3bd6e6a6ebdaf4e78",
+      "sourceName": "src/FakeDoll.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "FakeDoll": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "FakeDoll.sol/FakeDoll.json"
+        }
+      }
+    },
+    "src/GovernanceToken.sol": {
+      "lastModificationDate": 1655564700746,
+      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
+      "sourceName": "src/GovernanceToken.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": null,
+      "artifacts": {
+        "GovernanceToken": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "GovernanceToken.sol/GovernanceToken.json"
+        }
+      }
+    },
+    "src/OTC.sol": {
+      "lastModificationDate": 1655909739400,
+      "contentHash": "c0ac0b0c9a8fb4b0a483a00f939d7b5a",
+      "sourceName": "src/OTC.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "src/interface/IOTC.Sol",
+        "src/interface/IPropertyToken.sol"
+      ],
+      "versionRequirement": "^0.8.12",
+      "artifacts": {
+        "OTC": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "OTC.sol/OTC.json"
+        }
+      }
+    },
+    "src/PropertyToken.sol": {
+      "lastModificationDate": 1655912331024,
+      "contentHash": "e3f33d848857ff949b84357ce2588162",
+      "sourceName": "src/PropertyToken.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -863,97 +991,15 @@
       ],
       "versionRequirement": "^0.8.10",
       "artifacts": {
-        "DebtPropertyToken": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "DebtPropertyToken.sol/DebtPropertyToken.json"
+        "PropertyToken": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "PropertyToken.sol/PropertyToken.json"
         }
       }
     },
-    "src/debtHouse/FakeDoll.sol": {
-      "lastModificationDate": 1655510549576,
-      "contentHash": "cd2ed0a8ab661bb3bd6e6a6ebdaf4e78",
-      "sourceName": "src/debtHouse/FakeDoll.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
-      ],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "FakeDoll": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "FakeDoll.sol/FakeDoll.json"
-        }
-      }
-    },
-    "src/debtHouse/GovernanceToken.sol": {
-      "lastModificationDate": 1655300475162,
-      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
-      "sourceName": "src/debtHouse/GovernanceToken.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": null,
-      "artifacts": {
-        "GovernanceToken": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "GovernanceToken.sol/GovernanceToken.json"
-        }
-      }
-    },
-    "src/debtHouse/OTC.sol": {
-      "lastModificationDate": 1655802057437,
-      "contentHash": "e33b1c1f1a631600e31d2f8d0158e517",
-      "sourceName": "src/debtHouse/OTC.sol",
+    "src/Staking.sol": {
+      "lastModificationDate": 1655911455482,
+      "contentHash": "97064ab92f1135b496425455f5445e69",
+      "sourceName": "src/Staking.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -983,21 +1029,25 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "src/debtHouse/interface/IOTC.Sol"
+        "src/interface/IPropertyToken.sol",
+        "src/interface/IStaking.sol"
       ],
       "versionRequirement": "^0.8.12",
       "artifacts": {
-        "OTC": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "OTC.sol/OTC.json"
+        "KonkretStaking": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "Staking.sol/KonkretStaking.json"
         }
       }
     },
-    "src/debtHouse/interface/IDebtPropertyToken.sol": {
-      "lastModificationDate": 1655510549584,
-      "contentHash": "93c5cf7f83b9cee0d09a2e57647eef95",
-      "sourceName": "src/debtHouse/interface/IDebtPropertyToken.sol",
+    "src/Treasury.sol": {
+      "lastModificationDate": 1655910768626,
+      "contentHash": "514b947d5e6b2100df4cf1525fb5bb4f",
+      "sourceName": "src/Treasury.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1025,19 +1075,23 @@
         }
       },
       "imports": [
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "src/interface/IStaking.sol",
+        "src/interface/ITreasury.sol"
       ],
       "versionRequirement": "^0.8.10",
       "artifacts": {
-        "IDebtPropertyToken": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "IDebtPropertyToken.sol/IDebtPropertyToken.json"
+        "Treasury": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "Treasury.sol/Treasury.json"
         }
       }
     },
-    "src/debtHouse/interface/IFakeDoll.sol": {
-      "lastModificationDate": 1655510549589,
+    "src/interface/IFakeDoll.sol": {
+      "lastModificationDate": 1655564700746,
       "contentHash": "b0817254b0f21090bf5db2d4e3b4517d",
-      "sourceName": "src/debtHouse/interface/IFakeDoll.sol",
+      "sourceName": "src/interface/IFakeDoll.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1074,10 +1128,10 @@
         }
       }
     },
-    "src/debtHouse/interface/IOTC.Sol": {
-      "lastModificationDate": 1655803041614,
+    "src/interface/IOTC.Sol": {
+      "lastModificationDate": 1655804505495,
       "contentHash": "2da4f923d93a8cdeacfe0931bc507072",
-      "sourceName": "src/debtHouse/interface/IOTC.Sol",
+      "sourceName": "src/interface/IOTC.Sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1114,10 +1168,10 @@
         }
       }
     },
-    "src/rentHouse/FakeDoll.sol": {
-      "lastModificationDate": 1655559734621,
-      "contentHash": "149b3c8653dc461977a6204645316d62",
-      "sourceName": "src/rentHouse/FakeDoll.sol",
+    "src/interface/IPropertyToken.sol": {
+      "lastModificationDate": 1655904711353,
+      "contentHash": "a3ef77d5b93c29895dd6412e2d5d23bc",
+      "sourceName": "src/interface/IPropertyToken.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1145,276 +1199,20 @@
         }
       },
       "imports": [
-        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
-      ],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "FakeDoll": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "FakeDoll.sol/FakeDoll.json"
-        }
-      }
-    },
-    "src/rentHouse/GovernanceToken.sol": {
-      "lastModificationDate": 1655212844281,
-      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
-      "sourceName": "src/rentHouse/GovernanceToken.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": null,
-      "artifacts": {
-        "GovernanceToken": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "GovernanceToken.sol/GovernanceToken.json"
-        }
-      }
-    },
-    "src/rentHouse/PropertyToken.sol": {
-      "lastModificationDate": 1655559748679,
-      "contentHash": "4b0a3cd87798ab29cff0d4104b7159e2",
-      "sourceName": "src/rentHouse/PropertyToken.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol"
       ],
       "versionRequirement": "^0.8.10",
       "artifacts": {
-        "PropertyToken": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "PropertyToken.sol/PropertyToken.json"
+        "IPropertyToken": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "IPropertyToken.sol/IPropertyToken.json"
         }
       }
     },
-    "src/rentHouse/Staking.sol": {
-      "lastModificationDate": 1655712540068,
-      "contentHash": "612d0c71ff4988833d6dab94338e2e70",
-      "sourceName": "src/rentHouse/Staking.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "src/rentHouse/interface/IPropertyToken.sol",
-        "src/rentHouse/interface/IStaking.sol"
-      ],
-      "versionRequirement": "^0.8.12",
-      "artifacts": {
-        "KonkretStaking": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "Staking.sol/KonkretStaking.json"
-        }
-      }
-    },
-    "src/rentHouse/Treasury.sol": {
-      "lastModificationDate": 1655712793280,
-      "contentHash": "f75c3b3913c8967c67e546c725adfa0e",
-      "sourceName": "src/rentHouse/Treasury.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "src/rentHouse/interface/IStaking.sol",
-        "src/rentHouse/interface/ITreasury.sol"
-      ],
-      "versionRequirement": "^0.8.10",
-      "artifacts": {
-        "Treasury": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "Treasury.sol/Treasury.json"
-        }
-      }
-    },
-    "src/rentHouse/interface/IFakeDoll.sol": {
-      "lastModificationDate": 1655559741030,
-      "contentHash": "8d2ee939294465d324f22045a3b187f0",
-      "sourceName": "src/rentHouse/interface/IFakeDoll.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
-      ],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "FakeDoll": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "IFakeDoll.sol/FakeDoll.json"
-        }
-      }
-    },
-    "src/rentHouse/interface/IPropertyToken.sol": {
-      "lastModificationDate": 1655709943375,
-      "contentHash": "12b1864057185826e7b7288e7660411d",
-      "sourceName": "src/rentHouse/interface/IPropertyToken.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
-      ],
-      "versionRequirement": "^0.8.10",
-      "artifacts": {
-        "IRentPropertyToken": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "IPropertyToken.sol/IRentPropertyToken.json"
-        }
-      }
-    },
-    "src/rentHouse/interface/IStaking.sol": {
-      "lastModificationDate": 1655712479090,
-      "contentHash": "d6303aa1ff1d1989904a4e945a59c16f",
-      "sourceName": "src/rentHouse/interface/IStaking.sol",
+    "src/interface/IStaking.sol": {
+      "lastModificationDate": 1655905125051,
+      "contentHash": "debb41b55246acfe4fd2734ced8899de",
+      "sourceName": "src/interface/IStaking.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1451,10 +1249,10 @@
         }
       }
     },
-    "src/rentHouse/interface/ITreasury.sol": {
-      "lastModificationDate": 1655712731222,
+    "src/interface/ITreasury.sol": {
+      "lastModificationDate": 1655742208977,
       "contentHash": "54400f0c045eb1999a26bf34e50c8630",
-      "sourceName": "src/rentHouse/interface/ITreasury.sol",
+      "sourceName": "src/interface/ITreasury.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1490,8 +1288,8 @@
       }
     },
     "test/Contract.t.sol": {
-      "lastModificationDate": 1655804292961,
-      "contentHash": "08b5ec5d13c38a463d8048d995272d08",
+      "lastModificationDate": 1655918205338,
+      "contentHash": "18755affff1cdcf308160f5dff78a0de",
       "sourceName": "test/Contract.t.sol",
       "solcConfig": {
         "settings": {
@@ -1538,10 +1336,11 @@
         "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/draft-EIP712.sol",
-        "src/debtHouse/DebtPropertyToken.sol",
-        "src/debtHouse/FakeDoll.sol",
-        "src/debtHouse/OTC.sol",
-        "src/debtHouse/interface/IOTC.Sol"
+        "src/FakeDoll.sol",
+        "src/OTC.sol",
+        "src/PropertyToken.sol",
+        "src/interface/IOTC.Sol",
+        "src/interface/IPropertyToken.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {

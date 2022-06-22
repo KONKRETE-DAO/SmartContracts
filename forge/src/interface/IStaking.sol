@@ -5,8 +5,8 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 struct stakeInfo {
   uint64 rank;
+  uint64 lastTimeStamp;
   uint256 preShare;
-  uint256 lastTimeStamp;
   uint256 amount;
   uint256 claimableReward;
 }
