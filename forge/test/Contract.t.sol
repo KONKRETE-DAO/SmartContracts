@@ -3,7 +3,7 @@ pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
 import "../src/PropertyToken.sol";
-import "../src/FakeDoll.sol";
+import "../src/MockStable.sol";
 import "../src/OTC.sol";
 
 contract ContractTest is Test {
@@ -35,37 +35,38 @@ contract ContractTest is Test {
   function setUp() public {}
 
   function testDebtHouse() public {
-    // console.log(block.chainid);
-    // orderPlatform.addToken(dFtToken);
-    // assert(orderPlatform.isToken(dFtToken));
-    // vm.startPrank(addr1);
-    // console.log(addr1);
-    // dollar.approve(address(dFtToken), max);
-    // (uint8 v, bytes32 r, bytes32 s) = getVRS(
-    //   address(dFtToken),
-    //   addr1,
-    //   address(orderPlatform),
-    //   amountToBuy,
-    //   max
-    // );
-    // dollar.mint(10001 * makeDecimals);
-    // dFtToken.buy(addr1, amountToBuy);
-    // require(dFtToken.balanceOf(addr1) == amountToBuy, "Buy ft error");
-    // orderPlatform.sellOrder(
-    //   address(dFtToken),
-    //   dollar,
-    //   amountToBuy,
-    //   123456 * makeDecimals,
-    //   max,
-    //   v,
-    //   r,
-    //   s
-    // require(dFtToken.balanceOf(addr1) == 0, "Sell Order ft error");
-    // require(
-    //   dFtToken.balanceOf(address(orderPlatform)) == amountToBuy,
-    //   "Sell Order ft error"
-    // );
-    // vm.stopPrank();
+    console.log(block.chainid);
+    orderPlatform.addToken(dFtToken);
+    assert(orderPlatform.isToken(dFtToken));
+    vm.startPrank(addr1);
+    console.log(addr1);
+    dollar.approve(address(dFtToken), max);
+    (uint8 v, bytes32 r, bytes32 s) = getVRS(
+      address(dFtToken),
+      addr1,
+      address(orderPlatform),
+      amountToBuy,
+      max
+    );
+    dollar.mint(10001 * makeDecimals);
+    dFtToken.buy(addr1, amountToBuy);
+    require(dFtToken.balanceOf(addr1) == amountToBuy, "Buy ft error");
+    orderPlatform.initSellOrder(
+      address(dFtToken),
+      address(dollar),
+      amountToBuy,
+      123456 * makeDecimals,
+      max,
+      v,
+      r,
+      s
+    );
+    require(dFtToken.balanceOf(addr1) == 0, "Sell Order ft error");
+    require(
+      dFtToken.balanceOf(address(orderPlatform)) == amountToBuy,
+      "Sell Order ft error"
+    );
+    vm.stopPrank();
   }
 
   function testRentHouse() public {}

@@ -818,10 +818,48 @@
         }
       }
     },
-    "src/FakeDoll.sol": {
+    "src/GovernanceToken.sol": {
+      "lastModificationDate": 1655564700746,
+      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
+      "sourceName": "src/GovernanceToken.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": null,
+      "artifacts": {
+        "GovernanceToken": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "GovernanceToken.sol/GovernanceToken.json"
+        }
+      }
+    },
+    "src/MockStable.sol": {
       "lastModificationDate": 1655564700746,
       "contentHash": "cd2ed0a8ab661bb3bd6e6a6ebdaf4e78",
-      "sourceName": "src/FakeDoll.sol",
+      "sourceName": "src/MockStable.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -858,45 +896,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "FakeDoll": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "FakeDoll.sol/FakeDoll.json"
-        }
-      }
-    },
-    "src/GovernanceToken.sol": {
-      "lastModificationDate": 1655564700746,
-      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
-      "sourceName": "src/GovernanceToken.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": null,
-      "artifacts": {
-        "GovernanceToken": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "GovernanceToken.sol/GovernanceToken.json"
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "MockStable.sol/FakeDoll.json"
         }
       }
     },
@@ -997,8 +997,8 @@
       }
     },
     "src/Staking.sol": {
-      "lastModificationDate": 1655911455482,
-      "contentHash": "97064ab92f1135b496425455f5445e69",
+      "lastModificationDate": 1655975953396,
+      "contentHash": "0a88490a239b7d3333c59ca6293cae00",
       "sourceName": "src/Staking.sol",
       "solcConfig": {
         "settings": {
@@ -1288,8 +1288,8 @@
       }
     },
     "test/Contract.t.sol": {
-      "lastModificationDate": 1655918205338,
-      "contentHash": "18755affff1cdcf308160f5dff78a0de",
+      "lastModificationDate": 1655977020616,
+      "contentHash": "e5015e6bd8bcc5f20e6e952e4bd879ca",
       "sourceName": "test/Contract.t.sol",
       "solcConfig": {
         "settings": {
@@ -1336,7 +1336,7 @@
         "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/draft-EIP712.sol",
-        "src/FakeDoll.sol",
+        "src/MockStable.sol",
         "src/OTC.sol",
         "src/PropertyToken.sol",
         "src/interface/IOTC.Sol",
