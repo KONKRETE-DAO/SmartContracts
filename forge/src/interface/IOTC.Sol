@@ -7,9 +7,9 @@ struct orderInfo {
   bool propositionAccepted;
   uint64 index;
   uint64 date;
-  uint128 fee;
   address seller;
   address buyer;
+  uint256 fee;
   uint256 price;
   uint256 amount;
   IERC20 currency;

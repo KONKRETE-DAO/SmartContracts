@@ -1,19 +1,19 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.12;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "./interface/IOTC.sol";
-import "./interface/IPropertyToken.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "./interface/IPropertyToken.sol";
+import "./interface/IOTC.sol";
 
 contract OTC is Ownable, ReentrancyGuard {
   event SellOrderInitiated(orderInfo);
-  event BuyOrderInitiated(orderInfo);
-  event BuyOrderAccepted(orderInfo);
-  event SellOrderAccepted(orderInfo);
   event SellOrderCancelled(orderInfo);
+  event SellOrderAccepted(orderInfo);
+  event BuyOrderInitiated(orderInfo);
   event BuyOrderCancelled(orderInfo);
+  event BuyOrderAccepted(orderInfo);
 
   mapping(address => orderInfo[]) public sellOrderByToken;
   mapping(address => orderInfo[]) public buyOrderByToken;
@@ -29,6 +29,7 @@ contract OTC is Ownable, ReentrancyGuard {
     address _feeAddress,
     uint16 feex10
   ) {
+    require(feex10 <= 1000);
     currenciesUsed.push(IERC20(_currencyUsed));
     feeAddress = _feeAddress;
     currencyByLink[_currencyUsed] = currencyInfos(true, feex10, 0);
@@ -90,6 +91,7 @@ contract OTC is Ownable, ReentrancyGuard {
     bytes32 r,
     bytes32 s
   ) external nonReentrant {
+    require(sellPrice > 1000, "SellPrice too low");
     require(isToken(IERC20(token)), "Token Not Registered");
     currencyInfos memory bufferCurrency = currencyByLink[currencyWanted];
     require(bufferCurrency.exist, "Currency not tolerated");
@@ -104,16 +106,16 @@ contract OTC is Ownable, ReentrancyGuard {
       s
     );
     // Erreur prise en compte
-    uint128 fee = uint128((sellPrice / 1000) * bufferCurrency.feeX10);
+    uint256 fee = uint256((sellPrice / 1000) * bufferCurrency.feeX10);
     sellOrderByToken[token].push(
       orderInfo(
         true,
         false,
         index,
         uint64(block.timestamp),
-        fee,
         msg.sender,
         address(0),
+        fee,
         sellPrice,
         amount,
         IERC20(currencyWanted)
@@ -125,9 +127,9 @@ contract OTC is Ownable, ReentrancyGuard {
         false,
         index,
         uint64(block.timestamp),
-        fee,
         msg.sender,
         address(0),
+        fee,
         sellPrice,
         amount,
         IERC20(currencyWanted)
@@ -144,7 +146,7 @@ contract OTC is Ownable, ReentrancyGuard {
     require(isToken(IERC20(token)), "Token Not Registered");
     currencyInfos memory bufferCurrency = currencyByLink[currencyWanted];
     require(bufferCurrency.exist, "Currency not tolerated");
-    uint128 fee = uint128(((sellPrice * bufferCurrency.feeX10) / 1000));
+    uint256 fee = uint256(((sellPrice * bufferCurrency.feeX10) / 1000));
     IERC20(currencyWanted).transferFrom(msg.sender, address(this), sellPrice); // Erreur prise en compte
     uint64 index = uint64(buyOrderByToken[token].length);
     buyOrderByToken[token].push(
@@ -153,9 +155,9 @@ contract OTC is Ownable, ReentrancyGuard {
         false,
         index,
         uint64(block.timestamp),
-        fee,
         address(0),
         msg.sender,
+        fee,
         sellPrice,
         amount,
         IERC20(currencyWanted)
@@ -167,9 +169,9 @@ contract OTC is Ownable, ReentrancyGuard {
         false,
         index,
         uint64(block.timestamp),
-        fee,
         address(0),
         msg.sender,
+        fee,
         sellPrice,
         amount,
         IERC20(currencyWanted)

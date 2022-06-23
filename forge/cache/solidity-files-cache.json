@@ -901,8 +901,8 @@
       }
     },
     "src/OTC.sol": {
-      "lastModificationDate": 1655909739400,
-      "contentHash": "c0ac0b0c9a8fb4b0a483a00f939d7b5a",
+      "lastModificationDate": 1655998685841,
+      "contentHash": "68163d7c70368b401562dd0f54190b72",
       "sourceName": "src/OTC.sol",
       "solcConfig": {
         "settings": {
@@ -1129,8 +1129,8 @@
       }
     },
     "src/interface/IOTC.Sol": {
-      "lastModificationDate": 1655804505495,
-      "contentHash": "2da4f923d93a8cdeacfe0931bc507072",
+      "lastModificationDate": 1655998582154,
+      "contentHash": "3f7e92ce0fa934aea953599a246bc086",
       "sourceName": "src/interface/IOTC.Sol",
       "solcConfig": {
         "settings": {
@@ -1288,8 +1288,8 @@
       }
     },
     "test/Contract.t.sol": {
-      "lastModificationDate": 1655977020616,
-      "contentHash": "e5015e6bd8bcc5f20e6e952e4bd879ca",
+      "lastModificationDate": 1655998702506,
+      "contentHash": "152d1881ce8ecaa662454a561a26745b",
       "sourceName": "test/Contract.t.sol",
       "solcConfig": {
         "settings": {
