@@ -8,6 +8,7 @@ import "./interface/IPropertyToken.sol";
 import "./interface/IStaking.sol";
 
 contract KonkretStaking is ERC20, Ownable, ReentrancyGuard {
+  event MonthRentRewardArrived(uint256 rentAmount);
   event Staked(address who, uint256 amount, uint256 timeStamp);
   event unStaked(address who, uint256 amount, uint256 timeStamp);
 
@@ -187,6 +188,8 @@ contract KonkretStaking is ERC20, Ownable, ReentrancyGuard {
     }
 
     monthTimeStamp = newTimeStamp;
+
+    emit MonthRentRewardArrived(totalReward);
 
     return (rest);
   }
