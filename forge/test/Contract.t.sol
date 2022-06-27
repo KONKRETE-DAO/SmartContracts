@@ -165,7 +165,7 @@ contract ContractTest is Test {
     require(buyerr == addr1, "Buyer problem");
     require(pricer == price, "Buyer problem");
     if (fee > 0) require(feer == (price * fee) / amount);
-    orderPlatform.sell(address(pToken), uint64(0), max, v, r, s);
+    // orderPlatform.sell(address(pToken), uint64(0), max, v, r, s);
 
     vm.stopPrank();
     //CONTRACT
