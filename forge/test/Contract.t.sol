@@ -162,10 +162,12 @@ contract ContractTest is Test {
 
     ) = orderPlatform.buyOrderByToken(address(pToken), 0);
     require(amountr == rentAmount, "Amount err");
+    console.log(addr1);
+    console.log(buyerr);
     require(buyerr == addr1, "Buyer problem");
     require(pricer == price, "Buyer problem");
-    if (fee > 0) require(feer == (price * fee) / amount);
-    // orderPlatform.sell(address(pToken), uint64(0), max, v, r, s);
+    if (fee > 0) require(feer == (price * fee) / 1000, "fee problems");
+    orderPlatform.sell(address(pToken), uint64(0), max, v, r, s);
 
     vm.stopPrank();
     //CONTRACT
