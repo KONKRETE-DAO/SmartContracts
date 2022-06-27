@@ -99,7 +99,8 @@ contract ContractTest is Test {
     //CONTRACT
     orderPlatform1.withdrawFee(address(dollar));
 
-    require((price / 1000) * fee == dollar.balanceOf(feePot), "FeeProblem");
+    console.log(uint64(block.chainid));
+    require(((price * fee) / 1000) == dollar.balanceOf(feePot), "FeeProblem");
   }
 
   function testOTCbuyOrder(
@@ -107,7 +108,7 @@ contract ContractTest is Test {
     uint256 price,
     uint16 fee
   ) public {
-    console.log(uint64(block.timestamp));
+    console.log(block.chainid);
     vm.assume(fee < 1000);
     vm.assume(amount / 10 < (pToken.MAX_SUPPLY() / 1000) * 30);
     vm.assume(amount > 1000);
