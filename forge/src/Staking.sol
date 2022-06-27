@@ -68,6 +68,7 @@ contract KonkretStaking is ERC20, Ownable, ReentrancyGuard {
     IPropertyToken(tokenToStakeBuff).transferToWithPermission(
       msg.sender,
       address(this),
+      address(this),
       _amount,
       deadline,
       v,

@@ -901,8 +901,8 @@
       }
     },
     "src/OTC.sol": {
-      "lastModificationDate": 1655998685841,
-      "contentHash": "68163d7c70368b401562dd0f54190b72",
+      "lastModificationDate": 1656325915285,
+      "contentHash": "835a12af59185a35e6205e49e0cbadc2",
       "sourceName": "src/OTC.sol",
       "solcConfig": {
         "settings": {
@@ -947,8 +947,8 @@
       }
     },
     "src/PropertyToken.sol": {
-      "lastModificationDate": 1655912331024,
-      "contentHash": "e3f33d848857ff949b84357ce2588162",
+      "lastModificationDate": 1656323201718,
+      "contentHash": "fbede1c9521629d97f252078d1df8ee0",
       "sourceName": "src/PropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -997,8 +997,8 @@
       }
     },
     "src/Staking.sol": {
-      "lastModificationDate": 1655975953396,
-      "contentHash": "0a88490a239b7d3333c59ca6293cae00",
+      "lastModificationDate": 1656323341313,
+      "contentHash": "eecdb96750d3442dd7e8063b2603d9d5",
       "sourceName": "src/Staking.sol",
       "solcConfig": {
         "settings": {
@@ -1129,8 +1129,8 @@
       }
     },
     "src/interface/IOTC.Sol": {
-      "lastModificationDate": 1655998582154,
-      "contentHash": "3f7e92ce0fa934aea953599a246bc086",
+      "lastModificationDate": 1656003309346,
+      "contentHash": "9f61560cf71037aad8712f8fc9130a5e",
       "sourceName": "src/interface/IOTC.Sol",
       "solcConfig": {
         "settings": {
@@ -1169,8 +1169,8 @@
       }
     },
     "src/interface/IPropertyToken.sol": {
-      "lastModificationDate": 1655904711353,
-      "contentHash": "a3ef77d5b93c29895dd6412e2d5d23bc",
+      "lastModificationDate": 1656323206965,
+      "contentHash": "be59a41c74de8398ea2d4d6330705d79",
       "sourceName": "src/interface/IPropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -1288,8 +1288,8 @@
       }
     },
     "test/Contract.t.sol": {
-      "lastModificationDate": 1655998702506,
-      "contentHash": "152d1881ce8ecaa662454a561a26745b",
+      "lastModificationDate": 1656364536648,
+      "contentHash": "7e2bb8f8cb41354f5d4d37fe663a5d75",
       "sourceName": "test/Contract.t.sol",
       "solcConfig": {
         "settings": {

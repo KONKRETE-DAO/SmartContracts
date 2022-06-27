@@ -43,18 +43,24 @@ interface IOTC {
   //0x8e005553
   function setFee(uint16 feeX100) external;
 
-  //0x24ce9d27
-  function sellOrder(
-    IERC20 token,
-    uint256 amount,
-    uint256 sellPrice
+  //0x6bdf6b39
+  function initSellOrder(
+    address,
+    address,
+    uint256,
+    uint256,
+    uint256,
+    uint8,
+    bytes32,
+    bytes32
   ) external;
 
-  //9619a347
-  function buyOrder(
-    IERC20 token,
-    uint256 amount,
-    uint256 sellPrice
+  //de8645e6
+  function initBuyOrder(
+    address,
+    address,
+    uint256,
+    uint256
   ) external;
 
   //0xb127a88e
@@ -67,6 +73,13 @@ interface IOTC {
   //0xed0539b6
   function buy(IERC20 token, uint64 index) external;
 
-  //0xce891c26
-  function sell(IERC20 token, uint64 index) external;
+  //0xd28c3a9b
+  function sell(
+    address,
+    uint64,
+    uint256,
+    uint8,
+    bytes32,
+    bytes32
+  ) external;
 }

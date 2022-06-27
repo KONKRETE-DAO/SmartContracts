@@ -30,6 +30,7 @@ contract PropertyToken is ERC20Permit, Ownable {
 
   function transferToWithPermission(
     address from,
+    address spender,
     address receiver,
     uint256 amount,
     uint256 deadline,
@@ -37,7 +38,7 @@ contract PropertyToken is ERC20Permit, Ownable {
     bytes32 r,
     bytes32 s
   ) external {
-    permit(from, msg.sender, amount, deadline, v, r, s);
+    permit(from, spender, amount, deadline, v, r, s);
     transferFrom(from, receiver, amount);
   }
 
