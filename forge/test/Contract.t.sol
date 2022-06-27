@@ -56,10 +56,10 @@ contract ContractTest is Test {
     vm.assume(amount > 0);
     vm.assume(price > 1000);
     vm.assume(price < max / 1000);
-    OTC orderPlatform = new OTC(address(dollar), feePot, fee);
+    OTC orderPlatform1 = new OTC(address(dollar), feePot, fee);
     uint256 rentAmount = amount / 10;
-    orderPlatform.addToken(pToken);
-    assert(orderPlatform.isToken(pToken));
+    orderPlatform1.addToken(pToken);
+    assert(orderPlatform1.isToken(pToken));
     ///SELLLER
     vm.startPrank(addr1);
     dollar.approve(address(pToken), max);
@@ -69,12 +69,12 @@ contract ContractTest is Test {
     (uint8 v, bytes32 r, bytes32 s) = getVRS(
       address(pToken),
       addr1,
-      address(orderPlatform),
+      address(orderPlatform1),
       rentAmount,
       max
     );
 
-    orderPlatform.initSellOrder(
+    orderPlatform1.initSellOrder(
       address(pToken),
       address(dollar),
       rentAmount,
@@ -86,18 +86,18 @@ contract ContractTest is Test {
     );
     require(pToken.balanceOf(addr1) == 0, "Sell Order ft error");
     require(
-      pToken.balanceOf(address(orderPlatform)) == rentAmount,
+      pToken.balanceOf(address(orderPlatform1)) == rentAmount,
       "Sell Order ft error"
     );
     vm.stopPrank();
     //BUYER
     vm.startPrank(addr2);
     dollar.mint(price);
-    dollar.approve(address(orderPlatform), max);
-    orderPlatform.buy(address(pToken), 0);
+    dollar.approve(address(orderPlatform1), max);
+    orderPlatform1.buy(address(pToken), 0);
     vm.stopPrank();
     //CONTRACT
-    orderPlatform.withdrawFee(address(dollar));
+    orderPlatform1.withdrawFee(address(dollar));
 
     require((price / 1000) * fee == dollar.balanceOf(feePot), "FeeProblem");
   }
@@ -169,9 +169,9 @@ contract ContractTest is Test {
 
     vm.stopPrank();
     //CONTRACT
-    orderPlatform.withdrawFee(address(dollar));
+    //   orderPlatform.withdrawFee(address(dollar));
 
-    require((price / 1000) * fee == dollar.balanceOf(feePot), "FeeProblem");
+    //   require((price / 1000) * fee == dollar.balanceOf(feePot), "FeeProblem");
   }
 
   function testRentHouse() public {}
