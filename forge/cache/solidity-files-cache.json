@@ -1288,8 +1288,8 @@
       }
     },
     "test/Contract.t.sol": {
-      "lastModificationDate": 1656367153723,
-      "contentHash": "71a24f76d62ef8ca989f4ea00719a8c2",
+      "lastModificationDate": 1656367227616,
+      "contentHash": "167cda1941c2564ff9f849273061515f",
       "sourceName": "test/Contract.t.sol",
       "solcConfig": {
         "settings": {
