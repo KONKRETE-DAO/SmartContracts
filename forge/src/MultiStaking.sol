@@ -69,12 +69,12 @@ contract KonkretStaking is IERC20, Ownable, ReentrancyGuard {
       r,
       s
     );
-
+    tokenInfo memory tokenStakersBuffer = infoForToken[token].stakers;
     stakeInfo memory stakeBuffer = stakeOfTokenByOwner[token][msg.sender];
 
     if (stakeBuffer.rank == 0) {
-      stakers.push(msg.sender);
-      stakeBuffer.rank = uint64(stakers.length);
+      tokenStakersBuffer.push(msg.sender);
+      stakeBuffer.rank = uint64(tokenStakersBuffer.length);
     }
 
     uint256 newTimeStamp = block.timestamp;
@@ -92,6 +92,13 @@ contract KonkretStaking is IERC20, Ownable, ReentrancyGuard {
     stakeOfTokenByOwner[token][msg.sender] = stakeBuffer;
 
     emit Staked(msg.sender, _amount, newTimeStamp);
+  }
+
+  function resetClaimableReward(address token, address staker)
+    external
+    onlyTreasury(token)
+  {
+    stakeOfTokenByOwner[token][staker].claimableReward = 0;
   }
 
   function unStake(uint256 _amount) external nonReentrant {

@@ -2,12 +2,12 @@
 pragma solidity ^0.8.12;
 
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./interface/IPropertyToken.sol";
 import "./interface/IStaking.sol";
 
-contract KonkretStaking is ERC20, Ownable, ReentrancyGuard {
+contract KonkretStaking is Ownable, ReentrancyGuard {
   event MonthRentRewardArrived(uint256 rentAmount);
   event Staked(address who, uint256 amount, uint256 timeStamp);
   event unStaked(address who, uint256 amount, uint256 timeStamp);
@@ -23,17 +23,13 @@ contract KonkretStaking is ERC20, Ownable, ReentrancyGuard {
   uint256 public monthTimeStamp;
 
   constructor(
-    string memory protoSymbol,
     address _tokenToStake,
     address _currencyUsedToPay,
     address _treasury
-  ) ERC20("stakedKonkreteToken", protoSymbol) {
+  ) {
     TOKEN_TO_STAKE = IPropertyToken(_tokenToStake);
-
     TOKEN_TO_STAKE_MAX_SUPPLY = IPropertyToken(_tokenToStake).MAX_SUPPLY();
-
     currency = IERC20(_currencyUsedToPay);
-
     treasury = _treasury;
   }
 

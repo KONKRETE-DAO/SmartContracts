@@ -42,6 +42,8 @@ interface IStaking {
     external
     returns (uint256);
 
+  function resetClaimableReward(address token, address staker) external;
+
   //0xb88a802f
   function claimReward() external;
 }
