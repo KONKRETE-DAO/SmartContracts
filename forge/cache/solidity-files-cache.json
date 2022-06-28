@@ -901,8 +901,8 @@
       }
     },
     "src/OTC.sol": {
-      "lastModificationDate": 1656366995960,
-      "contentHash": "68ce802a43dbe6430ef2e0262c9fee1a",
+      "lastModificationDate": 1656406909395,
+      "contentHash": "a3adb1761c44dc708af56ccf70a0677f",
       "sourceName": "src/OTC.sol",
       "solcConfig": {
         "settings": {
@@ -947,8 +947,8 @@
       }
     },
     "src/PropertyToken.sol": {
-      "lastModificationDate": 1656323201718,
-      "contentHash": "fbede1c9521629d97f252078d1df8ee0",
+      "lastModificationDate": 1656406086214,
+      "contentHash": "e3f33d848857ff949b84357ce2588162",
       "sourceName": "src/PropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -997,8 +997,8 @@
       }
     },
     "src/Staking.sol": {
-      "lastModificationDate": 1656323341313,
-      "contentHash": "eecdb96750d3442dd7e8063b2603d9d5",
+      "lastModificationDate": 1656406122914,
+      "contentHash": "0a88490a239b7d3333c59ca6293cae00",
       "sourceName": "src/Staking.sol",
       "solcConfig": {
         "settings": {
@@ -1169,8 +1169,8 @@
       }
     },
     "src/interface/IPropertyToken.sol": {
-      "lastModificationDate": 1656323206965,
-      "contentHash": "be59a41c74de8398ea2d4d6330705d79",
+      "lastModificationDate": 1656406212015,
+      "contentHash": "a3ef77d5b93c29895dd6412e2d5d23bc",
       "sourceName": "src/interface/IPropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -1288,8 +1288,8 @@
       }
     },
     "test/Contract.t.sol": {
-      "lastModificationDate": 1656367227616,
-      "contentHash": "167cda1941c2564ff9f849273061515f",
+      "lastModificationDate": 1656407292832,
+      "contentHash": "c63b1710e32342ec9d10aa2c731d8d75",
       "sourceName": "test/Contract.t.sol",
       "solcConfig": {
         "settings": {

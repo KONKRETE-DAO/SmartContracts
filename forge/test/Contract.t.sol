@@ -71,7 +71,8 @@ contract ContractTest is Test {
       addr1,
       address(orderPlatform1),
       rentAmount,
-      max
+      max,
+      1
     );
 
     orderPlatform1.initSellOrder(
@@ -147,9 +148,10 @@ contract ContractTest is Test {
       addr2,
       address(orderPlatform),
       rentAmount,
-      max
+      max,
+      2
     );
-    pToken.approve(address(orderPlatform), rentAmount);
+    // pToken.approve(address(orderPlatform), rentAmount);
     (
       ,
       ,
@@ -163,6 +165,7 @@ contract ContractTest is Test {
 
     ) = orderPlatform.buyOrderByToken(address(pToken), 0);
     require(amountr == rentAmount, "Amount err");
+    require(indexr == 0, "Index err");
     console.log(addr1);
     console.log(buyerr);
     require(buyerr == addr1, "Buyer problem");
@@ -184,7 +187,8 @@ contract ContractTest is Test {
     address owner,
     address spender,
     uint256 amount,
-    uint256 dl
+    uint256 dl,
+    uint256 priv_key
   )
     internal
     returns (
@@ -217,6 +221,6 @@ contract ContractTest is Test {
 
     bytes32 hashed = ECDSA.toTypedDataHash(newDomainSeparator, structHash);
 
-    return (vm.sign(1, hashed));
+    return (vm.sign(priv_key, hashed));
   }
 }

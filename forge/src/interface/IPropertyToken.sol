@@ -16,7 +16,6 @@ interface IPropertyToken is IERC20, IERC20Permit {
   //0x4320efc0
   function transferToWithPermission(
     address from,
-    address spender,
     address receiver,
     uint256 amount,
     uint256 deadline,

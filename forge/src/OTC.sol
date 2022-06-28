@@ -99,7 +99,6 @@ contract OTC is Ownable, ReentrancyGuard {
     IPropertyToken(token).transferToWithPermission(
       msg.sender,
       address(this),
-      address(this),
       amount,
       deadline,
       v,
@@ -156,9 +155,9 @@ contract OTC is Ownable, ReentrancyGuard {
     require(isToken(IERC20(token)), "Token Not Registered");
     currencyInfos memory bufferCurrency = currencyByLink[currencyWanted];
     require(bufferCurrency.exist, "Currency not tolerated");
-    uint256 fee = feeCalculation(sellPrice, bufferCurrency.feeX10);
     IERC20(currencyWanted).transferFrom(msg.sender, address(this), sellPrice); // Erreur prise en compte
     uint64 index = uint64(buyOrderByToken[token].length);
+    uint256 fee = feeCalculation(sellPrice, bufferCurrency.feeX10);
     buyOrderByToken[token].push(
       orderInfo(
         true,
@@ -247,21 +246,15 @@ contract OTC is Ownable, ReentrancyGuard {
     buyOrder.seller = msg.sender;
     buyOrder.propositionAccepted = true;
     buyOrder.open = false;
-    // IPropertyToken(token).transferToWithPermission(
-    //   msg.sender,
-    //   address(this),
-    //   buyOrder.buyer,
-    //   buyOrder.amount,
-    //   deadline,
-    //   v,
-    //   r,
-    //   s
-    // );
-    // IPropertyToken(token).transferFrom(
-    //   msg.sender,
-    //   buyOrder.buyer,
-    //   buyOrder.amount
-    // );
+    IPropertyToken(token).transferToWithPermission(
+      msg.sender,
+      buyOrder.buyer,
+      buyOrder.amount,
+      deadline,
+      v,
+      r,
+      s
+    );
     buyOrder.currency.transfer(msg.sender, buyOrder.price - buyOrder.fee);
     currencyByLink[address(buyOrder.currency)].feePot += buyOrder.fee;
     buyOrderByToken[token][index] = buyOrder;
