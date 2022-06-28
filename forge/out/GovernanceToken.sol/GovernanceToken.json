@@ -10,10 +10,10 @@
   },
   "ast": {
     "absolutePath": "src/GovernanceToken.sol",
-    "id": 22893,
+    "id": 22854,
     "exportedSymbols": {},
     "nodeType": "SourceUnit",
-    "src": "0:0:21"
+    "src": "0:0:20"
   },
-  "id": 21
+  "id": 20
 }

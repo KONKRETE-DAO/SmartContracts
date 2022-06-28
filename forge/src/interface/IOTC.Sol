@@ -2,7 +2,7 @@
 pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-struct orderInfo {
+struct OrderInfo {
   bool open;
   bool propositionAccepted;
   uint64 index;
@@ -14,7 +14,7 @@ struct orderInfo {
   uint256 amount;
   IERC20 currency;
 }
-struct currencyInfos {
+struct CurrencyInfos {
   bool exist;
   uint16 feeX10;
   uint256 feePot; // maaybe
@@ -22,15 +22,16 @@ struct currencyInfos {
 
 interface IOTC {
   //Variables
+
   function tokenList() external returns (IERC20[] calldata);
 
   function sellOrderByToken(IERC20 token)
     external
-    returns (orderInfo[] calldata);
+    returns (OrderInfo[] calldata);
 
   function buyOrderByToken(IERC20 token)
     external
-    returns (orderInfo[] calldata);
+    returns (OrderInfo[] calldata);
 
   function currencyUsed() external returns (IERC20);
 
@@ -42,6 +43,11 @@ interface IOTC {
 
   //0x8e005553
   function setFee(uint16 feeX100) external;
+
+  function currencyInfosByAddress(address address_)
+    external
+    view
+    returns (CurrencyInfos memory);
 
   //0x6bdf6b39
   function initSellOrder(

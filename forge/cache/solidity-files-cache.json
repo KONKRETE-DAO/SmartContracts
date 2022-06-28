@@ -900,9 +900,55 @@
         }
       }
     },
+    "src/MultiStaking.sol": {
+      "lastModificationDate": 1656420487630,
+      "contentHash": "9c48b48f267b95c6b1a09f6ebabaef40",
+      "sourceName": "src/MultiStaking.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "src/interface/IPropertyToken.sol",
+        "src/interface/IStaking.sol"
+      ],
+      "versionRequirement": "^0.8.12",
+      "artifacts": {
+        "KonkretStaking": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "MultiStaking.sol/KonkretStaking.json"
+        }
+      }
+    },
     "src/OTC.sol": {
-      "lastModificationDate": 1656406909395,
-      "contentHash": "a3adb1761c44dc708af56ccf70a0677f",
+      "lastModificationDate": 1656425353514,
+      "contentHash": "313fe95397967886f9365f8cd90747ff",
       "sourceName": "src/OTC.sol",
       "solcConfig": {
         "settings": {
@@ -997,8 +1043,8 @@
       }
     },
     "src/Staking.sol": {
-      "lastModificationDate": 1656406122914,
-      "contentHash": "0a88490a239b7d3333c59ca6293cae00",
+      "lastModificationDate": 1656420253470,
+      "contentHash": "8ca53afdf53010e77653277f85575d4f",
       "sourceName": "src/Staking.sol",
       "solcConfig": {
         "settings": {
@@ -1029,9 +1075,7 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "src/interface/IPropertyToken.sol",
@@ -1045,8 +1089,8 @@
       }
     },
     "src/Treasury.sol": {
-      "lastModificationDate": 1655910768626,
-      "contentHash": "514b947d5e6b2100df4cf1525fb5bb4f",
+      "lastModificationDate": 1656412129018,
+      "contentHash": "cb88e88349b57245fde9954a0f5380df",
       "sourceName": "src/Treasury.sol",
       "solcConfig": {
         "settings": {
@@ -1129,8 +1173,8 @@
       }
     },
     "src/interface/IOTC.Sol": {
-      "lastModificationDate": 1656003309346,
-      "contentHash": "9f61560cf71037aad8712f8fc9130a5e",
+      "lastModificationDate": 1656423693751,
+      "contentHash": "2b2f6ffb68be9625294afc573d07a688",
       "sourceName": "src/interface/IOTC.Sol",
       "solcConfig": {
         "settings": {
@@ -1169,8 +1213,8 @@
       }
     },
     "src/interface/IPropertyToken.sol": {
-      "lastModificationDate": 1656406212015,
-      "contentHash": "a3ef77d5b93c29895dd6412e2d5d23bc",
+      "lastModificationDate": 1656420027316,
+      "contentHash": "c68f90e4eb79bdba4f76eb47641facdd",
       "sourceName": "src/interface/IPropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -1210,8 +1254,8 @@
       }
     },
     "src/interface/IStaking.sol": {
-      "lastModificationDate": 1655905125051,
-      "contentHash": "debb41b55246acfe4fd2734ced8899de",
+      "lastModificationDate": 1656420308128,
+      "contentHash": "63897198150b38c5a25515e7b2b834a0",
       "sourceName": "src/interface/IStaking.sol",
       "solcConfig": {
         "settings": {
@@ -1288,8 +1332,8 @@
       }
     },
     "test/Contract.t.sol": {
-      "lastModificationDate": 1656407292832,
-      "contentHash": "c63b1710e32342ec9d10aa2c731d8d75",
+      "lastModificationDate": 1656425392791,
+      "contentHash": "31272c3d34277973317cfe932a417b2a",
       "sourceName": "test/Contract.t.sol",
       "solcConfig": {
         "settings": {

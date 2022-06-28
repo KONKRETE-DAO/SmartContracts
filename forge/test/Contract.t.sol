@@ -51,15 +51,14 @@ contract ContractTest is Test {
     uint256 price,
     uint16 fee
   ) public {
-    vm.assume(fee < 1000);
-    vm.assume(amount / 10 < (pToken.MAX_SUPPLY() / 1000) * 30);
-    vm.assume(amount > 0);
+    vm.assume(fee < 500);
+    vm.assume(amount / 10 < (pToken.MAX_SUPPLY() / 1000) * 30); // Sinon bought too much token
     vm.assume(price > 1000);
     vm.assume(price < max / 1000);
-    OTC orderPlatform1 = new OTC(address(dollar), feePot, fee);
+    OTC orderPlatform = new OTC(address(dollar), feePot, fee);
     uint256 rentAmount = amount / 10;
-    orderPlatform1.addToken(pToken);
-    assert(orderPlatform1.isToken(pToken));
+    orderPlatform.addToken(pToken);
+    assert(orderPlatform.isToken(pToken));
     ///SELLLER
     vm.startPrank(addr1);
     dollar.approve(address(pToken), max);
@@ -69,13 +68,17 @@ contract ContractTest is Test {
     (uint8 v, bytes32 r, bytes32 s) = getVRS(
       address(pToken),
       addr1,
-      address(orderPlatform1),
+      address(orderPlatform),
       rentAmount,
       max,
       1
     );
+    (bool exist, uint16 feex10r, uint256 feePotr) = orderPlatform
+      .currencyInfosByAddress(address(dollar));
+    require(exist, "Init problem currency doesn't exist");
+    require(feex10r == fee, "Init fee problem");
 
-    orderPlatform1.initSellOrder(
+    orderPlatform.initSellOrder(
       address(pToken),
       address(dollar),
       rentAmount,
@@ -87,20 +90,21 @@ contract ContractTest is Test {
     );
     require(pToken.balanceOf(addr1) == 0, "Sell Order ft error");
     require(
-      pToken.balanceOf(address(orderPlatform1)) == rentAmount,
+      pToken.balanceOf(address(orderPlatform)) == rentAmount,
       "Sell Order ft error"
     );
     vm.stopPrank();
     //BUYER
     vm.startPrank(addr2);
     dollar.mint(price);
-    dollar.approve(address(orderPlatform1), max);
-    orderPlatform1.buy(address(pToken), 0);
+    dollar.approve(address(orderPlatform), max);
+    orderPlatform.buy(address(pToken), 0);
     vm.stopPrank();
     //CONTRACT
-    orderPlatform1.withdrawFee(address(dollar));
+    orderPlatform.withdrawFee(address(dollar));
 
-    console.log(uint64(block.chainid));
+    console.log(dollar.balanceOf(feePot));
+    console.log(((price * fee) / 1000));
     require(((price * fee) / 1000) == dollar.balanceOf(feePot), "FeeProblem");
   }
 
@@ -109,12 +113,12 @@ contract ContractTest is Test {
     uint256 price,
     uint16 fee
   ) public {
-    console.log(block.chainid);
-    vm.assume(fee < 1000);
-    vm.assume(amount / 10 < (pToken.MAX_SUPPLY() / 1000) * 30);
-    vm.assume(amount > 1000);
+    /// TestTHINGS
+    vm.assume(fee < 500);
+    vm.assume(amount / 10 < (pToken.MAX_SUPPLY() / 1000) * 30); // Sinon bought too much token
     vm.assume(price > 1000);
     vm.assume(price < max / 1000);
+    /// Begin
     OTC orderPlatform = new OTC(address(dollar), feePot, fee);
     uint256 rentAmount = amount / 10;
     orderPlatform.addToken(pToken);
@@ -151,33 +155,13 @@ contract ContractTest is Test {
       max,
       2
     );
-    // pToken.approve(address(orderPlatform), rentAmount);
-    (
-      ,
-      ,
-      uint64 indexr,
-      ,
-      ,
-      address buyerr,
-      uint256 feer,
-      uint256 pricer,
-      uint256 amountr,
-
-    ) = orderPlatform.buyOrderByToken(address(pToken), 0);
-    require(amountr == rentAmount, "Amount err");
-    require(indexr == 0, "Index err");
-    console.log(addr1);
-    console.log(buyerr);
-    require(buyerr == addr1, "Buyer problem");
-    require(pricer == price, "Buyer problem");
-    if (fee > 0) require(feer == (price * fee) / 1000, "fee problems");
     orderPlatform.sell(address(pToken), uint64(0), max, v, r, s);
 
     vm.stopPrank();
-    //CONTRACT
-    //   orderPlatform.withdrawFee(address(dollar));
 
-    //   require((price / 1000) * fee == dollar.balanceOf(feePot), "FeeProblem");
+    orderPlatform.withdrawFee(address(dollar));
+
+    require((price * fee) / 1000 == dollar.balanceOf(feePot), "FeeProblem");
   }
 
   function testRentHouse() public {}

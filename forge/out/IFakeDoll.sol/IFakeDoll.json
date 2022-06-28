@@ -218,22 +218,22 @@
   },
   "ast": {
     "absolutePath": "src/interface/IFakeDoll.sol",
-    "id": 24593,
+    "id": 25245,
     "exportedSymbols": {
       "IERC20": [
         21707
       ],
       "IFakeDoll": [
-        24592
+        25244
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "37:173:26",
+    "src": "37:173:27",
     "nodes": [
       {
-        "id": 24583,
+        "id": 25235,
         "nodeType": "PragmaDirective",
-        "src": "37:23:26",
+        "src": "37:23:27",
         "literals": [
           "solidity",
           "^",
@@ -242,45 +242,45 @@
         ]
       },
       {
-        "id": 24584,
+        "id": 25236,
         "nodeType": "ImportDirective",
-        "src": "61:56:26",
+        "src": "61:56:27",
         "absolutePath": "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 24593,
+        "scope": 25245,
         "sourceUnit": 21708,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 24592,
+        "id": 25244,
         "nodeType": "ContractDefinition",
-        "src": "119:90:26",
+        "src": "119:90:27",
         "nodes": [
           {
-            "id": 24591,
+            "id": 25243,
             "nodeType": "FunctionDefinition",
-            "src": "172:35:26",
+            "src": "172:35:27",
             "functionSelector": "a0712d68",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
-            "nameLocation": "181:4:26",
+            "nameLocation": "181:4:27",
             "parameters": {
-              "id": 24589,
+              "id": 25241,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 24588,
+                  "id": 25240,
                   "mutability": "mutable",
                   "name": "nb",
-                  "nameLocation": "194:2:26",
+                  "nameLocation": "194:2:27",
                   "nodeType": "VariableDeclaration",
-                  "scope": 24591,
-                  "src": "186:10:26",
+                  "scope": 25243,
+                  "src": "186:10:27",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -288,10 +288,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 24587,
+                    "id": 25239,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "186:7:26",
+                    "src": "186:7:27",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -300,15 +300,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "185:12:26"
+              "src": "185:12:27"
             },
             "returnParameters": {
-              "id": 24590,
+              "id": 25242,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "206:0:26"
+              "src": "206:0:27"
             },
-            "scope": 24592,
+            "scope": 25244,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -318,15 +318,15 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 24585,
+              "id": 25237,
               "name": "IERC20",
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 21707,
-              "src": "142:6:26"
+              "src": "142:6:27"
             },
-            "id": 24586,
+            "id": 25238,
             "nodeType": "InheritanceSpecifier",
-            "src": "142:6:26"
+            "src": "142:6:27"
           }
         ],
         "canonicalName": "IFakeDoll",
@@ -334,16 +334,16 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          24592,
+          25244,
           21707
         ],
         "name": "IFakeDoll",
-        "nameLocation": "129:9:26",
-        "scope": 24593,
+        "nameLocation": "129:9:27",
+        "scope": 25245,
         "usedErrors": []
       }
     ],
     "license": "Unlicense"
   },
-  "id": 26
+  "id": 27
 }

@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-struct stakeInfo {
+struct StakeInfo {
   bool exist;
   uint64 rank;
   uint64 lastTimeStamp;
@@ -12,7 +12,7 @@ struct stakeInfo {
   uint256 claimableReward;
 }
 
-struct tokenInfo {
+struct TokenInfo {
   bool exist;
   string symbol;
   address treasury;

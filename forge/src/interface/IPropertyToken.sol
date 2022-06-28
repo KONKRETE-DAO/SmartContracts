@@ -13,6 +13,8 @@ interface IPropertyToken is IERC20, IERC20Permit {
   //0x3ccfd60b
   function withdraw() external;
 
+  function decimals() external returns (uint256);
+
   //0x4320efc0
   function transferToWithPermission(
     address from,
