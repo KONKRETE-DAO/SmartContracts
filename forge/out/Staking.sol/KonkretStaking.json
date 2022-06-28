@@ -310,7 +310,7 @@
           "type": "address"
         }
       ],
-      "name": "getStakeInfo",
+      "name": "getStakeInfos",
       "outputs": [
         {
           "components": [
@@ -340,7 +340,7 @@
               "type": "uint256"
             }
           ],
-          "internalType": "struct stakeInfo",
+          "internalType": "struct StakeInfos",
           "name": "",
           "type": "tuple"
         }
@@ -696,7 +696,7 @@
     "claimReward()": "b88a802f",
     "decimals()": "313ce567",
     "decreaseAllowance(address,uint256)": "a457c2d7",
-    "getStakeInfo(address)": "c3453153",
+    "getStakeInfos(address)": "c3453153",
     "increaseAllowance(address,uint256)": "39509351",
     "monthTimeStamp()": "a239882a",
     "name()": "06fdde03",
@@ -717,39 +717,17 @@
     "absolutePath": "src/Staking.sol",
     "id": 24522,
     "exportedSymbols": {
-      "Context": [
-        21962
-      ],
-      "ERC20": [
-        21629
-      ],
-      "IERC20": [
-        21707
-      ],
-      "IERC20Metadata": [
-        21732
-      ],
-      "IERC20Permit": [
-        21940
-      ],
-      "IPropertyToken": [
-        24708
-      ],
-      "IStaking": [
-        24761
-      ],
-      "KonkretStaking": [
-        24521
-      ],
-      "Ownable": [
-        21003
-      ],
-      "ReentrancyGuard": [
-        21043
-      ],
-      "stakeInfo": [
-        24722
-      ]
+      "Context": [21962],
+      "ERC20": [21629],
+      "IERC20": [21707],
+      "IERC20Metadata": [21732],
+      "IERC20Permit": [21940],
+      "IPropertyToken": [24708],
+      "IStaking": [24761],
+      "KonkretStaking": [24521],
+      "Ownable": [21003],
+      "ReentrancyGuard": [21043],
+      "StakeInfos": [24722]
     },
     "nodeType": "SourceUnit",
     "src": "37:4957:21",
@@ -758,12 +736,7 @@
         "id": 23979,
         "nodeType": "PragmaDirective",
         "src": "37:24:21",
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".12"
-        ]
+        "literals": ["solidity", "^", "0.8", ".12"]
       },
       {
         "id": 23980,
@@ -1089,8 +1062,8 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-              "typeString": "mapping(address => struct stakeInfo)"
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+              "typeString": "mapping(address => struct StakeInfos)"
             },
             "typeName": {
               "id": 24014,
@@ -1107,15 +1080,15 @@
               "nodeType": "Mapping",
               "src": "558:29:21",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                "typeString": "mapping(address => struct stakeInfo)"
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                "typeString": "mapping(address => struct StakeInfos)"
               },
               "valueType": {
                 "id": 24013,
                 "nodeType": "UserDefinedTypeName",
                 "pathNode": {
                   "id": 24012,
-                  "name": "stakeInfo",
+                  "name": "StakeInfos",
                   "nodeType": "IdentifierPath",
                   "referencedDeclaration": 24722,
                   "src": "577:9:21"
@@ -1123,8 +1096,8 @@
                 "referencedDeclaration": 24722,
                 "src": "577:9:21",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_stakeInfo_$24722_storage_ptr",
-                  "typeString": "struct stakeInfo"
+                  "typeIdentifier": "t_struct$_StakeInfos_$24722_storage_ptr",
+                  "typeString": "struct StakeInfos"
                 }
               }
             },
@@ -1902,10 +1875,7 @@
                       "id": 24072,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "1248:7:21",
                       "typeDescriptions": {
@@ -1960,9 +1930,7 @@
               "src": "1437:80:21",
               "statements": [
                 {
-                  "assignments": [
-                    24093
-                  ],
+                  "assignments": [24093],
                   "declarations": [
                     {
                       "constant": false,
@@ -2376,9 +2344,7 @@
               "src": "1740:769:21",
               "statements": [
                 {
-                  "assignments": [
-                    24134
-                  ],
+                  "assignments": [24134],
                   "declarations": [
                     {
                       "constant": false,
@@ -2690,9 +2656,7 @@
                   "src": "1801:160:21"
                 },
                 {
-                  "assignments": [
-                    24156
-                  ],
+                  "assignments": [24156],
                   "declarations": [
                     {
                       "constant": false,
@@ -2706,15 +2670,15 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                        "typeString": "struct stakeInfo"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                        "typeString": "struct StakeInfos"
                       },
                       "typeName": {
                         "id": 24155,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
                           "id": 24154,
-                          "name": "stakeInfo",
+                          "name": "StakeInfos",
                           "nodeType": "IdentifierPath",
                           "referencedDeclaration": 24722,
                           "src": "1968:9:21"
@@ -2722,8 +2686,8 @@
                         "referencedDeclaration": 24722,
                         "src": "1968:9:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_storage_ptr",
-                          "typeString": "struct stakeInfo"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_storage_ptr",
+                          "typeString": "struct StakeInfos"
                         }
                       },
                       "visibility": "internal"
@@ -2739,8 +2703,8 @@
                       "referencedDeclaration": 24015,
                       "src": "1998:12:21",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                        "typeString": "mapping(address => struct stakeInfo storage ref)"
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                        "typeString": "mapping(address => struct StakeInfos storage ref)"
                       }
                     },
                     "id": 24160,
@@ -2777,8 +2741,8 @@
                     "nodeType": "IndexAccess",
                     "src": "1998:24:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                      "typeString": "struct stakeInfo storage ref"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                      "typeString": "struct StakeInfos storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
@@ -2804,8 +2768,8 @@
                         "referencedDeclaration": 24156,
                         "src": "2033:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24163,
@@ -2951,8 +2915,8 @@
                               "referencedDeclaration": 24156,
                               "src": "2095:10:21",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                                "typeString": "struct stakeInfo memory"
+                                "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                                "typeString": "struct StakeInfos memory"
                               }
                             },
                             "id": 24175,
@@ -3055,9 +3019,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    24186
-                  ],
+                  "assignments": [24186],
                   "declarations": [
                     {
                       "constant": false,
@@ -3133,8 +3095,8 @@
                         "referencedDeclaration": 24156,
                         "src": "2193:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24192,
@@ -3164,8 +3126,8 @@
                             "referencedDeclaration": 24156,
                             "src": "2243:10:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                              "typeString": "struct stakeInfo memory"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                              "typeString": "struct StakeInfos memory"
                             }
                           },
                           "id": 24195,
@@ -3191,8 +3153,8 @@
                             "referencedDeclaration": 24156,
                             "src": "2268:10:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                              "typeString": "struct stakeInfo memory"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                              "typeString": "struct StakeInfos memory"
                             }
                           },
                           "id": 24197,
@@ -3289,8 +3251,8 @@
                         "referencedDeclaration": 24156,
                         "src": "2325:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24204,
@@ -3391,8 +3353,8 @@
                         "referencedDeclaration": 24156,
                         "src": "2379:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24213,
@@ -3449,8 +3411,8 @@
                         "referencedDeclaration": 24015,
                         "src": "2414:12:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                          "typeString": "mapping(address => struct stakeInfo storage ref)"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                          "typeString": "mapping(address => struct StakeInfos storage ref)"
                         }
                       },
                       "id": 24220,
@@ -3487,8 +3449,8 @@
                       "nodeType": "IndexAccess",
                       "src": "2414:24:21",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                        "typeString": "struct stakeInfo storage ref"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                        "typeString": "struct StakeInfos storage ref"
                       }
                     },
                     "nodeType": "Assignment",
@@ -3501,14 +3463,14 @@
                       "referencedDeclaration": 24156,
                       "src": "2441:10:21",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                        "typeString": "struct stakeInfo memory"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                        "typeString": "struct StakeInfos memory"
                       }
                     },
                     "src": "2414:37:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                      "typeString": "struct stakeInfo storage ref"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                      "typeString": "struct StakeInfos storage ref"
                     }
                   },
                   "id": 24223,
@@ -3799,9 +3761,7 @@
               "src": "2569:561:21",
               "statements": [
                 {
-                  "assignments": [
-                    24241
-                  ],
+                  "assignments": [24241],
                   "declarations": [
                     {
                       "constant": false,
@@ -3815,15 +3775,15 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                        "typeString": "struct stakeInfo"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                        "typeString": "struct StakeInfos"
                       },
                       "typeName": {
                         "id": 24240,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
                           "id": 24239,
-                          "name": "stakeInfo",
+                          "name": "StakeInfos",
                           "nodeType": "IdentifierPath",
                           "referencedDeclaration": 24722,
                           "src": "2575:9:21"
@@ -3831,8 +3791,8 @@
                         "referencedDeclaration": 24722,
                         "src": "2575:9:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_storage_ptr",
-                          "typeString": "struct stakeInfo"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_storage_ptr",
+                          "typeString": "struct StakeInfos"
                         }
                       },
                       "visibility": "internal"
@@ -3848,8 +3808,8 @@
                       "referencedDeclaration": 24015,
                       "src": "2605:12:21",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                        "typeString": "mapping(address => struct stakeInfo storage ref)"
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                        "typeString": "mapping(address => struct StakeInfos storage ref)"
                       }
                     },
                     "id": 24245,
@@ -3886,8 +3846,8 @@
                     "nodeType": "IndexAccess",
                     "src": "2605:24:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                      "typeString": "struct stakeInfo storage ref"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                      "typeString": "struct StakeInfos storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
@@ -3915,8 +3875,8 @@
                             "referencedDeclaration": 24241,
                             "src": "2644:10:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                              "typeString": "struct stakeInfo memory"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                              "typeString": "struct StakeInfos memory"
                             }
                           },
                           "id": 24249,
@@ -3984,10 +3944,7 @@
                       "id": 24247,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "2636:7:21",
                       "typeDescriptions": {
@@ -4015,9 +3972,7 @@
                   "src": "2636:64:21"
                 },
                 {
-                  "assignments": [
-                    24256
-                  ],
+                  "assignments": [24256],
                   "declarations": [
                     {
                       "constant": false,
@@ -4137,8 +4092,8 @@
                         "referencedDeclaration": 24241,
                         "src": "2761:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24265,
@@ -4168,8 +4123,8 @@
                             "referencedDeclaration": 24241,
                             "src": "2811:10:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                              "typeString": "struct stakeInfo memory"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                              "typeString": "struct StakeInfos memory"
                             }
                           },
                           "id": 24268,
@@ -4195,8 +4150,8 @@
                             "referencedDeclaration": 24241,
                             "src": "2836:10:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                              "typeString": "struct stakeInfo memory"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                              "typeString": "struct StakeInfos memory"
                             }
                           },
                           "id": 24270,
@@ -4293,8 +4248,8 @@
                         "referencedDeclaration": 24241,
                         "src": "2893:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24277,
@@ -4395,8 +4350,8 @@
                         "referencedDeclaration": 24241,
                         "src": "2947:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24286,
@@ -4551,8 +4506,8 @@
                         "referencedDeclaration": 24015,
                         "src": "3033:12:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                          "typeString": "mapping(address => struct stakeInfo storage ref)"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                          "typeString": "mapping(address => struct StakeInfos storage ref)"
                         }
                       },
                       "id": 24301,
@@ -4589,8 +4544,8 @@
                       "nodeType": "IndexAccess",
                       "src": "3033:24:21",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                        "typeString": "struct stakeInfo storage ref"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                        "typeString": "struct StakeInfos storage ref"
                       }
                     },
                     "nodeType": "Assignment",
@@ -4603,14 +4558,14 @@
                       "referencedDeclaration": 24241,
                       "src": "3060:10:21",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                        "typeString": "struct stakeInfo memory"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                        "typeString": "struct StakeInfos memory"
                       }
                     },
                     "src": "3033:37:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                      "typeString": "struct stakeInfo storage ref"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                      "typeString": "struct StakeInfos storage ref"
                     }
                   },
                   "id": 24304,
@@ -4802,14 +4757,14 @@
                     "leftHandSide": {
                       "expression": {
                         "id": 24328,
-                        "name": "_stakeInfo",
+                        "name": "_StakeInfos",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 24318,
                         "src": "3323:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24330,
@@ -4879,14 +4834,14 @@
                                   "leftExpression": {
                                     "expression": {
                                       "id": 24332,
-                                      "name": "_stakeInfo",
+                                      "name": "_StakeInfos",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 24318,
                                       "src": "3383:10:21",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                                        "typeString": "struct stakeInfo memory"
+                                        "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                                        "typeString": "struct StakeInfos memory"
                                       }
                                     },
                                     "id": 24333,
@@ -4910,14 +4865,14 @@
                                       {
                                         "expression": {
                                           "id": 24335,
-                                          "name": "_stakeInfo",
+                                          "name": "_StakeInfos",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
                                           "referencedDeclaration": 24318,
                                           "src": "3449:10:21",
                                           "typeDescriptions": {
-                                            "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                                            "typeString": "struct stakeInfo memory"
+                                            "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                                            "typeString": "struct StakeInfos memory"
                                           }
                                         },
                                         "id": 24336,
@@ -4937,14 +4892,14 @@
                                       {
                                         "expression": {
                                           "id": 24337,
-                                          "name": "_stakeInfo",
+                                          "name": "_StakeInfos",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
                                           "referencedDeclaration": 24318,
                                           "src": "3480:10:21",
                                           "typeDescriptions": {
-                                            "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                                            "typeString": "struct stakeInfo memory"
+                                            "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                                            "typeString": "struct StakeInfos memory"
                                           }
                                         },
                                         "id": 24338,
@@ -5095,14 +5050,14 @@
                     "leftHandSide": {
                       "expression": {
                         "id": 24349,
-                        "name": "_stakeInfo",
+                        "name": "_StakeInfos",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 24318,
                         "src": "3571:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24351,
@@ -5197,14 +5152,14 @@
                     "leftHandSide": {
                       "expression": {
                         "id": 24358,
-                        "name": "_stakeInfo",
+                        "name": "_StakeInfos",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 24318,
                         "src": "3625:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24360,
@@ -5254,14 +5209,14 @@
                     "components": [
                       {
                         "id": 24364,
-                        "name": "_stakeInfo",
+                        "name": "_StakeInfos",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 24318,
                         "src": "3663:10:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       }
                     ],
@@ -5274,8 +5229,8 @@
                     "nodeType": "TupleExpression",
                     "src": "3662:12:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                      "typeString": "struct stakeInfo memory"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                      "typeString": "struct StakeInfos memory"
                     }
                   },
                   "functionReturnParameters": 24327,
@@ -5325,7 +5280,7 @@
                   "constant": false,
                   "id": 24318,
                   "mutability": "mutable",
-                  "name": "_stakeInfo",
+                  "name": "_StakeInfos",
                   "nameLocation": "3211:10:21",
                   "nodeType": "VariableDeclaration",
                   "scope": 24368,
@@ -5333,15 +5288,15 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                    "typeString": "struct stakeInfo"
+                    "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                    "typeString": "struct StakeInfos"
                   },
                   "typeName": {
                     "id": 24317,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
                       "id": 24316,
-                      "name": "stakeInfo",
+                      "name": "StakeInfos",
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 24722,
                       "src": "3194:9:21"
@@ -5349,8 +5304,8 @@
                     "referencedDeclaration": 24722,
                     "src": "3194:9:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage_ptr",
-                      "typeString": "struct stakeInfo"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage_ptr",
+                      "typeString": "struct StakeInfos"
                     }
                   },
                   "visibility": "internal"
@@ -5428,15 +5383,15 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                    "typeString": "struct stakeInfo"
+                    "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                    "typeString": "struct StakeInfos"
                   },
                   "typeName": {
                     "id": 24325,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
                       "id": 24324,
-                      "name": "stakeInfo",
+                      "name": "StakeInfos",
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 24722,
                       "src": "3299:9:21"
@@ -5444,8 +5399,8 @@
                     "referencedDeclaration": 24722,
                     "src": "3299:9:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage_ptr",
-                      "typeString": "struct stakeInfo"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage_ptr",
+                      "typeString": "struct StakeInfos"
                     }
                   },
                   "visibility": "internal"
@@ -5481,8 +5436,8 @@
                               "referencedDeclaration": 24015,
                               "src": "3794:12:21",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                                "typeString": "mapping(address => struct stakeInfo storage ref)"
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                                "typeString": "mapping(address => struct StakeInfos storage ref)"
                               }
                             },
                             "id": 24378,
@@ -5505,8 +5460,8 @@
                             "nodeType": "IndexAccess",
                             "src": "3794:25:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                              "typeString": "struct stakeInfo storage ref"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                              "typeString": "struct StakeInfos storage ref"
                             }
                           }
                         ],
@@ -5519,8 +5474,8 @@
                         "nodeType": "TupleExpression",
                         "src": "3793:27:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                          "typeString": "struct stakeInfo storage ref"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                          "typeString": "struct StakeInfos storage ref"
                         }
                       }
                     ],
@@ -5533,8 +5488,8 @@
                     "nodeType": "TupleExpression",
                     "src": "3792:29:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                      "typeString": "struct stakeInfo storage ref"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                      "typeString": "struct StakeInfos storage ref"
                     }
                   },
                   "functionReturnParameters": 24375,
@@ -5548,7 +5503,7 @@
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "getStakeInfo",
+            "name": "getStakeInfos",
             "nameLocation": "3692:12:21",
             "parameters": {
               "id": 24371,
@@ -5601,15 +5556,15 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                    "typeString": "struct stakeInfo"
+                    "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                    "typeString": "struct StakeInfos"
                   },
                   "typeName": {
                     "id": 24373,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
                       "id": 24372,
-                      "name": "stakeInfo",
+                      "name": "StakeInfos",
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 24722,
                       "src": "3759:9:21"
@@ -5617,8 +5572,8 @@
                     "referencedDeclaration": 24722,
                     "src": "3759:9:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage_ptr",
-                      "typeString": "struct stakeInfo"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage_ptr",
+                      "typeString": "struct StakeInfos"
                     }
                   },
                   "visibility": "internal"
@@ -5641,9 +5596,7 @@
               "src": "3955:692:21",
               "statements": [
                 {
-                  "assignments": [
-                    24395
-                  ],
+                  "assignments": [24395],
                   "declarations": [
                     {
                       "constant": false,
@@ -5690,9 +5643,7 @@
                   "src": "3961:26:21"
                 },
                 {
-                  "assignments": [
-                    24400
-                  ],
+                  "assignments": [24400],
                   "declarations": [
                     {
                       "constant": false,
@@ -5706,15 +5657,15 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                        "typeString": "struct stakeInfo"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                        "typeString": "struct StakeInfos"
                       },
                       "typeName": {
                         "id": 24399,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
                           "id": 24398,
-                          "name": "stakeInfo",
+                          "name": "StakeInfos",
                           "nodeType": "IdentifierPath",
                           "referencedDeclaration": 24722,
                           "src": "3994:9:21"
@@ -5722,8 +5673,8 @@
                         "referencedDeclaration": 24722,
                         "src": "3994:9:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_storage_ptr",
-                          "typeString": "struct stakeInfo"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_storage_ptr",
+                          "typeString": "struct StakeInfos"
                         }
                       },
                       "visibility": "internal"
@@ -5734,9 +5685,7 @@
                   "src": "3994:23:21"
                 },
                 {
-                  "assignments": [
-                    24406
-                  ],
+                  "assignments": [24406],
                   "declarations": [
                     {
                       "constant": false,
@@ -5792,9 +5741,7 @@
                   "src": "4024:40:21"
                 },
                 {
-                  "assignments": [
-                    24410
-                  ],
+                  "assignments": [24410],
                   "declarations": [
                     {
                       "constant": false,
@@ -5855,9 +5802,7 @@
                   "src": "4071:38:21"
                 },
                 {
-                  "assignments": [
-                    24415
-                  ],
+                  "assignments": [24415],
                   "declarations": [
                     {
                       "constant": false,
@@ -6000,8 +5945,8 @@
                             "referencedDeclaration": 24400,
                             "src": "4271:6:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                              "typeString": "struct stakeInfo memory"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                              "typeString": "struct StakeInfos memory"
                             }
                           },
                           "nodeType": "Assignment",
@@ -6029,8 +5974,8 @@
                                   "referencedDeclaration": 24015,
                                   "src": "4331:12:21",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                                    "typeString": "mapping(address => struct stakeInfo storage ref)"
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                                    "typeString": "mapping(address => struct StakeInfos storage ref)"
                                   }
                                 },
                                 "id": 24438,
@@ -6078,8 +6023,8 @@
                                 "nodeType": "IndexAccess",
                                 "src": "4331:30:21",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                                  "typeString": "struct stakeInfo storage ref"
+                                  "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                                  "typeString": "struct StakeInfos storage ref"
                                 }
                               },
                               {
@@ -6114,8 +6059,8 @@
                                   "typeString": "uint256"
                                 },
                                 {
-                                  "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                                  "typeString": "struct stakeInfo storage ref"
+                                  "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                                  "typeString": "struct StakeInfos storage ref"
                                 },
                                 {
                                   "typeIdentifier": "t_uint256",
@@ -6133,8 +6078,8 @@
                               "referencedDeclaration": 24368,
                               "src": "4280:19:21",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_struct$_stakeInfo_$24722_memory_ptr_$_t_uint256_$_t_uint256_$returns$_t_struct$_stakeInfo_$24722_memory_ptr_$",
-                                "typeString": "function (uint256,struct stakeInfo memory,uint256,uint256) pure returns (struct stakeInfo memory)"
+                                "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_struct$_StakeInfos_$24722_memory_ptr_$_t_uint256_$_t_uint256_$returns$_t_struct$_StakeInfos_$24722_memory_ptr_$",
+                                "typeString": "function (uint256,struct StakeInfos memory,uint256,uint256) pure returns (struct StakeInfos memory)"
                               }
                             },
                             "id": 24441,
@@ -6148,14 +6093,14 @@
                             "src": "4280:136:21",
                             "tryCall": false,
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                              "typeString": "struct stakeInfo memory"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                              "typeString": "struct StakeInfos memory"
                             }
                           },
                           "src": "4271:145:21",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                            "typeString": "struct stakeInfo memory"
+                            "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                            "typeString": "struct StakeInfos memory"
                           }
                         },
                         "id": 24443,
@@ -6192,8 +6137,8 @@
                               "referencedDeclaration": 24400,
                               "src": "4433:6:21",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                                "typeString": "struct stakeInfo memory"
+                                "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                                "typeString": "struct StakeInfos memory"
                               }
                             },
                             "id": 24446,
@@ -6236,8 +6181,8 @@
                               "referencedDeclaration": 24015,
                               "src": "4455:12:21",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                                "typeString": "mapping(address => struct stakeInfo storage ref)"
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                                "typeString": "mapping(address => struct StakeInfos storage ref)"
                               }
                             },
                             "id": 24453,
@@ -6285,8 +6230,8 @@
                             "nodeType": "IndexAccess",
                             "src": "4455:30:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                              "typeString": "struct stakeInfo storage ref"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                              "typeString": "struct StakeInfos storage ref"
                             }
                           },
                           "nodeType": "Assignment",
@@ -6299,14 +6244,14 @@
                             "referencedDeclaration": 24400,
                             "src": "4488:6:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                              "typeString": "struct stakeInfo memory"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                              "typeString": "struct StakeInfos memory"
                             }
                           },
                           "src": "4455:39:21",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                            "typeString": "struct stakeInfo storage ref"
+                            "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                            "typeString": "struct StakeInfos storage ref"
                           }
                         },
                         "id": 24456,
@@ -6412,9 +6357,7 @@
                   },
                   "id": 24462,
                   "initializationExpression": {
-                    "assignments": [
-                      24424
-                    ],
+                    "assignments": [24424],
                     "declarations": [
                       {
                         "constant": false,
@@ -6715,9 +6658,7 @@
               "src": "4696:295:21",
               "statements": [
                 {
-                  "assignments": [
-                    24482
-                  ],
+                  "assignments": [24482],
                   "declarations": [
                     {
                       "constant": false,
@@ -6731,15 +6672,15 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                        "typeString": "struct stakeInfo"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                        "typeString": "struct StakeInfos"
                       },
                       "typeName": {
                         "id": 24481,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
                           "id": 24480,
-                          "name": "stakeInfo",
+                          "name": "StakeInfos",
                           "nodeType": "IdentifierPath",
                           "referencedDeclaration": 24722,
                           "src": "4702:9:21"
@@ -6747,8 +6688,8 @@
                         "referencedDeclaration": 24722,
                         "src": "4702:9:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_storage_ptr",
-                          "typeString": "struct stakeInfo"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_storage_ptr",
+                          "typeString": "struct StakeInfos"
                         }
                       },
                       "visibility": "internal"
@@ -6764,8 +6705,8 @@
                       "referencedDeclaration": 24015,
                       "src": "4733:12:21",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                        "typeString": "mapping(address => struct stakeInfo storage ref)"
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                        "typeString": "mapping(address => struct StakeInfos storage ref)"
                       }
                     },
                     "id": 24486,
@@ -6802,8 +6743,8 @@
                     "nodeType": "IndexAccess",
                     "src": "4733:24:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                      "typeString": "struct stakeInfo storage ref"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                      "typeString": "struct StakeInfos storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
@@ -6831,8 +6772,8 @@
                             "referencedDeclaration": 24482,
                             "src": "4771:11:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                              "typeString": "struct stakeInfo memory"
+                              "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                              "typeString": "struct StakeInfos memory"
                             }
                           },
                           "id": 24490,
@@ -6904,10 +6845,7 @@
                       "id": 24488,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "4763:7:21",
                       "typeDescriptions": {
@@ -6984,8 +6922,8 @@
                           "referencedDeclaration": 24482,
                           "src": "4877:11:21",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                            "typeString": "struct stakeInfo memory"
+                            "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                            "typeString": "struct StakeInfos memory"
                           }
                         },
                         "id": 24503,
@@ -7079,8 +7017,8 @@
                         "referencedDeclaration": 24482,
                         "src": "4911:11:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                          "typeString": "struct stakeInfo memory"
+                          "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                          "typeString": "struct StakeInfos memory"
                         }
                       },
                       "id": 24508,
@@ -7141,8 +7079,8 @@
                         "referencedDeclaration": 24015,
                         "src": "4948:12:21",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeInfo_$24722_storage_$",
-                          "typeString": "mapping(address => struct stakeInfo storage ref)"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_StakeInfos_$24722_storage_$",
+                          "typeString": "mapping(address => struct StakeInfos storage ref)"
                         }
                       },
                       "id": 24515,
@@ -7179,8 +7117,8 @@
                       "nodeType": "IndexAccess",
                       "src": "4948:24:21",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                        "typeString": "struct stakeInfo storage ref"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                        "typeString": "struct StakeInfos storage ref"
                       }
                     },
                     "nodeType": "Assignment",
@@ -7193,14 +7131,14 @@
                       "referencedDeclaration": 24482,
                       "src": "4975:11:21",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeInfo_$24722_memory_ptr",
-                        "typeString": "struct stakeInfo memory"
+                        "typeIdentifier": "t_struct$_StakeInfos_$24722_memory_ptr",
+                        "typeString": "struct StakeInfos memory"
                       }
                     },
                     "src": "4948:38:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeInfo_$24722_storage",
-                      "typeString": "struct stakeInfo storage ref"
+                      "typeIdentifier": "t_struct$_StakeInfos_$24722_storage",
+                      "typeString": "struct StakeInfos storage ref"
                     }
                   },
                   "id": 24518,
@@ -7291,13 +7229,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          24521,
-          21043,
-          21003,
-          21629,
-          21732,
-          21707,
-          21962
+          24521, 21043, 21003, 21629, 21732, 21707, 21962
         ],
         "name": "KonkretStaking",
         "nameLocation": "321:14:21",

@@ -190,30 +190,14 @@
     "absolutePath": "src/Treasury.sol",
     "id": 24598,
     "exportedSymbols": {
-      "Context": [
-        21962
-      ],
-      "ContractInfo": [
-        24827
-      ],
-      "IERC20": [
-        21707
-      ],
-      "IStaking": [
-        24820
-      ],
-      "ITreasury": [
-        24840
-      ],
-      "Ownable": [
-        21003
-      ],
-      "Treasury": [
-        24597
-      ],
-      "stakeInfo": [
-        24781
-      ]
+      "Context": [21962],
+      "ContractInfo": [24827],
+      "IERC20": [21707],
+      "IStaking": [24820],
+      "ITreasury": [24840],
+      "Ownable": [21003],
+      "Treasury": [24597],
+      "StakeInfos": [24781]
     },
     "nodeType": "SourceUnit",
     "src": "37:1504:22",
@@ -222,12 +206,7 @@
         "id": 24473,
         "nodeType": "PragmaDirective",
         "src": "37:24:22",
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".10"
-        ]
+        "literals": ["solidity", "^", "0.8", ".10"]
       },
       {
         "id": 24474,
@@ -644,10 +623,7 @@
                       "id": 24511,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "601:7:22",
                       "typeDescriptions": {
@@ -675,9 +651,7 @@
                   "src": "601:106:22"
                 },
                 {
-                  "assignments": [
-                    24520
-                  ],
+                  "assignments": [24520],
                   "declarations": [
                     {
                       "constant": false,
@@ -1030,9 +1004,7 @@
               "src": "1097:441:22",
               "statements": [
                 {
-                  "assignments": [
-                    24550
-                  ],
+                  "assignments": [24550],
                   "declarations": [
                     {
                       "constant": false,
@@ -1205,10 +1177,7 @@
                       "id": 24555,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "1199:7:22",
                       "typeDescriptions": {
@@ -1236,9 +1205,7 @@
                   "src": "1199:56:22"
                 },
                 {
-                  "assignments": [
-                    24564
-                  ],
+                  "assignments": [24564],
                   "declarations": [
                     {
                       "constant": false,
@@ -1788,11 +1755,7 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "linearizedBaseContracts": [
-          24597,
-          21003,
-          21962
-        ],
+        "linearizedBaseContracts": [24597, 21003, 21962],
         "name": "Treasury",
         "nameLocation": "254:8:22",
         "scope": 24598,
