@@ -12,7 +12,8 @@ contract Treasury is Ownable {
   IERC20 public immutable currencyUsed;
   address public immutable pToken;
   IStaking public immutable stakingContract;
-  uint256 MAX_TOKEN_SUPPLY;
+  uint256 public immutable MAX_TOKEN_SUPPLY;
+  address public konkreteTreasury;
 
   constructor(
     IERC20 _currencyUsed,

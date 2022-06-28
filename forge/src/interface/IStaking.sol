@@ -14,10 +14,10 @@ struct StakeInfos {
 
 struct TokenInfos {
   bool exist;
+  uint64 monthTimeStamp;
   string symbol;
   address treasury;
   uint256 max_supply;
-  address[] stakers;
 }
 
 interface IStaking {

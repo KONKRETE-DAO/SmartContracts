@@ -8,14 +8,13 @@ import "./interface/IPropertyToken.sol";
 import "./interface/IStaking.sol";
 
 contract KonkretStaking is Ownable, ReentrancyGuard {
-  event MonthRentRewardArrived(uint256 rentAmount);
+  event MonthRentRewardArrived(uint256 rentAmount, address token);
   event Staked(address who, address token, uint256 amount, uint256 timeStamp);
   event unStaked(address who, address token, uint256 amount, uint256 timeStamp);
 
   mapping(address => mapping(address => StakeInfos)) public stakeOfTokenByOwner;
   mapping(address => TokenInfos) public infoForToken;
-
-  uint256 public monthTimeStamp;
+  mapping(address => address[]) public stakersBytoken;
 
   constructor(
     address tokenToStake,
@@ -24,10 +23,10 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
   ) {
     infoForToken[tokenToStake] = TokenInfos(
       true,
+      0,
       symbol,
       treasury,
-      IPropertyToken(tokenToStake).MAX_SUPPLY(),
-      address[](0),
+      IPropertyToken(tokenToStake).MAX_SUPPLY()
     );
   }
 
@@ -44,8 +43,8 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     res = amount * (lastTimeStamp - lowTimestamp);
   }
 
-  function beginTimestamp() external onlyOwner {
-    monthTimeStamp = block.timestamp;
+  function beginTimestamp(address token) external onlyOwner {
+    infoForToken[token].monthTimeStamp = uint64(block.timestamp);
   }
 
   function stake(
@@ -57,11 +56,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     bytes32 s
   ) external nonReentrant {
     require(
-      _amount > 1 * (10**IERC20(token).decimals()),
-      "You have to stake at least 1 pToken"
-    );
-    require(
-      _amount <= IERC20(token).balanceOf(msg.sender),
+      _amount > 10**IPropertyToken(token).decimals(),
       "You have to stake at least 1 pToken"
     );
 
@@ -77,8 +72,8 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     StakeInfos memory stakeBuffer = stakeOfTokenByOwner[token][msg.sender];
 
     if (stakeBuffer.rank == 0) {
-      infoForToken[token].stakers.push(msg.sender);
-      stakeBuffer.rank = uint64(infoForToken[token].stakers.length);
+      stakersBytoken[token].push(msg.sender);
+      stakeBuffer.rank = uint64(stakersBytoken[token].length);
     }
 
     uint256 newTimeStamp = block.timestamp;
@@ -160,6 +155,21 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     return (_StakeInfos);
   }
 
+  function popStaker(address staker_, address token_) private {
+    address[] memory stakers = stakersBytoken[token_];
+    for (uint256 i = 0; i < stakers.length; ) {
+      if (stakers[i] == staker_) {
+        stakers[i] = stakers[stakers.length - 1];
+        stakersBytoken[token_] = stakers;
+        stakersBytoken[token_].pop();
+        break;
+      }
+      unchecked {
+        ++i;
+      }
+    }
+  }
+
   function setTotalClaimableReward(uint256 totalReward, address token)
     external
     nonReentrant
@@ -170,12 +180,12 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
 
     StakeInfos memory buffer;
 
-    address[] memory stakersBuffer = infoForToken[token].stakers;
+    address[] memory stakersBuffer = stakersBytoken[token];
 
     uint256 newTimeStamp = block.timestamp;
 
-    uint256 totalDenominator = (newTimeStamp - monthTimeStamp) *
-      IPropertyToken(token).MAX_SUPPLY()();
+    uint256 totalDenominator = (newTimeStamp -
+      infoForToken[token].monthTimeStamp) * IPropertyToken(token).MAX_SUPPLY();
 
     for (uint256 i = 0; i < stakersBuffer.length; ) {
       buffer = _getClaimableReward(
@@ -193,7 +203,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
       }
     }
 
-    monthTimeStamp = newTimeStamp;
+    infoForToken[token].monthTimeStamp = uint64(newTimeStamp);
 
     emit MonthRentRewardArrived(totalReward, token);
 
