@@ -125,7 +125,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     uint256 denominator,
     uint256 _totalreward
   ) private pure returns (stakeInfo memory) {
-    _stakeInfo.claimableReward =
+    _stakeInfo.claimableReward +=
       (_totalreward *
         (_stakeInfo.preShare +
           _calculateShareratio(
