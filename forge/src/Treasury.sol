@@ -42,9 +42,11 @@ contract Treasury is Ownable {
 
     uint256 claimableByStaker = amount -
       IStaking(bufferContract.stakingContract).setTotalClaimableReward(amount);
-
-    currencyUsed.approve(bufferContract.stakingContract, claimableByStaker);
-
     currencyUsed.transferFrom(msg.sender, address(this), claimableByStaker);
+    //EMIT 1 thing
   }
+
+  // function claimReward() {
+  //   //TO DO BECAUSE WE CHANGE THE CLAIMING
+  // }
 }

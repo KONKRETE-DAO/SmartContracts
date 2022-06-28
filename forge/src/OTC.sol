@@ -142,7 +142,7 @@ contract OTC is Ownable, ReentrancyGuard {
     pure
     returns (uint256 res)
   {
-    res = (price * uint256(feex10)) / 1000;
+    res = feex10 == 0 ? (price * uint256(feex10)) / 1000 : 0;
   }
 
   function initBuyOrder(
