@@ -22,6 +22,7 @@ contract PropertyTokenV1 is ERC20PermitUpgradeable {
 
     Variables public variables;
     address private _owner;
+    bool initialized;
 
     modifier onlyOwner() {
         _checkOwner();
@@ -33,7 +34,11 @@ contract PropertyTokenV1 is ERC20PermitUpgradeable {
     }
 
     function _checkOwner() internal view {
-        require(owner() == _msgSender(), "Ownable: caller is not the owner");
+        if (initialized)
+            require(
+                owner() == _msgSender(),
+                "Ownable: caller is not the owner"
+            );
     }
 
     function transferOwnership(address newOwner) public onlyOwner {
@@ -64,6 +69,7 @@ contract PropertyTokenV1 is ERC20PermitUpgradeable {
         );
         __ERC20_init(_name, _symbol);
         __ERC20Permit_init(_name);
+        initialized = true;
     }
 
     function withdraw() public onlyOwner {
