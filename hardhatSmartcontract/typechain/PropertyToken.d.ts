@@ -23,12 +23,11 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
   functions: {
     "DOMAIN_SEPARATOR()": FunctionFragment;
     "MAX_SUPPLY()": FunctionFragment;
-    "MAX_TO_BUY()": FunctionFragment;
+    "TOKENPRICE()": FunctionFragment;
     "allowance(address,address)": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
     "buy(address,uint256,bytes32[])": FunctionFragment;
-    "currencyUsed()": FunctionFragment;
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
@@ -40,6 +39,8 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     "renounceOwnership()": FunctionFragment;
     "setAllowListMerkleRoot(bytes32)": FunctionFragment;
     "setCexRatio(uint32)": FunctionFragment;
+    "setCurrency(address)": FunctionFragment;
+    "setMaxToBuy(uint128)": FunctionFragment;
     "setStep(uint256)": FunctionFragment;
     "symbol()": FunctionFragment;
     "tokensBought(address)": FunctionFragment;
@@ -61,7 +62,7 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "MAX_TO_BUY",
+    functionFragment: "TOKENPRICE",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -76,10 +77,6 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "buy",
     values: [string, BigNumberish, BytesLike[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "currencyUsed",
-    values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
   encodeFunctionData(
@@ -116,6 +113,11 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "setCexRatio",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(functionFragment: "setCurrency", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "setMaxToBuy",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
@@ -163,15 +165,11 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "MAX_SUPPLY", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "MAX_TO_BUY", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "TOKENPRICE", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "buy", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "currencyUsed",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "decreaseAllowance",
@@ -196,6 +194,14 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "setCexRatio",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setCurrency",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setMaxToBuy",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "setStep", data: BytesLike): Result;
@@ -226,7 +232,7 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
 
   events: {
     "Approval(address,address,uint256)": EventFragment;
-    "Buying(address,uint256)": EventFragment;
+    "Buying(address,uint256,uint256)": EventFragment;
     "OwnershipTransferred(address,address)": EventFragment;
     "Transfer(address,address,uint256)": EventFragment;
   };
@@ -246,7 +252,11 @@ export type ApprovalEvent = TypedEvent<
 >;
 
 export type BuyingEvent = TypedEvent<
-  [string, BigNumber] & { buyer: string; amount: BigNumber }
+  [string, BigNumber, BigNumber] & {
+    buyer: string;
+    price: BigNumber;
+    amount: BigNumber;
+  }
 >;
 
 export type OwnershipTransferredEvent = TypedEvent<
@@ -305,7 +315,7 @@ export class PropertyToken extends BaseContract {
 
     MAX_SUPPLY(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    MAX_TO_BUY(overrides?: CallOverrides): Promise<[BigNumber]>;
+    TOKENPRICE(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     allowance(
       owner: string,
@@ -327,8 +337,6 @@ export class PropertyToken extends BaseContract {
       proof: BytesLike[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
-
-    currencyUsed(overrides?: CallOverrides): Promise<[string]>;
 
     decimals(overrides?: CallOverrides): Promise<[number]>;
 
@@ -377,6 +385,16 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    setCurrency(
+      currencyToUse: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setMaxToBuy(
+      _MaxToBuy: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     setStep(
       step: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -420,10 +438,12 @@ export class PropertyToken extends BaseContract {
     variables(
       overrides?: CallOverrides
     ): Promise<
-      [number, number, string] & {
+      [number, number, string, BigNumber, string] & {
         step: number;
         cexRatioX10000: number;
         merkleRoot: string;
+        MaxToBuy: BigNumber;
+        currencyUsed: string;
       }
     >;
 
@@ -436,7 +456,7 @@ export class PropertyToken extends BaseContract {
 
   MAX_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
 
-  MAX_TO_BUY(overrides?: CallOverrides): Promise<BigNumber>;
+  TOKENPRICE(overrides?: CallOverrides): Promise<BigNumber>;
 
   allowance(
     owner: string,
@@ -458,8 +478,6 @@ export class PropertyToken extends BaseContract {
     proof: BytesLike[],
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
-
-  currencyUsed(overrides?: CallOverrides): Promise<string>;
 
   decimals(overrides?: CallOverrides): Promise<number>;
 
@@ -508,6 +526,16 @@ export class PropertyToken extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  setCurrency(
+    currencyToUse: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setMaxToBuy(
+    _MaxToBuy: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   setStep(
     step: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -551,10 +579,12 @@ export class PropertyToken extends BaseContract {
   variables(
     overrides?: CallOverrides
   ): Promise<
-    [number, number, string] & {
+    [number, number, string, BigNumber, string] & {
       step: number;
       cexRatioX10000: number;
       merkleRoot: string;
+      MaxToBuy: BigNumber;
+      currencyUsed: string;
     }
   >;
 
@@ -567,7 +597,7 @@ export class PropertyToken extends BaseContract {
 
     MAX_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
 
-    MAX_TO_BUY(overrides?: CallOverrides): Promise<BigNumber>;
+    TOKENPRICE(overrides?: CallOverrides): Promise<BigNumber>;
 
     allowance(
       owner: string,
@@ -589,8 +619,6 @@ export class PropertyToken extends BaseContract {
       proof: BytesLike[],
       overrides?: CallOverrides
     ): Promise<void>;
-
-    currencyUsed(overrides?: CallOverrides): Promise<string>;
 
     decimals(overrides?: CallOverrides): Promise<number>;
 
@@ -637,6 +665,16 @@ export class PropertyToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    setCurrency(
+      currencyToUse: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setMaxToBuy(
+      _MaxToBuy: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     setStep(step: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
     symbol(overrides?: CallOverrides): Promise<string>;
@@ -677,10 +715,12 @@ export class PropertyToken extends BaseContract {
     variables(
       overrides?: CallOverrides
     ): Promise<
-      [number, number, string] & {
+      [number, number, string, BigNumber, string] & {
         step: number;
         cexRatioX10000: number;
         merkleRoot: string;
+        MaxToBuy: BigNumber;
+        currencyUsed: string;
       }
     >;
 
@@ -706,20 +746,22 @@ export class PropertyToken extends BaseContract {
       { owner: string; spender: string; value: BigNumber }
     >;
 
-    "Buying(address,uint256)"(
+    "Buying(address,uint256,uint256)"(
       buyer?: null,
+      price?: null,
       amount?: null
     ): TypedEventFilter<
-      [string, BigNumber],
-      { buyer: string; amount: BigNumber }
+      [string, BigNumber, BigNumber],
+      { buyer: string; price: BigNumber; amount: BigNumber }
     >;
 
     Buying(
       buyer?: null,
+      price?: null,
       amount?: null
     ): TypedEventFilter<
-      [string, BigNumber],
-      { buyer: string; amount: BigNumber }
+      [string, BigNumber, BigNumber],
+      { buyer: string; price: BigNumber; amount: BigNumber }
     >;
 
     "OwnershipTransferred(address,address)"(
@@ -762,7 +804,7 @@ export class PropertyToken extends BaseContract {
 
     MAX_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
 
-    MAX_TO_BUY(overrides?: CallOverrides): Promise<BigNumber>;
+    TOKENPRICE(overrides?: CallOverrides): Promise<BigNumber>;
 
     allowance(
       owner: string,
@@ -784,8 +826,6 @@ export class PropertyToken extends BaseContract {
       proof: BytesLike[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
-
-    currencyUsed(overrides?: CallOverrides): Promise<BigNumber>;
 
     decimals(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -831,6 +871,16 @@ export class PropertyToken extends BaseContract {
 
     setCexRatio(
       _cexRatioX10000: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setCurrency(
+      currencyToUse: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setMaxToBuy(
+      _MaxToBuy: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -886,7 +936,7 @@ export class PropertyToken extends BaseContract {
 
     MAX_SUPPLY(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    MAX_TO_BUY(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    TOKENPRICE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     allowance(
       owner: string,
@@ -911,8 +961,6 @@ export class PropertyToken extends BaseContract {
       proof: BytesLike[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
-
-    currencyUsed(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -961,6 +1009,16 @@ export class PropertyToken extends BaseContract {
 
     setCexRatio(
       _cexRatioX10000: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setCurrency(
+      currencyToUse: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setMaxToBuy(
+      _MaxToBuy: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

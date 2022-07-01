@@ -13,13 +13,41 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
+      name: "Initializable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Initializable__factory>;
+    getContractFactory(
+      name: "ERC20Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC20Upgradeable__factory>;
+    getContractFactory(
+      name: "ERC20PermitUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC20PermitUpgradeable__factory>;
+    getContractFactory(
+      name: "IERC20PermitUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20PermitUpgradeable__factory>;
+    getContractFactory(
+      name: "IERC20MetadataUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20MetadataUpgradeable__factory>;
+    getContractFactory(
+      name: "IERC20Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20Upgradeable__factory>;
+    getContractFactory(
+      name: "ContextUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ContextUpgradeable__factory>;
+    getContractFactory(
+      name: "EIP712Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.EIP712Upgradeable__factory>;
+    getContractFactory(
       name: "Ownable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Ownable__factory>;
-    getContractFactory(
-      name: "ERC20DecimalsMock",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.ERC20DecimalsMock__factory>;
     getContractFactory(
       name: "ERC20",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -41,6 +69,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC20__factory>;
     getContractFactory(
+      name: "Greeter",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Greeter__factory>;
+    getContractFactory(
       name: "IFakeDoll",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IFakeDoll__factory>;
@@ -61,10 +93,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ITreasury__factory>;
     getContractFactory(
-      name: "MockToken",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MockToken__factory>;
-    getContractFactory(
       name: "OTC",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.OTC__factory>;
@@ -72,6 +100,10 @@ declare module "hardhat/types/runtime" {
       name: "PropertyToken",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.PropertyToken__factory>;
+    getContractFactory(
+      name: "PropertyTokenV1",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.PropertyTokenV1__factory>;
     getContractFactory(
       name: "KonkretStaking",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -82,15 +114,50 @@ declare module "hardhat/types/runtime" {
     ): Promise<Contracts.Treasury__factory>;
 
     getContractAt(
+      name: "Initializable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Initializable>;
+    getContractAt(
+      name: "ERC20Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC20Upgradeable>;
+    getContractAt(
+      name: "ERC20PermitUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC20PermitUpgradeable>;
+    getContractAt(
+      name: "IERC20PermitUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20PermitUpgradeable>;
+    getContractAt(
+      name: "IERC20MetadataUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20MetadataUpgradeable>;
+    getContractAt(
+      name: "IERC20Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20Upgradeable>;
+    getContractAt(
+      name: "ContextUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ContextUpgradeable>;
+    getContractAt(
+      name: "EIP712Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.EIP712Upgradeable>;
+    getContractAt(
       name: "Ownable",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.Ownable>;
-    getContractAt(
-      name: "ERC20DecimalsMock",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.ERC20DecimalsMock>;
     getContractAt(
       name: "ERC20",
       address: string,
@@ -117,6 +184,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IERC20>;
     getContractAt(
+      name: "Greeter",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Greeter>;
+    getContractAt(
       name: "IFakeDoll",
       address: string,
       signer?: ethers.Signer
@@ -142,11 +214,6 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.ITreasury>;
     getContractAt(
-      name: "MockToken",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MockToken>;
-    getContractAt(
       name: "OTC",
       address: string,
       signer?: ethers.Signer
@@ -156,6 +223,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.PropertyToken>;
+    getContractAt(
+      name: "PropertyTokenV1",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.PropertyTokenV1>;
     getContractAt(
       name: "KonkretStaking",
       address: string,

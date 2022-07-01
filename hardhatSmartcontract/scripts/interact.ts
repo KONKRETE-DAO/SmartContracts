@@ -25,7 +25,7 @@ async function main() {
   const [owner, buyer] = await ethers.getSigners();
   console.log(owner.address);
   console.log(buyer.address);
-  console.log(getRoot());
+  // console.log(getRoot());
 
   //   let tx = await ptoken.connect(owner).setAllowListMerkleRoot(getRoot());
   //   tx.wait();
@@ -37,13 +37,20 @@ async function main() {
   //         "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
   //       )
   //     );
+  console.log(
+    "Bought for 1$ = 0.9€ ratio etant egal a " +
+      (await ptoken.connect(owner).variables())
+  );
+
   let tx = await ptoken
     .connect(owner)
     .buy(
       owner.address,
-      ethers.utils.parseEther("1000"),
+      ethers.utils.parseEther("12000"),
       getProofs(owner.address)
     );
+  tx.wait();
+
   //   console.log(await ptoken.connect(owner).variables());
 }
 
