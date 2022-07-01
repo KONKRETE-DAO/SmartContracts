@@ -8,6 +8,8 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "./interface/IPropertyToken.sol";
 
+// import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+
 /*I had to copy and set the Owner of Oz to avoid Inheritance errors*/
 contract PropertyTokenV1 is ERC20PermitUpgradeable {
     event Buying(address buyer, uint256 price, uint256 amount);

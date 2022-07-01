@@ -1,20 +1,20 @@
 {
   "manifestVersion": "3.2",
   "admin": {
-    "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "txHash": "0x66ff67935007b7b16f8cae5c69bc515f1dec23b7167610858b3cc31b56a30129"
+    "address": "0xE86b4711ce9F830ceC0D9eFF5266E64Ed8F9f3d5",
+    "txHash": "0xa12463b05821470d98a32d87b213656431dd98a5b81207cf8fddcdf209a6d4f3"
   },
   "proxies": [
     {
-      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0xc8fdb80cc2d7494cae462ff85457417f1812c98056f80f9f5444e68b6d4cf3ad",
+      "address": "0xa8c17C64f8bC3a46cBFBb5F1233377b63b93286f",
+      "txHash": "0x94859de485e2cf6810ebc08b1383abc9a770650297d4eee05f0826c66ad5e2d8",
       "kind": "transparent"
     }
   ],
   "impls": {
     "bf93cd08eb57b264f3517b763c29d25b7af1fdb7ac3a9222a393bce170038336": {
-      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      "txHash": "0x186154b95e4239d7cf49da2de52491bdb5430f286b533f65840c6f27e6393cae",
+      "address": "0x13d22B21DD178933fC92EBae8FD39e7cE3597929",
+      "txHash": "0x36ed915ae34b591bb47568cc2f82c49061884aeec07ee67c901d402e4d7906e4",
       "layout": {
         "storage": [
           {
@@ -145,7 +145,7 @@
             "slot": "204",
             "type": "t_mapping(t_address,t_uint256)",
             "contract": "PropertyTokenV1",
-            "src": "contracts/PropertyV1.sol:23"
+            "src": "contracts/PropertyV1.sol:21"
           },
           {
             "label": "variables",
@@ -153,7 +153,7 @@
             "slot": "205",
             "type": "t_struct(Variables)3483_storage",
             "contract": "PropertyTokenV1",
-            "src": "contracts/PropertyV1.sol:25"
+            "src": "contracts/PropertyV1.sol:23"
           },
           {
             "label": "_owner",
@@ -161,7 +161,7 @@
             "slot": "210",
             "type": "t_address",
             "contract": "PropertyTokenV1",
-            "src": "contracts/PropertyV1.sol:26"
+            "src": "contracts/PropertyV1.sol:24"
           },
           {
             "label": "initialized",
@@ -169,7 +169,7 @@
             "slot": "210",
             "type": "t_bool",
             "contract": "PropertyTokenV1",
-            "src": "contracts/PropertyV1.sol:27"
+            "src": "contracts/PropertyV1.sol:25"
           }
         ],
         "types": {
