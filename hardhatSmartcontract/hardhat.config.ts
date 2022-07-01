@@ -25,37 +25,27 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 const config: HardhatUserConfig = {
   solidity: "0.8.13",
   networks: {
-    polygon: {
-      url: process.env.POLYGON_URL,
-      accounts:
-        [process.env.OWNER_KEY!, process.env.BUYER_KEY!]
-    },
+    // polygon: {
+    //   url: process.env.POLYGON_URL,
+    //   accounts:
+    //     [process.env.OWNER_KEY!, process.env.BUYER_KEY!]
+    // },
     mumbai: {
-      url: process.env.MUMBAI_URL,
-      accounts:
-        [process.env.OWNER_KEY!, process.env.BUYER_KEY!]
+      url: process.env.MUMBAI_URL!,
+      accounts: [process.env.PKEY!, process.env.BUYER_KEY!],
     },
-    mainnet: {
-      url: process.env.MAINNET_URL,
-      accounts:
-        [process.env.OWNER_KEY!, process.env.BUYER_KEY!]
-    },
-
+    // mainnet: {
+    //   url: process.env.MAINNET_URL,
+    //   accounts:
+    //     [process.env.OWNER_KEY!, process.env.BUYER_KEY!]
+    // },
   },
   // gasReporter: {
   //   enabled: true,
   //   currency: "USD",
-  //   gasPriceApi : "https://api.etherscan.io/api?module=proxy&action=eth_gasPrice", 
+  //   gasPriceApi : "https://api.etherscan.io/api?module=proxy&action=eth_gasPrice",
   // },
-  etherscan: {
-    apiKey: {
-      mainnet : process.env.ETHERSCAN_API_KEY!,
-      goerli : process.env.ETHERSCAN_API_KEY!,
-      rinkeby : process.env.ETHERSCAN_API_KEY!,
-      polygon : process.env.POLYGONSCAN_API_KEY!,
-      polygonMumbai : process.env.POLYGONSCAN_API_KEY!,
-    }
-  },
+  // },
 };
 
 export default config;

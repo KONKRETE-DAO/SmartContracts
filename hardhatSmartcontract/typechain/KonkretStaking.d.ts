@@ -23,27 +23,15 @@ interface KonkretStakingInterface extends ethers.utils.Interface {
   functions: {
     "TOKEN_TO_STAKE()": FunctionFragment;
     "TOKEN_TO_STAKE_MAX_SUPPLY()": FunctionFragment;
-    "allowance(address,address)": FunctionFragment;
-    "approve(address,uint256)": FunctionFragment;
-    "balanceOf(address)": FunctionFragment;
     "beginTimestamp()": FunctionFragment;
-    "claimReward()": FunctionFragment;
-    "decimals()": FunctionFragment;
-    "decreaseAllowance(address,uint256)": FunctionFragment;
-    "getStakeInfo(address)": FunctionFragment;
-    "increaseAllowance(address,uint256)": FunctionFragment;
+    "getStakeInfos(address)": FunctionFragment;
     "monthTimeStamp()": FunctionFragment;
-    "name()": FunctionFragment;
     "owner()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "setTotalClaimableReward(uint256)": FunctionFragment;
-    "stake(uint256)": FunctionFragment;
+    "stake(uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
     "stakeByOwner(address)": FunctionFragment;
     "stakers(uint256)": FunctionFragment;
-    "symbol()": FunctionFragment;
-    "totalSupply()": FunctionFragment;
-    "transfer(address,uint256)": FunctionFragment;
-    "transferFrom(address,address,uint256)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
     "unStake(uint256)": FunctionFragment;
   };
@@ -57,40 +45,17 @@ interface KonkretStakingInterface extends ethers.utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "allowance",
-    values: [string, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "approve",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-  encodeFunctionData(
     functionFragment: "beginTimestamp",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "claimReward",
-    values?: undefined
-  ): string;
-  encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "decreaseAllowance",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getStakeInfo",
+    functionFragment: "getStakeInfos",
     values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "increaseAllowance",
-    values: [string, BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "monthTimeStamp",
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "renounceOwnership",
@@ -100,7 +65,10 @@ interface KonkretStakingInterface extends ethers.utils.Interface {
     functionFragment: "setTotalClaimableReward",
     values: [BigNumberish]
   ): string;
-  encodeFunctionData(functionFragment: "stake", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "stake",
+    values: [BigNumberish, BigNumberish, BigNumberish, BytesLike, BytesLike]
+  ): string;
   encodeFunctionData(
     functionFragment: "stakeByOwner",
     values: [string]
@@ -108,19 +76,6 @@ interface KonkretStakingInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "stakers",
     values: [BigNumberish]
-  ): string;
-  encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "totalSupply",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transfer",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferFrom",
-    values: [string, string, BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "transferOwnership",
@@ -139,35 +94,18 @@ interface KonkretStakingInterface extends ethers.utils.Interface {
     functionFragment: "TOKEN_TO_STAKE_MAX_SUPPLY",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "beginTimestamp",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "claimReward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "decreaseAllowance",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getStakeInfo",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "increaseAllowance",
+    functionFragment: "getStakeInfos",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
     functionFragment: "monthTimeStamp",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
@@ -183,16 +121,6 @@ interface KonkretStakingInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "stakers", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "totalSupply",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "transferFrom",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(
     functionFragment: "transferOwnership",
     data: BytesLike
@@ -200,26 +128,20 @@ interface KonkretStakingInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "unStake", data: BytesLike): Result;
 
   events: {
-    "Approval(address,address,uint256)": EventFragment;
+    "MonthRentRewardArrived(uint256)": EventFragment;
     "OwnershipTransferred(address,address)": EventFragment;
     "Staked(address,uint256,uint256)": EventFragment;
-    "Transfer(address,address,uint256)": EventFragment;
     "unStaked(address,uint256,uint256)": EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "MonthRentRewardArrived"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Staked"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "unStaked"): EventFragment;
 }
 
-export type ApprovalEvent = TypedEvent<
-  [string, string, BigNumber] & {
-    owner: string;
-    spender: string;
-    value: BigNumber;
-  }
+export type MonthRentRewardArrivedEvent = TypedEvent<
+  [BigNumber] & { rentAmount: BigNumber }
 >;
 
 export type OwnershipTransferredEvent = TypedEvent<
@@ -232,10 +154,6 @@ export type StakedEvent = TypedEvent<
     amount: BigNumber;
     timeStamp: BigNumber;
   }
->;
-
-export type TransferEvent = TypedEvent<
-  [string, string, BigNumber] & { from: string; to: string; value: BigNumber }
 >;
 
 export type unStakedEvent = TypedEvent<
@@ -294,60 +212,27 @@ export class KonkretStaking extends BaseContract {
 
     TOKEN_TO_STAKE_MAX_SUPPLY(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    allowance(
-      owner: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
-
-    approve(
-      spender: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    balanceOf(account: string, overrides?: CallOverrides): Promise<[BigNumber]>;
-
     beginTimestamp(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    claimReward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    decimals(overrides?: CallOverrides): Promise<[number]>;
-
-    decreaseAllowance(
-      spender: string,
-      subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    getStakeInfo(
+    getStakeInfos(
       tokenHolder: string,
       overrides?: CallOverrides
     ): Promise<
       [
-        [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+        [boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+          exist: boolean;
           rank: BigNumber;
-          preShare: BigNumber;
           lastTimeStamp: BigNumber;
+          preShare: BigNumber;
           amount: BigNumber;
           claimableReward: BigNumber;
         }
       ]
     >;
 
-    increaseAllowance(
-      spender: string,
-      addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     monthTimeStamp(overrides?: CallOverrides): Promise<[BigNumber]>;
-
-    name(overrides?: CallOverrides): Promise<[string]>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
@@ -362,6 +247,10 @@ export class KonkretStaking extends BaseContract {
 
     stake(
       _amount: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -369,33 +258,17 @@ export class KonkretStaking extends BaseContract {
       arg0: string,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+      [boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+        exist: boolean;
         rank: BigNumber;
-        preShare: BigNumber;
         lastTimeStamp: BigNumber;
+        preShare: BigNumber;
         amount: BigNumber;
         claimableReward: BigNumber;
       }
     >;
 
     stakers(arg0: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
-
-    symbol(overrides?: CallOverrides): Promise<[string]>;
-
-    totalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
-
-    transfer(
-      to: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    transferFrom(
-      from: string,
-      to: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
 
     transferOwnership(
       newOwner: string,
@@ -412,58 +285,25 @@ export class KonkretStaking extends BaseContract {
 
   TOKEN_TO_STAKE_MAX_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
 
-  allowance(
-    owner: string,
-    spender: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
-
-  approve(
-    spender: string,
-    amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
-
   beginTimestamp(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  claimReward(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  decimals(overrides?: CallOverrides): Promise<number>;
-
-  decreaseAllowance(
-    spender: string,
-    subtractedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  getStakeInfo(
+  getStakeInfos(
     tokenHolder: string,
     overrides?: CallOverrides
   ): Promise<
-    [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+    [boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+      exist: boolean;
       rank: BigNumber;
-      preShare: BigNumber;
       lastTimeStamp: BigNumber;
+      preShare: BigNumber;
       amount: BigNumber;
       claimableReward: BigNumber;
     }
   >;
 
-  increaseAllowance(
-    spender: string,
-    addedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   monthTimeStamp(overrides?: CallOverrides): Promise<BigNumber>;
-
-  name(overrides?: CallOverrides): Promise<string>;
 
   owner(overrides?: CallOverrides): Promise<string>;
 
@@ -478,6 +318,10 @@ export class KonkretStaking extends BaseContract {
 
   stake(
     _amount: BigNumberish,
+    deadline: BigNumberish,
+    v: BigNumberish,
+    r: BytesLike,
+    s: BytesLike,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -485,33 +329,17 @@ export class KonkretStaking extends BaseContract {
     arg0: string,
     overrides?: CallOverrides
   ): Promise<
-    [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+    [boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+      exist: boolean;
       rank: BigNumber;
-      preShare: BigNumber;
       lastTimeStamp: BigNumber;
+      preShare: BigNumber;
       amount: BigNumber;
       claimableReward: BigNumber;
     }
   >;
 
   stakers(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
-
-  symbol(overrides?: CallOverrides): Promise<string>;
-
-  totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
-
-  transfer(
-    to: string,
-    amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  transferFrom(
-    from: string,
-    to: string,
-    amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
 
   transferOwnership(
     newOwner: string,
@@ -528,54 +356,23 @@ export class KonkretStaking extends BaseContract {
 
     TOKEN_TO_STAKE_MAX_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
 
-    allowance(
-      owner: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    approve(
-      spender: string,
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
-
-    balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
-
     beginTimestamp(overrides?: CallOverrides): Promise<void>;
 
-    claimReward(overrides?: CallOverrides): Promise<void>;
-
-    decimals(overrides?: CallOverrides): Promise<number>;
-
-    decreaseAllowance(
-      spender: string,
-      subtractedValue: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
-
-    getStakeInfo(
+    getStakeInfos(
       tokenHolder: string,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+      [boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+        exist: boolean;
         rank: BigNumber;
-        preShare: BigNumber;
         lastTimeStamp: BigNumber;
+        preShare: BigNumber;
         amount: BigNumber;
         claimableReward: BigNumber;
       }
     >;
 
-    increaseAllowance(
-      spender: string,
-      addedValue: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
-
     monthTimeStamp(overrides?: CallOverrides): Promise<BigNumber>;
-
-    name(overrides?: CallOverrides): Promise<string>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
@@ -584,41 +381,32 @@ export class KonkretStaking extends BaseContract {
     setTotalClaimableReward(
       totalReward: BigNumberish,
       overrides?: CallOverrides
-    ): Promise<void>;
+    ): Promise<BigNumber>;
 
-    stake(_amount: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    stake(
+      _amount: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     stakeByOwner(
       arg0: string,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+      [boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+        exist: boolean;
         rank: BigNumber;
-        preShare: BigNumber;
         lastTimeStamp: BigNumber;
+        preShare: BigNumber;
         amount: BigNumber;
         claimableReward: BigNumber;
       }
     >;
 
     stakers(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
-
-    symbol(overrides?: CallOverrides): Promise<string>;
-
-    totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
-
-    transfer(
-      to: string,
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
-
-    transferFrom(
-      from: string,
-      to: string,
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
 
     transferOwnership(
       newOwner: string,
@@ -629,23 +417,13 @@ export class KonkretStaking extends BaseContract {
   };
 
   filters: {
-    "Approval(address,address,uint256)"(
-      owner?: string | null,
-      spender?: string | null,
-      value?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { owner: string; spender: string; value: BigNumber }
-    >;
+    "MonthRentRewardArrived(uint256)"(
+      rentAmount?: null
+    ): TypedEventFilter<[BigNumber], { rentAmount: BigNumber }>;
 
-    Approval(
-      owner?: string | null,
-      spender?: string | null,
-      value?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { owner: string; spender: string; value: BigNumber }
-    >;
+    MonthRentRewardArrived(
+      rentAmount?: null
+    ): TypedEventFilter<[BigNumber], { rentAmount: BigNumber }>;
 
     "OwnershipTransferred(address,address)"(
       previousOwner?: string | null,
@@ -681,24 +459,6 @@ export class KonkretStaking extends BaseContract {
       { who: string; amount: BigNumber; timeStamp: BigNumber }
     >;
 
-    "Transfer(address,address,uint256)"(
-      from?: string | null,
-      to?: string | null,
-      value?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { from: string; to: string; value: BigNumber }
-    >;
-
-    Transfer(
-      from?: string | null,
-      to?: string | null,
-      value?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { from: string; to: string; value: BigNumber }
-    >;
-
     "unStaked(address,uint256,uint256)"(
       who?: null,
       amount?: null,
@@ -723,50 +483,16 @@ export class KonkretStaking extends BaseContract {
 
     TOKEN_TO_STAKE_MAX_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
 
-    allowance(
-      owner: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    approve(
-      spender: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
-
     beginTimestamp(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    claimReward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    decimals(overrides?: CallOverrides): Promise<BigNumber>;
-
-    decreaseAllowance(
-      spender: string,
-      subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    getStakeInfo(
+    getStakeInfos(
       tokenHolder: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    increaseAllowance(
-      spender: string,
-      addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     monthTimeStamp(overrides?: CallOverrides): Promise<BigNumber>;
-
-    name(overrides?: CallOverrides): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -781,29 +507,16 @@ export class KonkretStaking extends BaseContract {
 
     stake(
       _amount: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     stakeByOwner(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     stakers(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
-
-    symbol(overrides?: CallOverrides): Promise<BigNumber>;
-
-    totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
-
-    transfer(
-      to: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    transferFrom(
-      from: string,
-      to: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
@@ -823,53 +536,16 @@ export class KonkretStaking extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    allowance(
-      owner: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    approve(
-      spender: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    balanceOf(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
     beginTimestamp(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    claimReward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    decreaseAllowance(
-      spender: string,
-      subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    getStakeInfo(
+    getStakeInfos(
       tokenHolder: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    increaseAllowance(
-      spender: string,
-      addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
     monthTimeStamp(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -884,6 +560,10 @@ export class KonkretStaking extends BaseContract {
 
     stake(
       _amount: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -895,23 +575,6 @@ export class KonkretStaking extends BaseContract {
     stakers(
       arg0: BigNumberish,
       overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    totalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    transfer(
-      to: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    transferFrom(
-      from: string,
-      to: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(

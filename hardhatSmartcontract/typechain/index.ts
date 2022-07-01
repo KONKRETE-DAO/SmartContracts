@@ -2,25 +2,37 @@
 /* tslint:disable */
 /* eslint-disable */
 export type { Ownable } from "./Ownable";
+export type { ERC20DecimalsMock } from "./ERC20DecimalsMock";
 export type { ERC20 } from "./ERC20";
+export type { ERC20Permit } from "./ERC20Permit";
+export type { IERC20Permit } from "./IERC20Permit";
 export type { IERC20Metadata } from "./IERC20Metadata";
 export type { IERC20 } from "./IERC20";
-export type { FakeDoll } from "./FakeDoll";
-export type { Greeter } from "./Greeter";
+export type { IFakeDoll } from "./IFakeDoll";
+export type { IOTC } from "./IOTC";
+export type { IPropertyToken } from "./IPropertyToken";
+export type { IStaking } from "./IStaking";
+export type { ITreasury } from "./ITreasury";
+export type { MockToken } from "./MockToken";
+export type { OTC } from "./OTC";
 export type { PropertyToken } from "./PropertyToken";
 export type { KonkretStaking } from "./KonkretStaking";
-export type { MYERC20 } from "./MYERC20";
-export type { StakingContract } from "./StakingContract";
 export type { Treasury } from "./Treasury";
 
 export { Ownable__factory } from "./factories/Ownable__factory";
+export { ERC20DecimalsMock__factory } from "./factories/ERC20DecimalsMock__factory";
 export { ERC20__factory } from "./factories/ERC20__factory";
+export { ERC20Permit__factory } from "./factories/ERC20Permit__factory";
+export { IERC20Permit__factory } from "./factories/IERC20Permit__factory";
 export { IERC20Metadata__factory } from "./factories/IERC20Metadata__factory";
 export { IERC20__factory } from "./factories/IERC20__factory";
-export { FakeDoll__factory } from "./factories/FakeDoll__factory";
-export { Greeter__factory } from "./factories/Greeter__factory";
+export { IFakeDoll__factory } from "./factories/IFakeDoll__factory";
+export { IOTC__factory } from "./factories/IOTC__factory";
+export { IPropertyToken__factory } from "./factories/IPropertyToken__factory";
+export { IStaking__factory } from "./factories/IStaking__factory";
+export { ITreasury__factory } from "./factories/ITreasury__factory";
+export { MockToken__factory } from "./factories/MockToken__factory";
+export { OTC__factory } from "./factories/OTC__factory";
 export { PropertyToken__factory } from "./factories/PropertyToken__factory";
 export { KonkretStaking__factory } from "./factories/KonkretStaking__factory";
-export { MYERC20__factory } from "./factories/MYERC20__factory";
-export { StakingContract__factory } from "./factories/StakingContract__factory";
 export { Treasury__factory } from "./factories/Treasury__factory";

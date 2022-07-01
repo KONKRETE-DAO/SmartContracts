@@ -17,9 +17,21 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Ownable__factory>;
     getContractFactory(
+      name: "ERC20DecimalsMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC20DecimalsMock__factory>;
+    getContractFactory(
       name: "ERC20",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ERC20__factory>;
+    getContractFactory(
+      name: "ERC20Permit",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC20Permit__factory>;
+    getContractFactory(
+      name: "IERC20Permit",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20Permit__factory>;
     getContractFactory(
       name: "IERC20Metadata",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -29,13 +41,33 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC20__factory>;
     getContractFactory(
-      name: "FakeDoll",
+      name: "IFakeDoll",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.FakeDoll__factory>;
+    ): Promise<Contracts.IFakeDoll__factory>;
     getContractFactory(
-      name: "Greeter",
+      name: "IOTC",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Greeter__factory>;
+    ): Promise<Contracts.IOTC__factory>;
+    getContractFactory(
+      name: "IPropertyToken",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IPropertyToken__factory>;
+    getContractFactory(
+      name: "IStaking",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IStaking__factory>;
+    getContractFactory(
+      name: "ITreasury",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ITreasury__factory>;
+    getContractFactory(
+      name: "MockToken",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MockToken__factory>;
+    getContractFactory(
+      name: "OTC",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.OTC__factory>;
     getContractFactory(
       name: "PropertyToken",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -44,14 +76,6 @@ declare module "hardhat/types/runtime" {
       name: "KonkretStaking",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.KonkretStaking__factory>;
-    getContractFactory(
-      name: "MYERC20",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MYERC20__factory>;
-    getContractFactory(
-      name: "StakingContract",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.StakingContract__factory>;
     getContractFactory(
       name: "Treasury",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -63,10 +87,25 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.Ownable>;
     getContractAt(
+      name: "ERC20DecimalsMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC20DecimalsMock>;
+    getContractAt(
       name: "ERC20",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.ERC20>;
+    getContractAt(
+      name: "ERC20Permit",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC20Permit>;
+    getContractAt(
+      name: "IERC20Permit",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20Permit>;
     getContractAt(
       name: "IERC20Metadata",
       address: string,
@@ -78,15 +117,40 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IERC20>;
     getContractAt(
-      name: "FakeDoll",
+      name: "IFakeDoll",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.FakeDoll>;
+    ): Promise<Contracts.IFakeDoll>;
     getContractAt(
-      name: "Greeter",
+      name: "IOTC",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.Greeter>;
+    ): Promise<Contracts.IOTC>;
+    getContractAt(
+      name: "IPropertyToken",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IPropertyToken>;
+    getContractAt(
+      name: "IStaking",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IStaking>;
+    getContractAt(
+      name: "ITreasury",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ITreasury>;
+    getContractAt(
+      name: "MockToken",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MockToken>;
+    getContractAt(
+      name: "OTC",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.OTC>;
     getContractAt(
       name: "PropertyToken",
       address: string,
@@ -97,16 +161,6 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.KonkretStaking>;
-    getContractAt(
-      name: "MYERC20",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MYERC20>;
-    getContractAt(
-      name: "StakingContract",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.StakingContract>;
     getContractAt(
       name: "Treasury",
       address: string,

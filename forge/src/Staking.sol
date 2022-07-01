@@ -59,6 +59,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     bytes32 r,
     bytes32 s
   ) external nonReentrant {
+    require(monthTimeStamp != 0, "Staking is not activated");
     IPropertyToken tokenToStakeBuff = TOKEN_TO_STAKE;
 
     IPropertyToken(tokenToStakeBuff).transferToWithPermission(

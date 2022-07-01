@@ -1,39 +1,43 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.10;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "./interface/IStaking.sol";
+import "./interface/ITreasury.sol";
+import "./interface/IPropertyToken.sol";
 
-struct ContractInfo {
-    address stakingContract;
-    uint maxSupply;
-}
-interface StakingContract  {
-    function TOKEN_TO_STAKE() external view returns (address);
-    function  TOKEN_TO_STAKE_MAX_SUPPLY() external view returns (uint);
-    function setTotalClaimableReward(uint) external ;
-}
- contract Treasury is  Ownable {
-    mapping(address => ContractInfo ) public  stakingContractByProperty;
-    event RentDeposit(address Property, uint amount);
-    IERC20 immutable public moneyToken;
+contract Treasury is Ownable {
+  event RentDeposit(uint256 amount);
 
-    constructor(IERC20 _moneyToken)  {
-    moneyToken = _moneyToken;
-    }
+  IERC20 public immutable currencyUsed;
+  address public immutable pToken;
+  IStaking public immutable stakingContract;
+  uint256 public immutable MAX_TOKEN_SUPPLY;
+  address public konkreteTreasury;
 
-    function addStakingContract(address  _stakingContract) external onlyOwner{
-        StakingContract buffer = StakingContract(_stakingContract);
-        require(_stakingContract != 0x0000000000000000000000000000000000000000, "Wrong Address");
-        stakingContractByProperty[buffer.TOKEN_TO_STAKE()] = ContractInfo(_stakingContract, buffer.TOKEN_TO_STAKE_MAX_SUPPLY());
-    }
-    function deposit(address propertyToken, uint amount) external onlyOwner {
-        ContractInfo memory bufferContract = stakingContractByProperty[propertyToken];
-        require (bufferContract.maxSupply != 0, "Wrong Contract");
+  constructor(
+    IERC20 _currencyUsed,
+    address _pToken,
+    address _stakingContract
+  ) {
+    currencyUsed = _currencyUsed;
+    pToken = _pToken;
+    stakingContract = IStaking(_stakingContract);
+    MAX_TOKEN_SUPPLY = IPropertyToken(_pToken).MAX_SUPPLY();
+  }
 
-        StakingContract(bufferContract.stakingContract).setTotalClaimableReward(amount);
-        moneyToken.approve(bufferContract.stakingContract, amount);
+  /*deposit the rent(amount) associated with the property,
+  just keep the tamount claimable by the stakers */
+  function deposit(uint256 amount) external onlyOwner {
+    uint256 claimableByStaker = amount -
+      stakingContract.setTotalClaimableReward(amount);
+    currencyUsed.transferFrom(msg.sender, address(this), claimableByStaker);
+    emit RentDeposit(amount);
+  }
 
-        moneyToken.transferFrom(msg.sender, address(this), amount);
-    }
+  function claimReward() external {
+    IStaking bufferStaking = stakingContract;
+    bufferStaking.stakeByOwner(msg.sender);
+    bufferStaking.resetClaimableReward(pToken, msg.sender);
+  }
 }

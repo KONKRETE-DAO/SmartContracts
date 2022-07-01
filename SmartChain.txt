@@ -1,14 +1,10 @@
 -> Question 1 : 
-    a: pour les propriétés ou le rendement se fait tous les mois a chaque paiement de loyer. konkrete base le rendement sur (durée du stake (du mois) * montant stake)/ duree du mois(1) * MAX_SUPPLY. --> konkrete recuperant le reste.
-    b: Plutôt que de taxer l'unstake (APY ne depassant pas ~11%) , j'ai voulu créer un OTC , en postant un ordre ( ou nous prenons un pourcentage du sellPrice {en stable}  si l'ordre a été validé) , l'utilisateur  ne stake pas donc konkrete  recupere les gains (fee invisible en soit). Bonne idée ?
+    a: pour les propriétés ou le rendement se fait tous les mois a chaque paiement de loyer. konkrete base le rendement sur (durée du stake (du mois) * montant stake)/ duree du mois(1) * MAX_SUPPLY. --> konkrete recuperant le reste. Sur un rendement a 8% annuel, 3mois de non-staké (ex: mise en vente sur otc) équivaut a 2% de taxe.
+    b: Plutôt que de taxer l'unstake (APY ne depassant pas ~11%) , j'ai voulu créer un OTC , en postant un ordre ( ou nous prenons un pourcentage (faible ~0.5% mais rendement assuré) du sellPrice {en stable}  si l'ordre a été validé) , l'utilisateur  ne stake pas donc konkrete  recupere les gains (fee invisible en soit). Bonne idée ?
 
 -> Question 2 :
     Konkrete voulant prendre un place conséquente dans ce marché. J'ai implementé une fee variable en fonction de chaque stable utilisé pour peut-être faire des partenariant avec des projets de stables ( style agEur, rai etc..) avec qui nous pourrions avoir des partenariats. Est-ce une bonne idée ?
 
 -> Question 3 :
     Je trouvais ma fonction déposit (Treasury.sol, en rapport avec la question 1)interessante ,  est-ce too-much ou non ?
-->Question 4 :
-    Quid de token de Gouvernance ? Je voulais en faire un global ( pour voter pour un futur logement , une direction d'entreprise etc ) et 1 par propriétés ( pour la gestion type travaux --> snapshot? , choix du locataire etc... Ca peut amuser les gens et les faires se sentir concernés ) -> le 1er etant fait partir du burn du 2eme ?
 
-
-(
