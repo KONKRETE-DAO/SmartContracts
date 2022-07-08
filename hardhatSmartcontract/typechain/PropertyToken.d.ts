@@ -47,8 +47,8 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     "totalSupply()": FunctionFragment;
     "transfer(address,uint256)": FunctionFragment;
     "transferFrom(address,address,uint256)": FunctionFragment;
+    "transferFromWithPermission(address,address,uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
-    "transferToWithPermission(address,address,uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
     "variables()": FunctionFragment;
     "withdraw()": FunctionFragment;
   };
@@ -142,11 +142,7 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     values: [string, string, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "transferOwnership",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferToWithPermission",
+    functionFragment: "transferFromWithPermission",
     values: [
       string,
       string,
@@ -156,6 +152,10 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
       BytesLike,
       BytesLike
     ]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferOwnership",
+    values: [string]
   ): string;
   encodeFunctionData(functionFragment: "variables", values?: undefined): string;
   encodeFunctionData(functionFragment: "withdraw", values?: undefined): string;
@@ -220,11 +220,11 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "transferOwnership",
+    functionFragment: "transferFromWithPermission",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "transferToWithPermission",
+    functionFragment: "transferOwnership",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "variables", data: BytesLike): Result;
@@ -419,12 +419,7 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    transferOwnership(
-      newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    transferToWithPermission(
+    transferFromWithPermission(
       from: string,
       receiver: string,
       amount: BigNumberish,
@@ -432,6 +427,11 @@ export class PropertyToken extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    transferOwnership(
+      newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -560,12 +560,7 @@ export class PropertyToken extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  transferOwnership(
-    newOwner: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  transferToWithPermission(
+  transferFromWithPermission(
     from: string,
     receiver: string,
     amount: BigNumberish,
@@ -573,6 +568,11 @@ export class PropertyToken extends BaseContract {
     v: BigNumberish,
     r: BytesLike,
     s: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  transferOwnership(
+    newOwner: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -696,12 +696,7 @@ export class PropertyToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    transferOwnership(
-      newOwner: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
-    transferToWithPermission(
+    transferFromWithPermission(
       from: string,
       receiver: string,
       amount: BigNumberish,
@@ -709,6 +704,11 @@ export class PropertyToken extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    transferOwnership(
+      newOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -908,12 +908,7 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    transferOwnership(
-      newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    transferToWithPermission(
+    transferFromWithPermission(
       from: string,
       receiver: string,
       amount: BigNumberish,
@@ -921,6 +916,11 @@ export class PropertyToken extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    transferOwnership(
+      newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -1049,12 +1049,7 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    transferOwnership(
-      newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    transferToWithPermission(
+    transferFromWithPermission(
       from: string,
       receiver: string,
       amount: BigNumberish,
@@ -1062,6 +1057,11 @@ export class PropertyToken extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    transferOwnership(
+      newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

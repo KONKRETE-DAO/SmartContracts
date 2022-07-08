@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.12;
+pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -62,7 +62,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
         require(monthTimeStamp != 0, "Staking is not activated");
         IPropertyToken tokenToStakeBuff = TOKEN_TO_STAKE;
 
-        IPropertyToken(tokenToStakeBuff).transferToWithPermission(
+        IPropertyToken(tokenToStakeBuff).transferFromWithPermission(
             msg.sender,
             address(this),
             _amount,

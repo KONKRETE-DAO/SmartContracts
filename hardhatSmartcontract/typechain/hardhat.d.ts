@@ -13,6 +13,14 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
+      name: "AccessControlUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AccessControlUpgradeable__factory>;
+    getContractFactory(
+      name: "IAccessControlUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IAccessControlUpgradeable__factory>;
+    getContractFactory(
       name: "IERC1822ProxiableUpgradeable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC1822ProxiableUpgradeable__factory>;
@@ -32,6 +40,10 @@ declare module "hardhat/types/runtime" {
       name: "UUPSUpgradeable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.UUPSUpgradeable__factory>;
+    getContractFactory(
+      name: "ReentrancyGuardUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ReentrancyGuardUpgradeable__factory>;
     getContractFactory(
       name: "ERC20Upgradeable",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -60,6 +72,14 @@ declare module "hardhat/types/runtime" {
       name: "EIP712Upgradeable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.EIP712Upgradeable__factory>;
+    getContractFactory(
+      name: "ERC165Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC165Upgradeable__factory>;
+    getContractFactory(
+      name: "IERC165Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC165Upgradeable__factory>;
     getContractFactory(
       name: "Ownable",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -109,6 +129,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ITreasury__factory>;
     getContractFactory(
+      name: "MockToken",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MockToken__factory>;
+    getContractFactory(
       name: "OTC",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.OTC__factory>;
@@ -121,6 +145,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.PropertyTokenV1__factory>;
     getContractFactory(
+      name: "PropertyTokenV2",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.PropertyTokenV2__factory>;
+    getContractFactory(
       name: "KonkretStaking",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.KonkretStaking__factory>;
@@ -129,6 +157,16 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Treasury__factory>;
 
+    getContractAt(
+      name: "AccessControlUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AccessControlUpgradeable>;
+    getContractAt(
+      name: "IAccessControlUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IAccessControlUpgradeable>;
     getContractAt(
       name: "IERC1822ProxiableUpgradeable",
       address: string,
@@ -154,6 +192,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.UUPSUpgradeable>;
+    getContractAt(
+      name: "ReentrancyGuardUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ReentrancyGuardUpgradeable>;
     getContractAt(
       name: "ERC20Upgradeable",
       address: string,
@@ -189,6 +232,16 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.EIP712Upgradeable>;
+    getContractAt(
+      name: "ERC165Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC165Upgradeable>;
+    getContractAt(
+      name: "IERC165Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC165Upgradeable>;
     getContractAt(
       name: "Ownable",
       address: string,
@@ -250,6 +303,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.ITreasury>;
     getContractAt(
+      name: "MockToken",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MockToken>;
+    getContractAt(
       name: "OTC",
       address: string,
       signer?: ethers.Signer
@@ -264,6 +322,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.PropertyTokenV1>;
+    getContractAt(
+      name: "PropertyTokenV2",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.PropertyTokenV2>;
     getContractAt(
       name: "KonkretStaking",
       address: string,

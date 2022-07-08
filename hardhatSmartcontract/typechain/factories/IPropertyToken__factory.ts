@@ -350,7 +350,7 @@ const _abi = [
         type: "bytes32",
       },
     ],
-    name: "transferToWithPermission",
+    name: "transferFromWithPermission",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

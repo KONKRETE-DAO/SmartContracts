@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -31,7 +31,7 @@ interface IPropertyToken is IERC20, IERC20Permit {
     function decimals() external view returns (uint256);
 
     //0x4320efc0
-    function transferToWithPermission(
+    function transferFromWithPermission(
         address from,
         address receiver,
         uint256 amount,

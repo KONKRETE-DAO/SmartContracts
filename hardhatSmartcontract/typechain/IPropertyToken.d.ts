@@ -33,7 +33,7 @@ interface IPropertyTokenInterface extends ethers.utils.Interface {
     "totalSupply()": FunctionFragment;
     "transfer(address,uint256)": FunctionFragment;
     "transferFrom(address,address,uint256)": FunctionFragment;
-    "transferToWithPermission(address,address,uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
+    "transferFromWithPermission(address,address,uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
     "withdraw()": FunctionFragment;
   };
 
@@ -85,7 +85,7 @@ interface IPropertyTokenInterface extends ethers.utils.Interface {
     values: [string, string, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "transferToWithPermission",
+    functionFragment: "transferFromWithPermission",
     values: [
       string,
       string,
@@ -120,7 +120,7 @@ interface IPropertyTokenInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "transferToWithPermission",
+    functionFragment: "transferFromWithPermission",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
@@ -244,7 +244,7 @@ export class IPropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    transferToWithPermission(
+    transferFromWithPermission(
       from: string,
       receiver: string,
       amount: BigNumberish,
@@ -314,7 +314,7 @@ export class IPropertyToken extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  transferToWithPermission(
+  transferFromWithPermission(
     from: string,
     receiver: string,
     amount: BigNumberish,
@@ -384,7 +384,7 @@ export class IPropertyToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    transferToWithPermission(
+    transferFromWithPermission(
       from: string,
       receiver: string,
       amount: BigNumberish,
@@ -491,7 +491,7 @@ export class IPropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    transferToWithPermission(
+    transferFromWithPermission(
       from: string,
       receiver: string,
       amount: BigNumberish,
@@ -568,7 +568,7 @@ export class IPropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    transferToWithPermission(
+    transferFromWithPermission(
       from: string,
       receiver: string,
       amount: BigNumberish,

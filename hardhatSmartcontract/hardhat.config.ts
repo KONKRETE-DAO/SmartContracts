@@ -23,7 +23,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // Go to https://hardhat.org/config/ to learn more
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.13",
+  solidity: "0.8.14",
   networks: {
     // polygon: {
     //   url: process.env.POLYGON_URL,
@@ -39,6 +39,9 @@ const config: HardhatUserConfig = {
     //   accounts:
     //     [process.env.OWNER_KEY!, process.env.BUYER_KEY!]
     // },
+  },
+  etherscan: {
+    apiKey: process.env.MUMBAI_API_KEY,
   },
   // gasReporter: {
   //   enabled: true,

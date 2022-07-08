@@ -1,66 +1,50 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.13;
 
-import "@openzeppelin/contracts/access/Ownable.sol"; ////// To Copy !!!!!!!!!
-import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-ERC20PermitUpgradeable.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./interface/IPropertyToken.sol";
 
-// import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-
-/*I had to copy and set the Owner of Oz to avoid Inheritance errors*/
-contract PropertyTokenV1 is ERC20PermitUpgradeable {
+/* ERROR MESSAGES :
+{
+"RTH"     : "Ratio Too High"
+"RTL"     : "Ratio Too Low"
+"TLCD"    : "Too low , check decimals!"
+"SINA"    : "Sale is Not active"
+"SO"      : "Sold out"
+"NWL"     : "Not Whitelisted"
+"EMS"     : "Exceed max supply"
+"TABTMT"  : "This Address bought too much tokens"
+}
+*/
+contract PropertyTokenV1 is
+    ERC20PermitUpgradeable,
+    AccessControlUpgradeable,
+    UUPSUpgradeable,
+    ReentrancyGuardUpgradeable
+{
     event Buying(address buyer, uint256 price, uint256 amount);
-    event OwnershipTransferred(
-        address indexed previousOwner,
-        address indexed newOwner
-    );
+
     uint256 public constant TOKENPRICE = 10;
     uint256 public constant MAX_SUPPLY = 65000 ether;
-
-    mapping(address => uint256) public tokensBought;
+    bytes32 private constant DEV = keccak256("DEV");
+    bytes32 private constant KONKRETE = keccak256("KONKRETE");
 
     Variables public variables;
-    address private _owner;
-    bool initialized;
-
-    modifier onlyOwner() {
-        _checkOwner();
-        _;
-    }
-
-    function owner() public view returns (address) {
-        return _owner;
-    }
-
-    function _checkOwner() internal view {
-        if (initialized)
-            require(
-                owner() == _msgSender(),
-                "Ownable: caller is not the owner"
-            );
-    }
-
-    function transferOwnership(address newOwner) public onlyOwner {
-        _transferOwnership(newOwner);
-    }
-
-    function _transferOwnership(address newOwner) internal {
-        address oldOwner = _owner;
-        _owner = newOwner;
-        emit OwnershipTransferred(oldOwner, newOwner);
-    }
+    mapping(address => uint256) public tokensBought;
 
     function initialize(
-        address owner_,
         address _bank,
+        address multisig,
         address _currencyUsed,
-        string memory _name,
-        string memory _symbol
+        string calldata _name,
+        string calldata _symbol
     ) external initializer {
-        transferOwnership(owner_);
         variables = Variables(
             Step(0),
             0,
@@ -71,10 +55,16 @@ contract PropertyTokenV1 is ERC20PermitUpgradeable {
         );
         __ERC20_init(_name, _symbol);
         __ERC20Permit_init(_name);
-        initialized = true;
+        __UUPSUpgradeable_init();
+        _grantRole(DEV, msg.sender);
+        _grantRole(DEV, multisig);
+        _grantRole(KONKRETE, multisig);
+        _setRoleAdmin(DEFAULT_ADMIN_ROLE, KONKRETE);
     }
 
-    function withdraw() public onlyOwner {
+    function _authorizeUpgrade(address) internal override onlyRole(KONKRETE) {}
+
+    function withdraw() public onlyRole(DEV) {
         Variables memory bufferVariables = variables;
         bufferVariables.currencyUsed.transfer(
             bufferVariables.bank,
@@ -82,43 +72,23 @@ contract PropertyTokenV1 is ERC20PermitUpgradeable {
         );
     }
 
-    function setCexRatio(uint32 _cexRatioX10000) external onlyOwner {
-        require(_cexRatioX10000 < 16000, "1.6 euro for one dollar ?? ");
-        require(_cexRatioX10000 > 6000, "0.6 euro for one dollar ?? ");
+    function setCexRatio(uint32 _cexRatioX10000) external onlyRole(DEV) {
+        require(_cexRatioX10000 < 16000, "RTH");
+        require(_cexRatioX10000 > 6000, "RTL");
+
         variables.cexRatioX10000 = _cexRatioX10000;
         withdraw();
     }
 
-    function setCurrency(IERC20 currencyToUse) external onlyOwner {
-        variables.currencyUsed = currencyToUse;
-        withdraw();
-    }
-
-    function setMaxToBuy(uint128 _MaxToBuy) external onlyOwner {
-        require(_MaxToBuy > 100 ether, "Too low , check decimals!");
-        variables.MaxToBuy = _MaxToBuy;
-        withdraw();
-    }
-
-    function setStep(uint256 step) external onlyOwner {
-        require(step < 3, "Wrong number");
+    function setStep(uint256 step) public onlyRole(DEV) {
         variables.step = Step(step);
     }
 
-    function setAllowListMerkleRoot(bytes32 merkleRoot) external onlyOwner {
+    function setAllowListMerkleRoot(bytes32 merkleRoot) external onlyRole(DEV) {
         variables.merkleRoot = merkleRoot;
     }
 
-    function _verify(bytes32[] calldata _proof) internal view returns (bool) {
-        return
-            MerkleProof.verifyCalldata(
-                _proof,
-                variables.merkleRoot,
-                keccak256(abi.encodePacked(msg.sender))
-            );
-    }
-
-    function transferToWithPermission(
+    function transferFromWithPermission(
         address from,
         address receiver,
         uint256 amount,
@@ -132,9 +102,14 @@ contract PropertyTokenV1 is ERC20PermitUpgradeable {
     }
 
     modifier onlyWhitelist(bytes32[] calldata proof) {
-        require(variables.step != Step(0), "Not yet");
-        require(variables.step != Step(2), "Sold Out");
-        require(_verify(proof), "Not Whitelisted");
+        require(
+            MerkleProof.verifyCalldata(
+                proof,
+                variables.merkleRoot,
+                keccak256(abi.encodePacked(msg.sender))
+            ),
+            "NWL"
+        );
         _;
     }
 
@@ -142,22 +117,29 @@ contract PropertyTokenV1 is ERC20PermitUpgradeable {
         address _to,
         uint256 price,
         bytes32[] calldata proof
-    ) external onlyWhitelist(proof) {
+    ) external onlyWhitelist(proof) nonReentrant {
         Variables memory bufferVariables = variables;
         uint256 amount = (price * bufferVariables.cexRatioX10000) /
             (10000 * TOKENPRICE);
-
+        uint256 cap = amount + totalSupply();
+        //verif ratio
+        require(bufferVariables.step != Step(0), "SINA");
+        require(bufferVariables.step != Step(2), "SO");
+        require(cap <= MAX_SUPPLY, "EMS");
         require(
-            amount + totalSupply() <= MAX_SUPPLY,
-            "Maximum supply exceeded"
+            tokensBought[msg.sender] + amount <= bufferVariables.MaxToBuy,
+            "TABTMT"
         );
-        require(
-            tokensBought[msg.sender] + amount <= variables.MaxToBuy,
-            "This Address bought too much tokens"
+        bufferVariables.currencyUsed.transferFrom(
+            msg.sender,
+            address(this),
+            price
         );
-        variables.currencyUsed.transferFrom(msg.sender, address(this), price);
         _mint(_to, amount);
         tokensBought[msg.sender] += amount;
+        if (cap == MAX_SUPPLY) {
+            setStep(2);
+        }
         emit Buying(_to, price, amount);
     }
 }
