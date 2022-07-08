@@ -17,13 +17,13 @@ struct TokenInfos {
   uint64 monthTimeStamp;
   string symbol;
   address treasury;
-  uint256 MAX_SUPPLY;
+  uint256 MaxSupply;
 }
 
 interface IStaking {
   function TOKEN_TO_STAKE() external view returns (address);
 
-  function TOKEN_TO_STAKE_MAX_SUPPLY() external view returns (uint256);
+  function TOKEN_TO_STAKE_MaxSupply() external view returns (uint256);
 
   //0x672a0fb8
   function beginTimestamp() external;

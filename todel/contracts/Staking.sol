@@ -15,7 +15,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
   mapping(address => StakeInfos) public stakeByOwner;
 
   IPropertyToken public immutable TOKEN_TO_STAKE;
-  uint256 public immutable TOKEN_TO_STAKE_MAX_SUPPLY;
+  uint256 public immutable TOKEN_TO_STAKE_MaxSupply;
   IERC20 immutable currency;
   address immutable treasury;
 
@@ -28,7 +28,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     address _treasury
   ) {
     TOKEN_TO_STAKE = IPropertyToken(_tokenToStake);
-    TOKEN_TO_STAKE_MAX_SUPPLY = IPropertyToken(_tokenToStake).MAX_SUPPLY();
+    TOKEN_TO_STAKE_MaxSupply = IPropertyToken(_tokenToStake).MaxSupply();
     currency = IERC20(_currencyUsedToPay);
     treasury = _treasury;
   }
@@ -166,7 +166,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     uint256 newTimeStamp = block.timestamp;
 
     uint256 totalDenominator = (newTimeStamp - monthTimeStamp) *
-      TOKEN_TO_STAKE_MAX_SUPPLY;
+      TOKEN_TO_STAKE_MaxSupply;
 
     for (uint256 i = 0; i < stakersBuffer.length; ) {
       buffer = _getClaimableReward(

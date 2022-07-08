@@ -257,6 +257,88 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/access/AccessControl.sol": {
+      "lastModificationDate": 1655564700661,
+      "contentHash": "8e019a32b920e881f38f31cf60dd42cb",
+      "sourceName": "lib/openzeppelin-contracts/contracts/access/AccessControl.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/IAccessControl.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "AccessControl": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "AccessControl.sol/AccessControl.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/access/IAccessControl.sol": {
+      "lastModificationDate": 1655564700662,
+      "contentHash": "57c84298234411cea19c7c284d86be8b",
+      "sourceName": "lib/openzeppelin-contracts/contracts/access/IAccessControl.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IAccessControl": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "IAccessControl.sol/IAccessControl.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
       "lastModificationDate": 1655564700662,
       "contentHash": "d1ca0e010fbe72cf869af3855d460ae7",
@@ -337,49 +419,6 @@
       "artifacts": {
         "ERC20DecimalsMock": {
           "0.8.14+commit.80d49f37.Darwin.appleclang": "ERC20DecimalsMock.sol/ERC20DecimalsMock.json"
-        }
-      }
-    },
-    "lib/openzeppelin-contracts/contracts/mocks/ERC20Mock.sol": {
-      "lastModificationDate": 1655564700674,
-      "contentHash": "afadd2df2b3d63aa4d0f8180932b7b73",
-      "sourceName": "lib/openzeppelin-contracts/contracts/mocks/ERC20Mock.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
-      ],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "ERC20Mock": {
-          "0.8.14+commit.80d49f37.Darwin.appleclang": "ERC20Mock.sol/ERC20Mock.json"
         }
       }
     },
@@ -860,6 +899,84 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol": {
+      "lastModificationDate": 1655564700691,
+      "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ERC165": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "ERC165.sol/ERC165.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1655564700691,
+      "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IERC165": {
+          "0.8.14+commit.80d49f37.Darwin.appleclang": "IERC165.sol/IERC165.json"
+        }
+      }
+    },
     "script/Contract.s.sol": {
       "lastModificationDate": 1655564700746,
       "contentHash": "a2f05c22b825f74f8f0d68b8799e1aa1",
@@ -1019,8 +1136,8 @@
       }
     },
     "src/OTC.sol": {
-      "lastModificationDate": 1656502466659,
-      "contentHash": "d9a04a5cb5825562fcb86132e29d63b5",
+      "lastModificationDate": 1656936463858,
+      "contentHash": "54221337041bef915cfea5311d90fb23",
       "sourceName": "src/OTC.sol",
       "solcConfig": {
         "settings": {
@@ -1065,8 +1182,8 @@
       }
     },
     "src/PropertyToken.sol": {
-      "lastModificationDate": 1656608249650,
-      "contentHash": "1572d2db978523743b8f45edd06e3703",
+      "lastModificationDate": 1657203980450,
+      "contentHash": "70e16d751055f400f583674d501f3329",
       "sourceName": "src/PropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -1095,7 +1212,9 @@
         }
       },
       "imports": [
-        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/access/AccessControl.sol",
+        "lib/openzeppelin-contracts/contracts/access/IAccessControl.sol",
+        "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
@@ -1106,9 +1225,12 @@
         "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol",
-        "lib/openzeppelin-contracts/contracts/utils/cryptography/draft-EIP712.sol"
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/draft-EIP712.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "src/interface/IPropertyToken.sol"
       ],
-      "versionRequirement": "^0.8.10",
+      "versionRequirement": "^0.8.13",
       "artifacts": {
         "PropertyToken": {
           "0.8.14+commit.80d49f37.Darwin.appleclang": "PropertyToken.sol/PropertyToken.json"
@@ -1116,8 +1238,8 @@
       }
     },
     "src/Staking.sol": {
-      "lastModificationDate": 1656508415454,
-      "contentHash": "494b47a8dd56dc8e0386c9df9a98e7b0",
+      "lastModificationDate": 1657203413831,
+      "contentHash": "32a04d99790cefd15bb0666facb91d50",
       "sourceName": "src/Staking.sol",
       "solcConfig": {
         "settings": {
@@ -1162,7 +1284,7 @@
       }
     },
     "src/Treasury.sol": {
-      "lastModificationDate": 1656502466659,
+      "lastModificationDate": 1657203413833,
       "contentHash": "8fed0df05ece002e7c9de970189fc10c",
       "sourceName": "src/Treasury.sol",
       "solcConfig": {
@@ -1288,8 +1410,8 @@
       }
     },
     "src/interface/IPropertyToken.sol": {
-      "lastModificationDate": 1656502466660,
-      "contentHash": "84a01d1de017967e424a40afe4f698b3",
+      "lastModificationDate": 1657203902433,
+      "contentHash": "9b0c66ac46e645fffd2980489eb8249f",
       "sourceName": "src/interface/IPropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -1329,8 +1451,8 @@
       }
     },
     "src/interface/IStaking.sol": {
-      "lastModificationDate": 1656502466660,
-      "contentHash": "b21810919e2e06f4dc2f650dd1313924",
+      "lastModificationDate": 1657203413874,
+      "contentHash": "9d2924d7d2c838901acf9041aad6c2d9",
       "sourceName": "src/interface/IStaking.sol",
       "solcConfig": {
         "settings": {
@@ -1453,8 +1575,8 @@
       }
     },
     "test/Contract.t.sol": {
-      "lastModificationDate": 1656597694958,
-      "contentHash": "ca83966537c638726a7e06abcb17ef4b",
+      "lastModificationDate": 1657206322747,
+      "contentHash": "e4cc7101ba2c687afe95edf2d0cff9ed",
       "sourceName": "test/Contract.t.sol",
       "solcConfig": {
         "settings": {
@@ -1489,8 +1611,10 @@
         "lib/forge-std/src/Vm.sol",
         "lib/forge-std/src/console.sol",
         "lib/forge-std/src/console2.sol",
+        "lib/openzeppelin-contracts/contracts/access/AccessControl.sol",
+        "lib/openzeppelin-contracts/contracts/access/IAccessControl.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/mocks/ERC20Mock.sol",
+        "lib/openzeppelin-contracts/contracts/mocks/ERC20DecimalsMock.sol",
         "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
@@ -1503,10 +1627,13 @@
         "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/draft-EIP712.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
         "src/OTC.sol",
         "src/PropertyToken.sol",
         "src/interface/IOTC.Sol",
-        "src/interface/IPropertyToken.sol"
+        "src/interface/IPropertyToken.sol",
+        "src/mocktoken.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
