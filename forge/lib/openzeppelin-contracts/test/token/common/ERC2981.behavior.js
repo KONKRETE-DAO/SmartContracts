@@ -120,11 +120,19 @@ function shouldBehaveLikeERC2981() {
       const royalty = new BN((this.salePrice * newPercentage) / 10000);
       await this.token.setTokenRoyalty(this.tokenId1, this.account2, newPercentage);
 
+<<<<<<< HEAD
       const TokenInfo = await this.token.royaltyInfo(this.tokenId1, this.salePrice);
 
       // Tokens must have own information
       expect(TokenInfo[1]).to.be.bignumber.equal(royalty);
       expect(TokenInfo[0]).to.be.equal(this.account2);
+=======
+      const TokenInfos = await this.token.royaltyInfo(this.tokenId1, this.salePrice);
+
+      // Tokens must have own information
+      expect(TokenInfos[1]).to.be.bignumber.equal(royalty);
+      expect(TokenInfos[0]).to.be.equal(this.account2);
+>>>>>>> optimisation
 
       await this.token.setTokenRoyalty(this.tokenId2, this.account1, new BN('0'));
       const result = await this.token.royaltyInfo(this.tokenId2, this.salePrice);

@@ -98,7 +98,7 @@ contract OTC is Ownable, ReentrancyGuard {
     ];
     require(bufferCurrency.exist, "Currency not tolerated");
     uint64 index = uint64(sellOrderByToken[token].length);
-    IPropertyToken(token).transferToWithPermission(
+    IPropertyToken(token).transferFromWithPermission(
       msg.sender,
       address(this),
       amount,
@@ -249,7 +249,7 @@ contract OTC is Ownable, ReentrancyGuard {
     buyOrder.seller = msg.sender;
     buyOrder.propositionAccepted = true;
     buyOrder.open = false;
-    IPropertyToken(token).transferToWithPermission(
+    IPropertyToken(token).transferFromWithPermission(
       msg.sender,
       buyOrder.buyer,
       buyOrder.amount,

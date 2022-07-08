@@ -10,10 +10,19 @@
   },
   "ast": {
     "absolutePath": "src/GovernanceToken.sol",
+<<<<<<< HEAD
     "id": 22854,
     "exportedSymbols": {},
     "nodeType": "SourceUnit",
     "src": "0:0:20"
   },
   "id": 20
+=======
+    "id": 23271,
+    "exportedSymbols": {},
+    "nodeType": "SourceUnit",
+    "src": "0:0:23"
+  },
+  "id": 23
+>>>>>>> optimisation
 }

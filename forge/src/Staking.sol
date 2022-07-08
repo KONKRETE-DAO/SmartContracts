@@ -12,7 +12,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
   event Staked(address who, uint256 amount, uint256 timeStamp);
   event unStaked(address who, uint256 amount, uint256 timeStamp);
 
-  mapping(address => StakeInfo) public stakeByOwner;
+  mapping(address => StakeInfos) public stakeByOwner;
 
   IPropertyToken public immutable TOKEN_TO_STAKE;
   uint256 public immutable TOKEN_TO_STAKE_MAX_SUPPLY;
@@ -59,9 +59,10 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     bytes32 r,
     bytes32 s
   ) external nonReentrant {
+    require(monthTimeStamp != 0, "Staking is not activated");
     IPropertyToken tokenToStakeBuff = TOKEN_TO_STAKE;
 
-    IPropertyToken(tokenToStakeBuff).transferToWithPermission(
+    IPropertyToken(tokenToStakeBuff).transferFromWithPermission(
       msg.sender,
       address(this),
       _amount,
@@ -71,7 +72,11 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
       s
     );
 
+<<<<<<< HEAD
     StakeInfo memory infoBuffer = stakeByOwner[msg.sender];
+=======
+    StakeInfos memory infoBuffer = stakeByOwner[msg.sender];
+>>>>>>> optimisation
 
     if (infoBuffer.rank == 0) {
       stakers.push(msg.sender);
@@ -96,7 +101,11 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
   }
 
   function unStake(uint256 _amount) external nonReentrant {
+<<<<<<< HEAD
     StakeInfo memory infoBuffer = stakeByOwner[msg.sender];
+=======
+    StakeInfos memory infoBuffer = stakeByOwner[msg.sender];
+>>>>>>> optimisation
 
     require(infoBuffer.amount >= _amount, "Can't unstake this much");
 
@@ -121,6 +130,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
 
   function _getClaimableReward(
     uint256 newTimeStamp,
+<<<<<<< HEAD
     StakeInfo memory _StakeInfo,
     uint256 denominator,
     uint256 _totalreward
@@ -131,21 +141,45 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
           _calculateShareratio(
             _StakeInfo.amount,
             _StakeInfo.lastTimeStamp,
+=======
+    StakeInfos memory _StakeInfos,
+    uint256 denominator,
+    uint256 _totalreward
+  ) private pure returns (StakeInfos memory) {
+    _StakeInfos.claimableReward +=
+      (_totalreward *
+        (_StakeInfos.preShare +
+          _calculateShareratio(
+            _StakeInfos.amount,
+            _StakeInfos.lastTimeStamp,
+>>>>>>> optimisation
             newTimeStamp
           ))) /
       denominator;
 
+<<<<<<< HEAD
     _StakeInfo.lastTimeStamp = uint64(newTimeStamp);
 
     _StakeInfo.preShare = 0;
 
     return (_StakeInfo);
+=======
+    _StakeInfos.lastTimeStamp = uint64(newTimeStamp);
+
+    _StakeInfos.preShare = 0;
+
+    return (_StakeInfos);
+>>>>>>> optimisation
   }
 
-  function getStakeInfo(address tokenHolder)
+  function getStakeInfos(address tokenHolder)
     public
     view
+<<<<<<< HEAD
     returns (StakeInfo memory)
+=======
+    returns (StakeInfos memory)
+>>>>>>> optimisation
   {
     return ((stakeByOwner[tokenHolder]));
   }
@@ -158,7 +192,11 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
   {
     uint256 rest = totalReward;
 
+<<<<<<< HEAD
     StakeInfo memory buffer;
+=======
+    StakeInfos memory buffer;
+>>>>>>> optimisation
 
     address[] memory stakersBuffer = stakers;
 
@@ -189,6 +227,7 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
 
     return (rest);
   }
+<<<<<<< HEAD
 
   function claimReward() external nonReentrant {
     StakeInfo memory bufferStake = stakeByOwner[msg.sender];
@@ -197,4 +236,6 @@ contract KonkretStaking is Ownable, ReentrancyGuard {
     bufferStake.claimableReward = 0;
     stakeByOwner[msg.sender] = bufferStake;
   }
+=======
+>>>>>>> optimisation
 }

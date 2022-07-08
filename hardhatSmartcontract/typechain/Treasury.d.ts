@@ -21,35 +21,47 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface TreasuryInterface extends ethers.utils.Interface {
   functions: {
-    "addStakingContract(address)": FunctionFragment;
-    "deposit(address,uint256)": FunctionFragment;
-    "moneyToken()": FunctionFragment;
+    "MAX_TOKEN_SUPPLY()": FunctionFragment;
+    "claimReward()": FunctionFragment;
+    "currencyUsed()": FunctionFragment;
+    "deposit(uint256)": FunctionFragment;
+    "konkreteTreasury()": FunctionFragment;
     "owner()": FunctionFragment;
+    "pToken()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
-    "stakingContractByProperty(address)": FunctionFragment;
+    "stakingContract()": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "addStakingContract",
-    values: [string]
+    functionFragment: "MAX_TOKEN_SUPPLY",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "claimReward",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "currencyUsed",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "deposit",
-    values: [string, BigNumberish]
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "moneyToken",
+    functionFragment: "konkreteTreasury",
     values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(functionFragment: "pToken", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "renounceOwnership",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "stakingContractByProperty",
-    values: [string]
+    functionFragment: "stakingContract",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "transferOwnership",
@@ -57,18 +69,30 @@ interface TreasuryInterface extends ethers.utils.Interface {
   ): string;
 
   decodeFunctionResult(
-    functionFragment: "addStakingContract",
+    functionFragment: "MAX_TOKEN_SUPPLY",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "claimReward",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "currencyUsed",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "moneyToken", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "konkreteTreasury",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "pToken", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "stakingContractByProperty",
+    functionFragment: "stakingContract",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -78,7 +102,7 @@ interface TreasuryInterface extends ethers.utils.Interface {
 
   events: {
     "OwnershipTransferred(address,address)": EventFragment;
-    "RentDeposit(address,uint256)": EventFragment;
+    "RentDeposit(uint256)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
@@ -89,9 +113,7 @@ export type OwnershipTransferredEvent = TypedEvent<
   [string, string] & { previousOwner: string; newOwner: string }
 >;
 
-export type RentDepositEvent = TypedEvent<
-  [string, BigNumber] & { Property: string; amount: BigNumber }
->;
+export type RentDepositEvent = TypedEvent<[BigNumber] & { amount: BigNumber }>;
 
 export class Treasury extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -137,31 +159,30 @@ export class Treasury extends BaseContract {
   interface: TreasuryInterface;
 
   functions: {
-    addStakingContract(
-      _stakingContract: string,
+    MAX_TOKEN_SUPPLY(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    claimReward(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    currencyUsed(overrides?: CallOverrides): Promise<[string]>;
+
     deposit(
-      propertyToken: string,
       amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    moneyToken(overrides?: CallOverrides): Promise<[string]>;
+    konkreteTreasury(overrides?: CallOverrides): Promise<[string]>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
+
+    pToken(overrides?: CallOverrides): Promise<[string]>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    stakingContractByProperty(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<
-      [string, BigNumber] & { stakingContract: string; maxSupply: BigNumber }
-    >;
+    stakingContract(overrides?: CallOverrides): Promise<[string]>;
 
     transferOwnership(
       newOwner: string,
@@ -169,31 +190,30 @@ export class Treasury extends BaseContract {
     ): Promise<ContractTransaction>;
   };
 
-  addStakingContract(
-    _stakingContract: string,
+  MAX_TOKEN_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
+
+  claimReward(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  currencyUsed(overrides?: CallOverrides): Promise<string>;
+
   deposit(
-    propertyToken: string,
     amount: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  moneyToken(overrides?: CallOverrides): Promise<string>;
+  konkreteTreasury(overrides?: CallOverrides): Promise<string>;
 
   owner(overrides?: CallOverrides): Promise<string>;
+
+  pToken(overrides?: CallOverrides): Promise<string>;
 
   renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  stakingContractByProperty(
-    arg0: string,
-    overrides?: CallOverrides
-  ): Promise<
-    [string, BigNumber] & { stakingContract: string; maxSupply: BigNumber }
-  >;
+  stakingContract(overrides?: CallOverrides): Promise<string>;
 
   transferOwnership(
     newOwner: string,
@@ -201,29 +221,23 @@ export class Treasury extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    addStakingContract(
-      _stakingContract: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    MAX_TOKEN_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
 
-    deposit(
-      propertyToken: string,
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    claimReward(overrides?: CallOverrides): Promise<void>;
 
-    moneyToken(overrides?: CallOverrides): Promise<string>;
+    currencyUsed(overrides?: CallOverrides): Promise<string>;
+
+    deposit(amount: BigNumberish, overrides?: CallOverrides): Promise<void>;
+
+    konkreteTreasury(overrides?: CallOverrides): Promise<string>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
+    pToken(overrides?: CallOverrides): Promise<string>;
+
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
-    stakingContractByProperty(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<
-      [string, BigNumber] & { stakingContract: string; maxSupply: BigNumber }
-    >;
+    stakingContract(overrides?: CallOverrides): Promise<string>;
 
     transferOwnership(
       newOwner: string,
@@ -248,47 +262,40 @@ export class Treasury extends BaseContract {
       { previousOwner: string; newOwner: string }
     >;
 
-    "RentDeposit(address,uint256)"(
-      Property?: null,
+    "RentDeposit(uint256)"(
       amount?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { Property: string; amount: BigNumber }
-    >;
+    ): TypedEventFilter<[BigNumber], { amount: BigNumber }>;
 
     RentDeposit(
-      Property?: null,
       amount?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { Property: string; amount: BigNumber }
-    >;
+    ): TypedEventFilter<[BigNumber], { amount: BigNumber }>;
   };
 
   estimateGas: {
-    addStakingContract(
-      _stakingContract: string,
+    MAX_TOKEN_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
+
+    claimReward(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    currencyUsed(overrides?: CallOverrides): Promise<BigNumber>;
+
     deposit(
-      propertyToken: string,
       amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    moneyToken(overrides?: CallOverrides): Promise<BigNumber>;
+    konkreteTreasury(overrides?: CallOverrides): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
+
+    pToken(overrides?: CallOverrides): Promise<BigNumber>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    stakingContractByProperty(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    stakingContract(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
@@ -297,29 +304,30 @@ export class Treasury extends BaseContract {
   };
 
   populateTransaction: {
-    addStakingContract(
-      _stakingContract: string,
+    MAX_TOKEN_SUPPLY(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    claimReward(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    currencyUsed(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     deposit(
-      propertyToken: string,
       amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    moneyToken(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    konkreteTreasury(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    pToken(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    stakingContractByProperty(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    stakingContract(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,

@@ -21,26 +21,48 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface PropertyTokenInterface extends ethers.utils.Interface {
   functions: {
+    "DOMAIN_SEPARATOR()": FunctionFragment;
     "MAX_SUPPLY()": FunctionFragment;
+    "TOKENPRICE()": FunctionFragment;
     "allowance(address,address)": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
-    "buy(address,uint256)": FunctionFragment;
+    "buy(address,uint256,bytes32[])": FunctionFragment;
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
+    "multisig()": FunctionFragment;
     "name()": FunctionFragment;
+    "nonces(address)": FunctionFragment;
     "owner()": FunctionFragment;
+    "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
+    "setAllowListMerkleRoot(bytes32)": FunctionFragment;
+    "setCexRatio(uint32)": FunctionFragment;
+    "setCurrency(address)": FunctionFragment;
+    "setMaxToBuy(uint128)": FunctionFragment;
+    "setStep(uint256)": FunctionFragment;
     "symbol()": FunctionFragment;
+    "tokensBought(address)": FunctionFragment;
     "totalSupply()": FunctionFragment;
     "transfer(address,uint256)": FunctionFragment;
     "transferFrom(address,address,uint256)": FunctionFragment;
+    "transferFromWithPermission(address,address,uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
+    "variables()": FunctionFragment;
+    "withdraw()": FunctionFragment;
   };
 
   encodeFunctionData(
+    functionFragment: "DOMAIN_SEPARATOR",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "MAX_SUPPLY",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "TOKENPRICE",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -54,7 +76,7 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
   encodeFunctionData(
     functionFragment: "buy",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish, BytesLike[]]
   ): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
   encodeFunctionData(
@@ -65,13 +87,48 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     functionFragment: "increaseAllowance",
     values: [string, BigNumberish]
   ): string;
+  encodeFunctionData(functionFragment: "multisig", values?: undefined): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
+  encodeFunctionData(functionFragment: "nonces", values: [string]): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "permit",
+    values: [
+      string,
+      string,
+      BigNumberish,
+      BigNumberish,
+      BigNumberish,
+      BytesLike,
+      BytesLike
+    ]
+  ): string;
   encodeFunctionData(
     functionFragment: "renounceOwnership",
     values?: undefined
   ): string;
+  encodeFunctionData(
+    functionFragment: "setAllowListMerkleRoot",
+    values: [BytesLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setCexRatio",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(functionFragment: "setCurrency", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "setMaxToBuy",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setStep",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "tokensBought",
+    values: [string]
+  ): string;
   encodeFunctionData(
     functionFragment: "totalSupply",
     values?: undefined
@@ -85,11 +142,30 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     values: [string, string, BigNumberish]
   ): string;
   encodeFunctionData(
+    functionFragment: "transferFromWithPermission",
+    values: [
+      string,
+      string,
+      BigNumberish,
+      BigNumberish,
+      BigNumberish,
+      BytesLike,
+      BytesLike
+    ]
+  ): string;
+  encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [string]
   ): string;
+  encodeFunctionData(functionFragment: "variables", values?: undefined): string;
+  encodeFunctionData(functionFragment: "withdraw", values?: undefined): string;
 
+  decodeFunctionResult(
+    functionFragment: "DOMAIN_SEPARATOR",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "MAX_SUPPLY", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "TOKENPRICE", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
@@ -103,13 +179,37 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     functionFragment: "increaseAllowance",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "multisig", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "nonces", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "permit", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "setAllowListMerkleRoot",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setCexRatio",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setCurrency",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setMaxToBuy",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "setStep", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "tokensBought",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "totalSupply",
     data: BytesLike
@@ -120,13 +220,19 @@ interface PropertyTokenInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "transferFromWithPermission",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "transferOwnership",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "variables", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
 
   events: {
     "Approval(address,address,uint256)": EventFragment;
-    "Buying(address,uint256)": EventFragment;
+    "Buying(address,uint256,uint256)": EventFragment;
     "OwnershipTransferred(address,address)": EventFragment;
     "Transfer(address,address,uint256)": EventFragment;
   };
@@ -146,7 +252,11 @@ export type ApprovalEvent = TypedEvent<
 >;
 
 export type BuyingEvent = TypedEvent<
-  [string, BigNumber] & { buyer: string; amount: BigNumber }
+  [string, BigNumber, BigNumber] & {
+    buyer: string;
+    price: BigNumber;
+    amount: BigNumber;
+  }
 >;
 
 export type OwnershipTransferredEvent = TypedEvent<
@@ -201,7 +311,11 @@ export class PropertyToken extends BaseContract {
   interface: PropertyTokenInterface;
 
   functions: {
+    DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<[string]>;
+
     MAX_SUPPLY(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    TOKENPRICE(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     allowance(
       owner: string,
@@ -219,7 +333,8 @@ export class PropertyToken extends BaseContract {
 
     buy(
       _to: string,
-      amount: BigNumberish,
+      price: BigNumberish,
+      proof: BytesLike[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -237,15 +352,57 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    multisig(overrides?: CallOverrides): Promise<[string]>;
+
     name(overrides?: CallOverrides): Promise<[string]>;
 
+    nonces(owner: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+
     owner(overrides?: CallOverrides): Promise<[string]>;
+
+    permit(
+      owner: string,
+      spender: string,
+      value: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    setAllowListMerkleRoot(
+      merkleRoot: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setCexRatio(
+      _cexRatioX10000: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setCurrency(
+      currencyToUse: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setMaxToBuy(
+      _MaxToBuy: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setStep(
+      step: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     symbol(overrides?: CallOverrides): Promise<[string]>;
+
+    tokensBought(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     totalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -262,13 +419,44 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    transferFromWithPermission(
+      from: string,
+      receiver: string,
+      amount: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     transferOwnership(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
+
+    variables(
+      overrides?: CallOverrides
+    ): Promise<
+      [number, number, string, BigNumber, string] & {
+        step: number;
+        cexRatioX10000: number;
+        merkleRoot: string;
+        MaxToBuy: BigNumber;
+        currencyUsed: string;
+      }
+    >;
+
+    withdraw(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
   };
 
+  DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<string>;
+
   MAX_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
+
+  TOKENPRICE(overrides?: CallOverrides): Promise<BigNumber>;
 
   allowance(
     owner: string,
@@ -286,7 +474,8 @@ export class PropertyToken extends BaseContract {
 
   buy(
     _to: string,
-    amount: BigNumberish,
+    price: BigNumberish,
+    proof: BytesLike[],
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -304,15 +493,57 @@ export class PropertyToken extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  multisig(overrides?: CallOverrides): Promise<string>;
+
   name(overrides?: CallOverrides): Promise<string>;
 
+  nonces(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
+
   owner(overrides?: CallOverrides): Promise<string>;
+
+  permit(
+    owner: string,
+    spender: string,
+    value: BigNumberish,
+    deadline: BigNumberish,
+    v: BigNumberish,
+    r: BytesLike,
+    s: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  setAllowListMerkleRoot(
+    merkleRoot: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setCexRatio(
+    _cexRatioX10000: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setCurrency(
+    currencyToUse: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setMaxToBuy(
+    _MaxToBuy: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setStep(
+    step: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   symbol(overrides?: CallOverrides): Promise<string>;
+
+  tokensBought(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -329,13 +560,44 @@ export class PropertyToken extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  transferFromWithPermission(
+    from: string,
+    receiver: string,
+    amount: BigNumberish,
+    deadline: BigNumberish,
+    v: BigNumberish,
+    r: BytesLike,
+    s: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   transferOwnership(
     newOwner: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  variables(
+    overrides?: CallOverrides
+  ): Promise<
+    [number, number, string, BigNumber, string] & {
+      step: number;
+      cexRatioX10000: number;
+      merkleRoot: string;
+      MaxToBuy: BigNumber;
+      currencyUsed: string;
+    }
+  >;
+
+  withdraw(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   callStatic: {
+    DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<string>;
+
     MAX_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
+
+    TOKENPRICE(overrides?: CallOverrides): Promise<BigNumber>;
 
     allowance(
       owner: string,
@@ -353,7 +615,8 @@ export class PropertyToken extends BaseContract {
 
     buy(
       _to: string,
-      amount: BigNumberish,
+      price: BigNumberish,
+      proof: BytesLike[],
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -371,13 +634,52 @@ export class PropertyToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
+    multisig(overrides?: CallOverrides): Promise<string>;
+
     name(overrides?: CallOverrides): Promise<string>;
+
+    nonces(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
+    permit(
+      owner: string,
+      spender: string,
+      value: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
+    setAllowListMerkleRoot(
+      merkleRoot: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setCexRatio(
+      _cexRatioX10000: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setCurrency(
+      currencyToUse: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setMaxToBuy(
+      _MaxToBuy: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setStep(step: BigNumberish, overrides?: CallOverrides): Promise<void>;
+
     symbol(overrides?: CallOverrides): Promise<string>;
+
+    tokensBought(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -394,10 +696,35 @@ export class PropertyToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
+    transferFromWithPermission(
+      from: string,
+      receiver: string,
+      amount: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     transferOwnership(
       newOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    variables(
+      overrides?: CallOverrides
+    ): Promise<
+      [number, number, string, BigNumber, string] & {
+        step: number;
+        cexRatioX10000: number;
+        merkleRoot: string;
+        MaxToBuy: BigNumber;
+        currencyUsed: string;
+      }
+    >;
+
+    withdraw(overrides?: CallOverrides): Promise<void>;
   };
 
   filters: {
@@ -419,20 +746,22 @@ export class PropertyToken extends BaseContract {
       { owner: string; spender: string; value: BigNumber }
     >;
 
-    "Buying(address,uint256)"(
+    "Buying(address,uint256,uint256)"(
       buyer?: null,
+      price?: null,
       amount?: null
     ): TypedEventFilter<
-      [string, BigNumber],
-      { buyer: string; amount: BigNumber }
+      [string, BigNumber, BigNumber],
+      { buyer: string; price: BigNumber; amount: BigNumber }
     >;
 
     Buying(
       buyer?: null,
+      price?: null,
       amount?: null
     ): TypedEventFilter<
-      [string, BigNumber],
-      { buyer: string; amount: BigNumber }
+      [string, BigNumber, BigNumber],
+      { buyer: string; price: BigNumber; amount: BigNumber }
     >;
 
     "OwnershipTransferred(address,address)"(
@@ -471,7 +800,11 @@ export class PropertyToken extends BaseContract {
   };
 
   estimateGas: {
+    DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<BigNumber>;
+
     MAX_SUPPLY(overrides?: CallOverrides): Promise<BigNumber>;
+
+    TOKENPRICE(overrides?: CallOverrides): Promise<BigNumber>;
 
     allowance(
       owner: string,
@@ -489,7 +822,8 @@ export class PropertyToken extends BaseContract {
 
     buy(
       _to: string,
-      amount: BigNumberish,
+      price: BigNumberish,
+      proof: BytesLike[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -507,15 +841,57 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    multisig(overrides?: CallOverrides): Promise<BigNumber>;
+
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
+    nonces(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
+
     owner(overrides?: CallOverrides): Promise<BigNumber>;
+
+    permit(
+      owner: string,
+      spender: string,
+      value: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    setAllowListMerkleRoot(
+      merkleRoot: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setCexRatio(
+      _cexRatioX10000: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setCurrency(
+      currencyToUse: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setMaxToBuy(
+      _MaxToBuy: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setStep(
+      step: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     symbol(overrides?: CallOverrides): Promise<BigNumber>;
+
+    tokensBought(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -532,14 +908,35 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    transferFromWithPermission(
+      from: string,
+      receiver: string,
+      amount: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     transferOwnership(
       newOwner: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    variables(overrides?: CallOverrides): Promise<BigNumber>;
+
+    withdraw(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
+    DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     MAX_SUPPLY(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    TOKENPRICE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     allowance(
       owner: string,
@@ -560,7 +957,8 @@ export class PropertyToken extends BaseContract {
 
     buy(
       _to: string,
-      amount: BigNumberish,
+      price: BigNumberish,
+      proof: BytesLike[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -578,15 +976,63 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    multisig(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    nonces(
+      owner: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    permit(
+      owner: string,
+      spender: string,
+      value: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    setAllowListMerkleRoot(
+      merkleRoot: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setCexRatio(
+      _cexRatioX10000: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setCurrency(
+      currencyToUse: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setMaxToBuy(
+      _MaxToBuy: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setStep(
+      step: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    tokensBought(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     totalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -603,8 +1049,25 @@ export class PropertyToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    transferFromWithPermission(
+      from: string,
+      receiver: string,
+      amount: BigNumberish,
+      deadline: BigNumberish,
+      v: BigNumberish,
+      r: BytesLike,
+      s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     transferOwnership(
       newOwner: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    variables(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    withdraw(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };

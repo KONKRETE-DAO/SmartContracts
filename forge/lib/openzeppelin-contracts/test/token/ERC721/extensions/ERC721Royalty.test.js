@@ -30,10 +30,17 @@ contract('ERC721Royalty', function (accounts) {
 
     it('removes royalty information after burn', async function () {
       await this.token.burn(tokenId1);
+<<<<<<< HEAD
       const TokenInfo = await this.token.royaltyInfo(tokenId1, salePrice);
 
       expect(TokenInfo[0]).to.be.equal(ZERO_ADDRESS);
       expect(TokenInfo[1]).to.be.bignumber.equal(new BN('0'));
+=======
+      const TokenInfos = await this.token.royaltyInfo(tokenId1, salePrice);
+
+      expect(TokenInfos[0]).to.be.equal(ZERO_ADDRESS);
+      expect(TokenInfos[1]).to.be.bignumber.equal(new BN('0'));
+>>>>>>> optimisation
     });
   });
   shouldBehaveLikeERC2981();

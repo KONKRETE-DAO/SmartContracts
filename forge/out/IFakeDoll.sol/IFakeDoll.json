@@ -218,12 +218,17 @@
   },
   "ast": {
     "absolutePath": "src/interface/IFakeDoll.sol",
+<<<<<<< HEAD
     "id": 25245,
+=======
+    "id": 25176,
+>>>>>>> optimisation
     "exportedSymbols": {
       "IERC20": [
-        21707
+        21792
       ],
       "IFakeDoll": [
+<<<<<<< HEAD
         25244
       ]
     },
@@ -234,6 +239,18 @@
         "id": 25235,
         "nodeType": "PragmaDirective",
         "src": "37:23:27",
+=======
+        25175
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "37:173:28",
+    "nodes": [
+      {
+        "id": 25166,
+        "nodeType": "PragmaDirective",
+        "src": "37:23:28",
+>>>>>>> optimisation
         "literals": [
           "solidity",
           "^",
@@ -242,6 +259,7 @@
         ]
       },
       {
+<<<<<<< HEAD
         "id": 25236,
         "nodeType": "ImportDirective",
         "src": "61:56:27",
@@ -250,10 +268,21 @@
         "nameLocation": "-1:-1:-1",
         "scope": 25245,
         "sourceUnit": 21708,
+=======
+        "id": 25167,
+        "nodeType": "ImportDirective",
+        "src": "61:56:28",
+        "absolutePath": "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 25176,
+        "sourceUnit": 21793,
+>>>>>>> optimisation
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
+<<<<<<< HEAD
         "id": 25244,
         "nodeType": "ContractDefinition",
         "src": "119:90:27",
@@ -262,18 +291,35 @@
             "id": 25243,
             "nodeType": "FunctionDefinition",
             "src": "172:35:27",
+=======
+        "id": 25175,
+        "nodeType": "ContractDefinition",
+        "src": "119:90:28",
+        "nodes": [
+          {
+            "id": 25174,
+            "nodeType": "FunctionDefinition",
+            "src": "172:35:28",
+>>>>>>> optimisation
             "functionSelector": "a0712d68",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
+<<<<<<< HEAD
             "nameLocation": "181:4:27",
             "parameters": {
               "id": 25241,
+=======
+            "nameLocation": "181:4:28",
+            "parameters": {
+              "id": 25172,
+>>>>>>> optimisation
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< HEAD
                   "id": 25240,
                   "mutability": "mutable",
                   "name": "nb",
@@ -281,6 +327,15 @@
                   "nodeType": "VariableDeclaration",
                   "scope": 25243,
                   "src": "186:10:27",
+=======
+                  "id": 25171,
+                  "mutability": "mutable",
+                  "name": "nb",
+                  "nameLocation": "194:2:28",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25174,
+                  "src": "186:10:28",
+>>>>>>> optimisation
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -288,10 +343,17 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< HEAD
                     "id": 25239,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "186:7:27",
+=======
+                    "id": 25170,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "186:7:28",
+>>>>>>> optimisation
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -300,6 +362,7 @@
                   "visibility": "internal"
                 }
               ],
+<<<<<<< HEAD
               "src": "185:12:27"
             },
             "returnParameters": {
@@ -309,6 +372,17 @@
               "src": "206:0:27"
             },
             "scope": 25244,
+=======
+              "src": "185:12:28"
+            },
+            "returnParameters": {
+              "id": 25173,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "206:0:28"
+            },
+            "scope": 25175,
+>>>>>>> optimisation
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -318,6 +392,7 @@
         "baseContracts": [
           {
             "baseName": {
+<<<<<<< HEAD
               "id": 25237,
               "name": "IERC20",
               "nodeType": "IdentifierPath",
@@ -327,6 +402,17 @@
             "id": 25238,
             "nodeType": "InheritanceSpecifier",
             "src": "142:6:27"
+=======
+              "id": 25168,
+              "name": "IERC20",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 21792,
+              "src": "142:6:28"
+            },
+            "id": 25169,
+            "nodeType": "InheritanceSpecifier",
+            "src": "142:6:28"
+>>>>>>> optimisation
           }
         ],
         "canonicalName": "IFakeDoll",
@@ -334,16 +420,29 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
+<<<<<<< HEAD
           25244,
           21707
         ],
         "name": "IFakeDoll",
         "nameLocation": "129:9:27",
         "scope": 25245,
+=======
+          25175,
+          21792
+        ],
+        "name": "IFakeDoll",
+        "nameLocation": "129:9:28",
+        "scope": 25176,
+>>>>>>> optimisation
         "usedErrors": []
       }
     ],
     "license": "Unlicense"
   },
+<<<<<<< HEAD
   "id": 27
+=======
+  "id": 28
+>>>>>>> optimisation
 }

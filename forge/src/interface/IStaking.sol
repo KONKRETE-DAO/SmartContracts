@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-struct StakeInfo {
+struct StakeInfos {
   bool exist;
   uint64 rank;
   uint64 lastTimeStamp;
@@ -12,12 +12,12 @@ struct StakeInfo {
   uint256 claimableReward;
 }
 
-struct TokenInfo {
+struct TokenInfos {
   bool exist;
+  uint64 monthTimeStamp;
   string symbol;
   address treasury;
-  uint256 max_supply;
-  address[] stakers;
+  uint256 MAX_SUPPLY;
 }
 
 interface IStaking {
@@ -35,15 +35,14 @@ interface IStaking {
   function unStake(uint256 amount) external;
 
   //0xc3453153
-  function getStakeInfo(address tokenHolder) external;
+  function getStakeInfos(address tokenHolder) external;
 
   //0xc26c60de
   function setTotalClaimableReward(uint256 totalReward)
     external
     returns (uint256);
 
-  function resetClaimableReward(address token, address staker) external;
+  function stakeByOwner(address owner) external returns (StakeInfos memory);
 
-  //0xb88a802f
-  function claimReward() external;
+  function resetClaimableReward(address token, address staker) external;
 }
