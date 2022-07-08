@@ -24,6 +24,8 @@ interface IPropertyToken is IERC20, IERC20Permit {
 
   function variables() external view returns (Variables calldata);
 
+  function name() external view returns (string memory);
+
   function tokensBought(address token) external view returns (uint256);
 
   //3ccfd60b

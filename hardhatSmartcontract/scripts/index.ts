@@ -35,11 +35,11 @@ async function main() {
   // );
   const pbox2 = await upgrades.upgradeProxy(pbox.address, V2);
 
-  await pbox2.setCurrency(buyer.address);
-  const v = await pbox.variables();
-  console.log(
-    "Currency : " + v.currencyUsed + "\n New address" + buyer.address
-  );
+  // await pbox2.setCurrency(buyer.address);
+  // const v = await pbox.variables();
+  // console.log(
+  //   "Currency : " + v.currencyUsed + "\n New address" + buyer.address
+  // );
 
   // await contrat
   //   .connect(owner)

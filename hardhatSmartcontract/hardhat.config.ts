@@ -34,6 +34,10 @@ const config: HardhatUserConfig = {
       url: process.env.MUMBAI_URL!,
       accounts: [process.env.PKEY!, process.env.BUYER_KEY!],
     },
+    tbsc: {
+      url: process.env.TBSC_URL!,
+      accounts: [process.env.PKEY!, process.env.BUYER_KEY!],
+    },
     // mainnet: {
     //   url: process.env.MAINNET_URL,
     //   accounts:
@@ -41,7 +45,7 @@ const config: HardhatUserConfig = {
     // },
   },
   etherscan: {
-    apiKey: process.env.MUMBAI_API_KEY,
+    apiKey: process.env.BSC_API_KEY,
   },
   // gasReporter: {
   //   enabled: true,
