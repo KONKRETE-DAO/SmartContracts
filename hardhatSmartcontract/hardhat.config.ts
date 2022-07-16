@@ -6,6 +6,7 @@ import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 import "@openzeppelin/hardhat-upgrades";
+import "@openzeppelin/hardhat-defender";
 import { HardhatUserConfig, task } from "hardhat/config";
 dotenv.config();
 
@@ -24,12 +25,20 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 const config: HardhatUserConfig = {
   solidity: "0.8.14",
+  defender: {
+    apiKey: process.env.DEFENDER_TEAM_API_KEY!,
+    apiSecret: process.env.DEFENDER_TEAM_API_SECRET_KEY!,
+  },
   networks: {
     // polygon: {
     //   url: process.env.POLYGON_URL,
     //   accounts:
     //     [process.env.OWNER_KEY!, process.env.BUYER_KEY!]
     // },
+    goerli: {
+      url: process.env.GOERLI_URL!,
+      accounts: [process.env.PKEY!, process.env.BUYER_KEY!],
+    },
     mumbai: {
       url: process.env.MUMBAI_URL!,
       accounts: [process.env.PKEY!, process.env.BUYER_KEY!],
@@ -45,7 +54,7 @@ const config: HardhatUserConfig = {
     // },
   },
   etherscan: {
-    apiKey: process.env.BSC_API_KEY,
+    apiKey: process.env.ETHERSCAN_API_KEY,
   },
   // gasReporter: {
   //   enabled: true,

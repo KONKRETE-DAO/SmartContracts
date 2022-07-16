@@ -31,7 +31,7 @@ contract PropertyTokenV1 is
     event Buying(address buyer, uint256 price, uint256 amount);
 
     uint256 public constant TOKENPRICE = 10;
-    uint256 public constant MAX_SUPPLY = 65000 ether;
+    uint256 public constant MAX_SUPPLY = 6100 ether;
     bytes32 private constant DEV = keccak256("DEV");
     bytes32 private constant KONKRETE = keccak256("KONKRETE");
 
@@ -53,13 +53,12 @@ contract PropertyTokenV1 is
             _bank,
             IERC20(_currencyUsed)
         );
+        _setupRole(DEFAULT_ADMIN_ROLE, multisig);
         __ERC20_init(_name, _symbol);
         __ERC20Permit_init(_name);
         __UUPSUpgradeable_init();
         _grantRole(DEV, msg.sender);
         _grantRole(DEV, multisig);
-        _grantRole(KONKRETE, multisig);
-        _setRoleAdmin(DEFAULT_ADMIN_ROLE, KONKRETE);
     }
 
     function _authorizeUpgrade(address) internal override onlyRole(KONKRETE) {}
@@ -101,6 +100,10 @@ contract PropertyTokenV1 is
         transferFrom(from, receiver, amount);
     }
 
+    function getPrice(uint256 amount) public view returns (uint256) {
+        return (amount * (10000 * TOKENPRICE)) / variables.cexRatioX10000;
+    }
+
     modifier onlyWhitelist(bytes32[] calldata proof) {
         require(
             MerkleProof.verifyCalldata(
@@ -115,21 +118,20 @@ contract PropertyTokenV1 is
 
     function buy(
         address _to,
-        uint256 price,
+        uint256 amount,
         bytes32[] calldata proof
     ) external onlyWhitelist(proof) nonReentrant {
         Variables memory bufferVariables = variables;
-        uint256 amount = (price * bufferVariables.cexRatioX10000) /
-            (10000 * TOKENPRICE);
-        uint256 cap = amount + totalSupply();
-        //verif ratio
         require(bufferVariables.step != Step(0), "SINA");
         require(bufferVariables.step != Step(2), "SO");
+        uint256 cap = amount + totalSupply();
         require(cap <= MAX_SUPPLY, "EMS");
         require(
             tokensBought[msg.sender] + amount <= bufferVariables.MaxToBuy,
             "TABTMT"
         );
+        uint256 price = (amount * (10000 * TOKENPRICE)) /
+            bufferVariables.cexRatioX10000;
         bufferVariables.currencyUsed.transferFrom(
             msg.sender,
             address(this),

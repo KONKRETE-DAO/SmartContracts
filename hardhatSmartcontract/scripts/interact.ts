@@ -9,47 +9,17 @@ import { connect } from "http2";
 import { getRoot, getProofs } from "../helpers/merkletree";
 
 async function main() {
-  const PTOKEN = await ethers.getContractFactory("PropertyToken");
+  const [owner, buyer] = await ethers.getSigners();
+  const PTOKEN = await ethers.getContractFactory("PropertyTokenV1");
   const ptoken = new ethers.Contract(
-    "0xF7250796f71982a799fd38CA05BEfA86dEc8F0bE",
+    "0x215de2b3B83f12D71C61861E318AcEC94b47e52D",
     PTOKEN.interface,
     ethers.getDefaultProvider()
   );
-  const CURRENCY = await ethers.getContractFactory("MockToken");
-  const currency = new ethers.Contract(
-    "0x4cd2a9b9edc6a6f523a33aef4a72f7340e656eee",
-    CURRENCY.interface,
-    ethers.getDefaultProvider()
-  );
-
-  const [owner, buyer] = await ethers.getSigners();
-  console.log(owner.address);
-  console.log(buyer.address);
-  // console.log(getRoot());
-
-  //   let tx = await ptoken.connect(owner).setAllowListMerkleRoot(getRoot());
-  //   tx.wait();
-  //   await currency
-  //     .connect(owner)
-  //     .approve(
-  //       "0xF7250796f71982a799fd38CA05BEfA86dEc8F0bE",
-  //       ethers.BigNumber.from(
-  //         "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
-  //       )
-  //     );
-  console.log(
-    "Bought for 1$ = 0.9€ ratio etant egal a " +
-      (await ptoken.connect(owner).variables())
-  );
-
-  let tx = await ptoken
-    .connect(owner)
-    .buy(
-      owner.address,
-      ethers.utils.parseEther("12000"),
-      getProofs(owner.address)
-    );
-  tx.wait();
+  await ptoken.connect(owner).setAllowListMerkleRoot(getRoot());
+  // await ptoken.connect(owner).setStep(1);
+  // await ptoken.connect(owner).setCexRatio(9915);
+  // console.log(String(ethers.utils.formatEther("1008572869389813414019")));
 
   //   console.log(await ptoken.connect(owner).variables());
 }
@@ -60,3 +30,5 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+//1008572869389813414019
+//100857286938981341401

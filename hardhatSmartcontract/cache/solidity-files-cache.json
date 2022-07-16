@@ -366,7 +366,7 @@
       ]
     },
     "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/interface/IPropertyToken.sol": {
-      "lastModificationDate": 1657274623060,
+      "lastModificationDate": 1657725831851,
       "contentHash": "da460794d2259307437ddbafd43d1b6f",
       "sourceName": "contracts/interface/IPropertyToken.sol",
       "solcConfig": {
@@ -594,8 +594,8 @@
       ]
     },
     "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/PropertyV1.sol": {
-      "lastModificationDate": 1657274623059,
-      "contentHash": "3980b56877456fde47244958a304bbf6",
+      "lastModificationDate": 1657960186130,
+      "contentHash": "214c7a6d228ef54f783de2533d7011f1",
       "sourceName": "contracts/PropertyV1.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -1511,7 +1511,7 @@
       ]
     },
     "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/contracts/PropertyV2.sol": {
-      "lastModificationDate": 1657274623059,
+      "lastModificationDate": 1657725734245,
       "contentHash": "8f413612422b82584dc999f7c6007a88",
       "sourceName": "contracts/PropertyV2.sol",
       "solcConfig": {
@@ -1746,6 +1746,45 @@
       ],
       "artifacts": [
         "MockToken"
+      ]
+    },
+    "/Users/nigelbook/Konkrete/SmartContracts/hardhatSmartcontract/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+      "lastModificationDate": 1657704455467,
+      "contentHash": "403ce8273abde646bff81558ddf512ad",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/ContextUpgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "OwnableUpgradeable"
       ]
     }
   }
