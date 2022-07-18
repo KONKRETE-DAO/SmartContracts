@@ -22,22 +22,45 @@ struct Variables {
 interface IPropertyToken is IERC20, IERC20Permit {
     function MAX_SUPPLY() external view returns (uint256);
 
-    //0xcce7ec13
-    function buy(address _to, uint256 amount) external;
+    //83b43589
+    function initialize(
+        address,
+        address,
+        address,
+        string calldata,
+        string calldata
+    ) external;
 
-    //0x3ccfd60b
-    function withdraw() external;
+    //d5e5a5b4
+    function withdraw(IERC20) external;
 
-    function decimals() external view returns (uint256);
+    //f75d6f80
+    function setCexRatio(uint32) external;
 
-    //0x4320efc0
+    //f8dcbddb
+    function setStep(uint256) external;
+
+    //ea7a42e4
+    function setAllowListMerkleRoot(bytes32) external;
+
+    //cfac414b
     function transferFromWithPermission(
-        address from,
-        address receiver,
-        uint256 amount,
-        uint256 deadline,
-        uint8 v,
-        bytes32 r,
-        bytes32 s
+        address,
+        address,
+        uint256,
+        uint256,
+        uint8,
+        bytes32,
+        bytes32
+    ) external;
+
+    //e7572230
+    function getPrice(uint256) external view returns (uint256);
+
+    //4c13a639
+    function buy(
+        address,
+        uint256,
+        bytes32[] calldata
     ) external;
 }

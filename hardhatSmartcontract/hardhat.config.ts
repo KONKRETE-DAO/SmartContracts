@@ -30,11 +30,10 @@ const config: HardhatUserConfig = {
     apiSecret: process.env.DEFENDER_TEAM_API_SECRET_KEY!,
   },
   networks: {
-    // polygon: {
-    //   url: process.env.POLYGON_URL,
-    //   accounts:
-    //     [process.env.OWNER_KEY!, process.env.BUYER_KEY!]
-    // },
+    polygon: {
+      url: process.env.POLYGON_RPC!,
+      accounts: [process.env.PKEY!, process.env.BUYER_KEY!],
+    },
     goerli: {
       url: process.env.GOERLI_URL!,
       accounts: [process.env.PKEY!, process.env.BUYER_KEY!],
@@ -54,7 +53,7 @@ const config: HardhatUserConfig = {
     // },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: process.env.MUMBAI_API_KEY,
   },
   // gasReporter: {
   //   enabled: true,

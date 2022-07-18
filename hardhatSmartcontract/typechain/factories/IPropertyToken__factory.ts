@@ -157,13 +157,18 @@ const _abi = [
     inputs: [
       {
         internalType: "address",
-        name: "_to",
+        name: "",
         type: "address",
       },
       {
         internalType: "uint256",
-        name: "amount",
+        name: "",
         type: "uint256",
+      },
+      {
+        internalType: "bytes32[]",
+        name: "",
+        type: "bytes32[]",
       },
     ],
     name: "buy",
@@ -172,8 +177,14 @@ const _abi = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "decimals",
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "getPrice",
     outputs: [
       {
         internalType: "uint256",
@@ -182,6 +193,39 @@ const _abi = [
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    name: "initialize",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -242,6 +286,45 @@ const _abi = [
       },
     ],
     name: "permit",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    name: "setAllowListMerkleRoot",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint32",
+        name: "",
+        type: "uint32",
+      },
+    ],
+    name: "setCexRatio",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "setStep",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -316,37 +399,37 @@ const _abi = [
     inputs: [
       {
         internalType: "address",
-        name: "from",
+        name: "",
         type: "address",
       },
       {
         internalType: "address",
-        name: "receiver",
+        name: "",
         type: "address",
       },
       {
         internalType: "uint256",
-        name: "amount",
+        name: "",
         type: "uint256",
       },
       {
         internalType: "uint256",
-        name: "deadline",
+        name: "",
         type: "uint256",
       },
       {
         internalType: "uint8",
-        name: "v",
+        name: "",
         type: "uint8",
       },
       {
         internalType: "bytes32",
-        name: "r",
+        name: "",
         type: "bytes32",
       },
       {
         internalType: "bytes32",
-        name: "s",
+        name: "",
         type: "bytes32",
       },
     ],
@@ -356,7 +439,13 @@ const _abi = [
     type: "function",
   },
   {
-    inputs: [],
+    inputs: [
+      {
+        internalType: "contract IERC20",
+        name: "",
+        type: "address",
+      },
+    ],
     name: "withdraw",
     outputs: [],
     stateMutability: "nonpayable",

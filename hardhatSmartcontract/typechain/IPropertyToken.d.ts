@@ -26,15 +26,19 @@ interface IPropertyTokenInterface extends ethers.utils.Interface {
     "allowance(address,address)": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
-    "buy(address,uint256)": FunctionFragment;
-    "decimals()": FunctionFragment;
+    "buy(address,uint256,bytes32[])": FunctionFragment;
+    "getPrice(uint256)": FunctionFragment;
+    "initialize(address,address,address,string,string)": FunctionFragment;
     "nonces(address)": FunctionFragment;
     "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
+    "setAllowListMerkleRoot(bytes32)": FunctionFragment;
+    "setCexRatio(uint32)": FunctionFragment;
+    "setStep(uint256)": FunctionFragment;
     "totalSupply()": FunctionFragment;
     "transfer(address,uint256)": FunctionFragment;
     "transferFrom(address,address,uint256)": FunctionFragment;
     "transferFromWithPermission(address,address,uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
-    "withdraw()": FunctionFragment;
+    "withdraw(address)": FunctionFragment;
   };
 
   encodeFunctionData(
@@ -56,9 +60,16 @@ interface IPropertyTokenInterface extends ethers.utils.Interface {
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
   encodeFunctionData(
     functionFragment: "buy",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish, BytesLike[]]
   ): string;
-  encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "getPrice",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "initialize",
+    values: [string, string, string, string, string]
+  ): string;
   encodeFunctionData(functionFragment: "nonces", values: [string]): string;
   encodeFunctionData(
     functionFragment: "permit",
@@ -71,6 +82,18 @@ interface IPropertyTokenInterface extends ethers.utils.Interface {
       BytesLike,
       BytesLike
     ]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setAllowListMerkleRoot",
+    values: [BytesLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setCexRatio",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setStep",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "totalSupply",
@@ -96,7 +119,7 @@ interface IPropertyTokenInterface extends ethers.utils.Interface {
       BytesLike
     ]
   ): string;
-  encodeFunctionData(functionFragment: "withdraw", values?: undefined): string;
+  encodeFunctionData(functionFragment: "withdraw", values: [string]): string;
 
   decodeFunctionResult(
     functionFragment: "DOMAIN_SEPARATOR",
@@ -107,9 +130,19 @@ interface IPropertyTokenInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "buy", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getPrice", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "nonces", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "permit", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setAllowListMerkleRoot",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setCexRatio",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "setStep", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "totalSupply",
     data: BytesLike
@@ -209,12 +242,25 @@ export class IPropertyToken extends BaseContract {
     balanceOf(account: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     buy(
-      _to: string,
-      amount: BigNumberish,
+      arg0: string,
+      arg1: BigNumberish,
+      arg2: BytesLike[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    decimals(overrides?: CallOverrides): Promise<[BigNumber]>;
+    getPrice(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
+    initialize(
+      arg0: string,
+      arg1: string,
+      arg2: string,
+      arg3: string,
+      arg4: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     nonces(owner: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -226,6 +272,21 @@ export class IPropertyToken extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setAllowListMerkleRoot(
+      arg0: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setCexRatio(
+      arg0: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setStep(
+      arg0: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -245,17 +306,18 @@ export class IPropertyToken extends BaseContract {
     ): Promise<ContractTransaction>;
 
     transferFromWithPermission(
-      from: string,
-      receiver: string,
-      amount: BigNumberish,
-      deadline: BigNumberish,
-      v: BigNumberish,
-      r: BytesLike,
-      s: BytesLike,
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish,
+      arg3: BigNumberish,
+      arg4: BigNumberish,
+      arg5: BytesLike,
+      arg6: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     withdraw(
+      arg0: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
@@ -279,12 +341,22 @@ export class IPropertyToken extends BaseContract {
   balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   buy(
-    _to: string,
-    amount: BigNumberish,
+    arg0: string,
+    arg1: BigNumberish,
+    arg2: BytesLike[],
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  decimals(overrides?: CallOverrides): Promise<BigNumber>;
+  getPrice(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+
+  initialize(
+    arg0: string,
+    arg1: string,
+    arg2: string,
+    arg3: string,
+    arg4: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   nonces(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -296,6 +368,21 @@ export class IPropertyToken extends BaseContract {
     v: BigNumberish,
     r: BytesLike,
     s: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setAllowListMerkleRoot(
+    arg0: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setCexRatio(
+    arg0: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setStep(
+    arg0: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -315,17 +402,18 @@ export class IPropertyToken extends BaseContract {
   ): Promise<ContractTransaction>;
 
   transferFromWithPermission(
-    from: string,
-    receiver: string,
-    amount: BigNumberish,
-    deadline: BigNumberish,
-    v: BigNumberish,
-    r: BytesLike,
-    s: BytesLike,
+    arg0: string,
+    arg1: string,
+    arg2: BigNumberish,
+    arg3: BigNumberish,
+    arg4: BigNumberish,
+    arg5: BytesLike,
+    arg6: BytesLike,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   withdraw(
+    arg0: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -349,12 +437,22 @@ export class IPropertyToken extends BaseContract {
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     buy(
-      _to: string,
-      amount: BigNumberish,
+      arg0: string,
+      arg1: BigNumberish,
+      arg2: BytesLike[],
       overrides?: CallOverrides
     ): Promise<void>;
 
-    decimals(overrides?: CallOverrides): Promise<BigNumber>;
+    getPrice(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+
+    initialize(
+      arg0: string,
+      arg1: string,
+      arg2: string,
+      arg3: string,
+      arg4: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     nonces(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -368,6 +466,15 @@ export class IPropertyToken extends BaseContract {
       s: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    setAllowListMerkleRoot(
+      arg0: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setCexRatio(arg0: BigNumberish, overrides?: CallOverrides): Promise<void>;
+
+    setStep(arg0: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -385,17 +492,17 @@ export class IPropertyToken extends BaseContract {
     ): Promise<boolean>;
 
     transferFromWithPermission(
-      from: string,
-      receiver: string,
-      amount: BigNumberish,
-      deadline: BigNumberish,
-      v: BigNumberish,
-      r: BytesLike,
-      s: BytesLike,
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish,
+      arg3: BigNumberish,
+      arg4: BigNumberish,
+      arg5: BytesLike,
+      arg6: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
 
-    withdraw(overrides?: CallOverrides): Promise<void>;
+    withdraw(arg0: string, overrides?: CallOverrides): Promise<void>;
   };
 
   filters: {
@@ -456,12 +563,22 @@ export class IPropertyToken extends BaseContract {
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     buy(
-      _to: string,
-      amount: BigNumberish,
+      arg0: string,
+      arg1: BigNumberish,
+      arg2: BytesLike[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    decimals(overrides?: CallOverrides): Promise<BigNumber>;
+    getPrice(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+
+    initialize(
+      arg0: string,
+      arg1: string,
+      arg2: string,
+      arg3: string,
+      arg4: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     nonces(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -473,6 +590,21 @@ export class IPropertyToken extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setAllowListMerkleRoot(
+      arg0: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setCexRatio(
+      arg0: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setStep(
+      arg0: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -492,17 +624,18 @@ export class IPropertyToken extends BaseContract {
     ): Promise<BigNumber>;
 
     transferFromWithPermission(
-      from: string,
-      receiver: string,
-      amount: BigNumberish,
-      deadline: BigNumberish,
-      v: BigNumberish,
-      r: BytesLike,
-      s: BytesLike,
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish,
+      arg3: BigNumberish,
+      arg4: BigNumberish,
+      arg5: BytesLike,
+      arg6: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     withdraw(
+      arg0: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
@@ -530,12 +663,25 @@ export class IPropertyToken extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     buy(
-      _to: string,
-      amount: BigNumberish,
+      arg0: string,
+      arg1: BigNumberish,
+      arg2: BytesLike[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getPrice(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    initialize(
+      arg0: string,
+      arg1: string,
+      arg2: string,
+      arg3: string,
+      arg4: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     nonces(
       owner: string,
@@ -550,6 +696,21 @@ export class IPropertyToken extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setAllowListMerkleRoot(
+      arg0: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setCexRatio(
+      arg0: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setStep(
+      arg0: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -569,17 +730,18 @@ export class IPropertyToken extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     transferFromWithPermission(
-      from: string,
-      receiver: string,
-      amount: BigNumberish,
-      deadline: BigNumberish,
-      v: BigNumberish,
-      r: BytesLike,
-      s: BytesLike,
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish,
+      arg3: BigNumberish,
+      arg4: BigNumberish,
+      arg5: BytesLike,
+      arg6: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     withdraw(
+      arg0: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };

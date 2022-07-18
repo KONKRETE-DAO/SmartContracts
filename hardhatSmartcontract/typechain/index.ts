@@ -3,7 +3,6 @@
 /* eslint-disable */
 export type { AccessControlUpgradeable } from "./AccessControlUpgradeable";
 export type { IAccessControlUpgradeable } from "./IAccessControlUpgradeable";
-export type { OwnableUpgradeable } from "./OwnableUpgradeable";
 export type { IERC1822ProxiableUpgradeable } from "./IERC1822ProxiableUpgradeable";
 export type { IBeaconUpgradeable } from "./IBeaconUpgradeable";
 export type { ERC1967UpgradeUpgradeable } from "./ERC1967UpgradeUpgradeable";
@@ -39,7 +38,6 @@ export type { Treasury } from "./Treasury";
 
 export { AccessControlUpgradeable__factory } from "./factories/AccessControlUpgradeable__factory";
 export { IAccessControlUpgradeable__factory } from "./factories/IAccessControlUpgradeable__factory";
-export { OwnableUpgradeable__factory } from "./factories/OwnableUpgradeable__factory";
 export { IERC1822ProxiableUpgradeable__factory } from "./factories/IERC1822ProxiableUpgradeable__factory";
 export { IBeaconUpgradeable__factory } from "./factories/IBeaconUpgradeable__factory";
 export { ERC1967UpgradeUpgradeable__factory } from "./factories/ERC1967UpgradeUpgradeable__factory";
