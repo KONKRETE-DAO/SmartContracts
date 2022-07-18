@@ -31,6 +31,8 @@ interface IPropertyToken is IERC20, IERC20Permit {
   //3ccfd60b
   function withdraw() external;
 
+  function isKonkreteCompatible() external pure returns (bool);
+
   //f75d6f80
   function setCexRatio(uint32) external;
 

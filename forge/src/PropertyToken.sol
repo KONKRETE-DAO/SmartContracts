@@ -141,6 +141,10 @@ contract PropertyToken is ERC20Permit, AccessControl, ReentrancyGuard {
     variables = bufferVariables;
   }
 
+  function isKonkreteCompatible() public pure returns (bool) {
+    return true;
+  }
+
   function setMaxToBuy(uint128 _maxToBuy) external onlyRole(DEV) {
     require(_maxToBuy > 100 ether, "TLCD");
     variables.MaxToBuy = _maxToBuy;

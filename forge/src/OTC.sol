@@ -14,6 +14,7 @@ contract OTC is Ownable, ReentrancyGuard {
   event BuyOrderInitiated(OrderInfo);
   event BuyOrderCancelled(OrderInfo);
   event BuyOrderAccepted(OrderInfo);
+  event TokenAdded(address);
 
   mapping(address => OrderInfo[]) public sellOrderByToken;
   mapping(address => OrderInfo[]) public buyOrderByToken;
@@ -39,6 +40,11 @@ contract OTC is Ownable, ReentrancyGuard {
     feeAddress = newFeeAddress;
   }
 
+  modifier konkreteCompatible(address token) {
+    require(IPropertyToken(token).isKonkreteCompatible(), "NKC");
+    _;
+  }
+
   function setCurrency(
     address newCurrency,
     uint16 feeX10,
@@ -57,9 +63,14 @@ contract OTC is Ownable, ReentrancyGuard {
     currencyInfosByAddress[currency] = buffer;
   }
 
-  function addToken(IERC20 token) external onlyOwner {
+  function addToken(IERC20 token)
+    external
+    onlyOwner
+    konkreteCompatible(address(token))
+  {
     require(!isToken(token), "Token already added");
     tokenList.push(token);
+    emit TokenAdded(address(token));
   }
 
   function isToken(IERC20 token) public view returns (bool) {

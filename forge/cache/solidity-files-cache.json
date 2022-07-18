@@ -1060,8 +1060,8 @@
       }
     },
     "src/OTC.sol": {
-      "lastModificationDate": 1657275515882,
-      "contentHash": "6d5bbd66186143ed0b2a48b71e6be98d",
+      "lastModificationDate": 1657534986687,
+      "contentHash": "b48ed31e3ee1cc53ffe18c7435ca8f5d",
       "sourceName": "src/OTC.sol",
       "solcConfig": {
         "settings": {
@@ -1106,8 +1106,8 @@
       }
     },
     "src/PropertyToken.sol": {
-      "lastModificationDate": 1657274623049,
-      "contentHash": "70e16d751055f400f583674d501f3329",
+      "lastModificationDate": 1657535032497,
+      "contentHash": "2cfd55c5a13976f993de52bf88a9671d",
       "sourceName": "src/PropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -1334,8 +1334,8 @@
       }
     },
     "src/interface/IPropertyToken.sol": {
-      "lastModificationDate": 1657296965725,
-      "contentHash": "62b5455e2bacedeefc3973c8203a58b5",
+      "lastModificationDate": 1657534970923,
+      "contentHash": "3bc6365338ddf4f92de7ec367ba3cc32",
       "sourceName": "src/interface/IPropertyToken.sol",
       "solcConfig": {
         "settings": {
@@ -1499,8 +1499,8 @@
       }
     },
     "test/BuyOrder.t.sol": {
-      "lastModificationDate": 1657296807166,
-      "contentHash": "98c8e294c3b1a787ba0d035c2a5267ac",
+      "lastModificationDate": 1657532153867,
+      "contentHash": "dd75d1cf802f9a29ccf08e388e388377",
       "sourceName": "test/BuyOrder.t.sol",
       "solcConfig": {
         "settings": {
@@ -1568,8 +1568,8 @@
       }
     },
     "test/Contract.t.sol": {
-      "lastModificationDate": 1657297186327,
-      "contentHash": "5e75c573bfd3a4ba3b0b271c2cd8a49a",
+      "lastModificationDate": 1657534871933,
+      "contentHash": "2ccf2337987ac2a84f8bdd5e0dfd345e",
       "sourceName": "test/Contract.t.sol",
       "solcConfig": {
         "settings": {
@@ -1636,8 +1636,8 @@
       }
     },
     "test/SellOrder.t.sol": {
-      "lastModificationDate": 1657296759545,
-      "contentHash": "b28db05e11bc9c346badf5c81ba06931",
+      "lastModificationDate": 1657534991692,
+      "contentHash": "b8cec98a85551966fe850517b357edd0",
       "sourceName": "test/SellOrder.t.sol",
       "solcConfig": {
         "settings": {

@@ -28,6 +28,8 @@ contract ContractTest is Test {
       "1 rue Affre, 75018 Paris",
       "1A75018"
     );
+  PropertyToken public otherToken =
+    new PropertyToken(bank, multisig, address(dollar), "Wrong token", "299");
 
   function setUp() public {
     vm.warp(1656322810);
